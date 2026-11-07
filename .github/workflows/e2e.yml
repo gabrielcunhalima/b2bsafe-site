@@ -1,0 +1,69 @@
+# Testes E2E no navegador (Pest Browser + Playwright) nos PRs para a main.
+# Em caso de falha, as capturas de tela ficam como artefato da execução.
+name: E2E
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: e2e-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    name: E2E (navegador)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      mariadb:
+        image: mariadb:11.8.9
+        env:
+          MARIADB_ROOT_PASSWORD: raiz-ci
+          MARIADB_DATABASE: b2bsafe_testes
+          MARIADB_USER: b2bsafe
+          MARIADB_PASSWORD: b2bsafe-ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_USERNAME: b2bsafe
+      DB_PASSWORD: b2bsafe-ci
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.5"
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: actions/cache@v6
+        with:
+          path: vendor
+          key: vendor-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - run: npm ci
+      - run: npm run build
+      - name: Instala o Chromium do Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Prepara o .env
+        run: cp .env.example .env && php artisan key:generate --ansi
+      - run: composer test:e2e
+      - name: Capturas de tela das falhas
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: e2e-capturas
+          path: tests/Browser/Screenshots
+          retention-days: 7
+          if-no-files-found: ignore

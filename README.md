@@ -1,5 +1,9 @@
 # B2BSAFE — site institucional, captação de leads e assistente virtual
 
+[![CI](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/ci.yml)
+[![E2E](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/e2e.yml/badge.svg)](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/e2e.yml)
+[![CodeQL](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/codeql.yml)
+
 Novo site da **B2BSAFE Floripa**, escritório parceiro oficial do C6 Empresas. Substitui o site atual em Wix e tem três partes:
 
 - **Site público:** Home, Maquininha C6 Pay, políticas, formulário de lead, WhatsApp, banner de cookies e Google Analytics 4 com Consent Mode v2.
@@ -14,7 +18,15 @@ PHP 8.5 · Laravel 13 · Filament 5 · Tailwind CSS 4 · Alpine.js · MariaDB ·
 
 ## Como rodar localmente
 
-Será definido na `/scaffold` (ambiente Docker com app, MariaDB, Mailpit, n8n, Qdrant e túnel).
+Pré-requisitos: PHP 8.5, Composer, Node 24 e Docker.
+
+```bash
+composer setup     # dependências, .env, Docker (MariaDB e Mailpit), banco com dados de exemplo, assets e hooks
+composer dev       # servidor, Vite e fila
+composer check     # formatação, análise estática e testes (o mesmo que o CI)
+```
+
+Detalhes dos comandos e do ambiente Docker no [CLAUDE.md](CLAUDE.md#comandos); CI em [docs/infra.md](docs/infra.md#ci).
 
 ## Documentação
 
@@ -28,4 +40,4 @@ Será definido na `/scaffold` (ambiente Docker com app, MariaDB, Mailpit, n8n, Q
 
 ## Licença
 
-Código privado. Todos os direitos reservados.
+Código proprietário da B2BSAFE. Todos os direitos reservados.
