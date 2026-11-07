@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-13 Origem e estratégia — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-13 Origem e estratégia</b> (RF-021; RF-022 reservado · RN-007, RN-008) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="painel:Origem e estratégia:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="text-2xl font-bold">Origem e estratégia</h1>
+      <div class="flex flex-wrap gap-2 text-sm"><button class="px-3 py-1.5 border rounded bg-white">7 dias</button><button class="px-3 py-1.5 border rounded bg-gray-800 text-white" aria-pressed="true">30 dias</button><button class="px-3 py-1.5 border rounded bg-white">90 dias</button><button class="px-3 py-1.5 border rounded bg-white"><i data-lucide="calendar" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Personalizado</button></div>
+    </div>
+
+    <div role="tablist" class="flex gap-1 text-sm overflow-x-auto">
+      <button role="tab" aria-selected="true" class="px-4 py-2 bg-gray-800 text-white rounded font-semibold">Por canal</button>
+      <button role="tab" class="px-4 py-2 text-gray-600">Por campanha (UTM)</button>
+      <button role="tab" class="px-4 py-2 text-gray-600">Por serviço</button>
+    </div>
+
+    <section class="relative bg-white border rounded overflow-x-auto">
+      <table class="w-full text-sm min-w-[40rem]">
+        <caption class="text-left p-4 text-gray-600">Leads criados no período e quantos viraram clientes (coorte, RN-007). Clique numa linha para ver os leads.</caption>
+        <thead class="bg-gray-50 text-left text-gray-500"><tr><th class="p-3">Canal de origem</th><th class="p-3 text-right">Leads</th><th class="p-3 text-right">Convertidos</th><th class="p-3 text-right">Conversão</th><th class="p-3 text-right">Cliques WhatsApp</th><th class="p-3">Participação</th></tr></thead>
+        <tbody>
+          <tr class="border-t hover:bg-gray-50 cursor-pointer"><td class="p-3"><a href="t14-leads.html?canal=google-ads" class="underline">Google Ads</a></td><td class="p-3 text-right">12</td><td class="p-3 text-right">3</td><td class="p-3 text-right font-semibold">25,0%</td><td class="p-3 text-right">14</td><td class="p-3"><div class="h-2 bg-gray-700 rounded" style="width:32%"></div></td></tr>
+          <tr class="border-t hover:bg-gray-50"><td class="p-3"><a href="#" class="underline">Campanha (instagram / bio)</a></td><td class="p-3 text-right">9</td><td class="p-3 text-right">2</td><td class="p-3 text-right font-semibold">22,2%</td><td class="p-3 text-right">17</td><td class="p-3"><div class="h-2 bg-gray-700 rounded" style="width:24%"></div></td></tr>
+          <tr class="border-t hover:bg-gray-50"><td class="p-3"><a href="#" class="underline">Busca orgânica</a></td><td class="p-3 text-right">8</td><td class="p-3 text-right">1</td><td class="p-3 text-right font-semibold">12,5%</td><td class="p-3 text-right">6</td><td class="p-3"><div class="h-2 bg-gray-700 rounded" style="width:21%"></div></td></tr>
+          <tr class="border-t hover:bg-gray-50"><td class="p-3"><a href="#" class="underline">Direto</a></td><td class="p-3 text-right">7</td><td class="p-3 text-right">1</td><td class="p-3 text-right font-semibold">14,3%</td><td class="p-3 text-right">8</td><td class="p-3"><div class="h-2 bg-gray-700 rounded" style="width:18%"></div></td></tr>
+          <tr class="border-t hover:bg-gray-50"><td class="p-3"><a href="#" class="underline">Redes sociais</a></td><td class="p-3 text-right">2</td><td class="p-3 text-right">0</td><td class="p-3 text-right font-semibold">0,0%</td><td class="p-3 text-right">0</td><td class="p-3"><div class="h-2 bg-gray-700 rounded" style="width:5%"></div></td></tr>
+        </tbody>
+        <tfoot class="bg-gray-50 font-semibold"><tr><td class="p-3">Total</td><td class="p-3 text-right">38</td><td class="p-3 text-right">7</td><td class="p-3 text-right">18,4%</td><td class="p-3 text-right">45</td><td></td></tr></tfoot>
+      </table>
+    </section>
+
+    <section class="bg-white border rounded p-4 text-sm">
+      <h2 class="font-semibold"><i data-lucide="lightbulb" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Leitura rápida</h2>
+      <p class="mt-1 text-gray-700">Google Ads trouxe mais leads e a maior conversão. Instagram gera muitos cliques no WhatsApp, mas menos leads registrados.</p>
+      <p class="mt-1 text-xs text-gray-500">Texto gerado por regra simples a partir da tabela (sem IA): maior volume, maior conversão, maior diferença entre cliques e leads.</p>
+    </section>
+
+    <section class="border-2 border-dashed border-gray-400 rounded p-6 text-sm text-gray-600">
+      <h2 class="font-semibold text-gray-800">Google Analytics (em breve · RF-022, v1.0)</h2>
+      <p class="mt-1">Área reservada para usuários, sessões por canal e páginas mais vistas do GA4, com o aviso "o GA4 só conta quem aceitou cookies".</p>
+    </section>
+
+    <section class="grid gap-4 md:grid-cols-2 text-sm">
+      <div class="bg-white border rounded p-4"><b>Vazio</b><p class="text-gray-600 mt-1">"Sem leads no período escolhido. Tente 90 dias."</p></div>
+      <div class="bg-white border rounded p-4"><b>Celular</b><p class="text-gray-600 mt-1">A tabela rola na horizontal com a 1ª coluna fixa; abas viram rolagem lateral.</p></div>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

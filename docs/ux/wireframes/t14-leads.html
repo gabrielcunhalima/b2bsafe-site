@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-14 Lista de leads — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-14 Lista de leads</b> (RF-023, RF-026 · RN-003, RN-017) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="painel:Leads:atendente"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-4">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="text-2xl font-bold">Leads</h1>
+      <div class="flex gap-2 text-sm">
+        <a href="t15-kanban.html" class="px-3 py-2 border rounded bg-white"><i data-lucide="kanban" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Ver funil</a>
+        <button class="px-3 py-2 border rounded bg-white"><i data-lucide="download" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Exportar CSV</button>
+      </div>
+    </div>
+
+    <section class="bg-white border rounded">
+      <div class="p-4 flex flex-wrap gap-3 items-end border-b text-sm">
+        <div class="flex-1 min-w-56"><label for="b" class="block text-xs text-gray-500">Buscar</label><input id="b" class="w-full px-3 py-2 border rounded" placeholder="Nome, e-mail ou telefone" value="ana"></div>
+        <button class="px-3 py-2 border rounded">Filtros (3)</button>
+        <button class="px-3 py-2 text-gray-600 underline">Limpar</button>
+      </div>
+      <div class="p-4 flex flex-wrap gap-2 border-b text-xs">
+        <span class="px-2 py-1 bg-gray-200 rounded-full">Status: Novo, Em contato <i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></span>
+        <span class="px-2 py-1 bg-gray-200 rounded-full">Canal: Formulário <i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></span>
+        <span class="px-2 py-1 bg-gray-200 rounded-full">Período: 30 dias <i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></span>
+        <span class="text-gray-500 ml-auto break-all">URL: /painel/leads?status[]=novo&amp;status[]=em_contato&amp;canal=formulario&amp;periodo=30d</span>
+      </div>
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm min-w-[52rem]">
+          <thead class="bg-gray-50 text-left text-gray-500">
+            <tr><th class="p-3"><button>Nome <i data-lucide="arrow-up-down" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></th><th class="p-3">WhatsApp</th><th class="p-3">Serviço</th><th class="p-3">Canal</th><th class="p-3">Origem</th><th class="p-3">Status</th><th class="p-3"><button>Criado em <i data-lucide="arrow-down" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></th><th class="p-3"><span class="sr-only">Ações</span></th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-t"><td class="p-3"><a href="t16-ficha-lead.html" class="underline font-semibold">Ana Souza</a> <span class="text-xs" title="Voltou a entrar em contato"><i data-lucide="refresh-cw" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></span></td><td class="p-3">(48) 99999-1234</td><td class="p-3">Crédito</td><td class="p-3">Formulário</td><td class="p-3">Google Ads</td><td class="p-3"><span class="px-2 py-0.5 bg-gray-200 rounded-full text-xs">Em contato</span></td><td class="p-3">05/11/2026 09:12</td><td class="p-3"><a href="#" aria-label="Chamar Ana no WhatsApp">WA</a></td></tr>
+            <tr class="border-t"><td class="p-3"><a href="#" class="underline font-semibold">Ana Paula Ribeiro</a></td><td class="p-3">(11) 98765-4321</td><td class="p-3">Conta Corrente</td><td class="p-3">Formulário</td><td class="p-3">Direto</td><td class="p-3"><span class="px-2 py-0.5 border border-gray-800 rounded-full text-xs">Novo</span></td><td class="p-3">04/11/2026 17:40</td><td class="p-3"><a href="#">WA</a></td></tr>
+            <tr class="border-t"><td class="p-3"><a href="#" class="underline font-semibold">Mariana Anastácio</a></td><td class="p-3">(48) 98888-0001</td><td class="p-3">Câmbio</td><td class="p-3">Formulário</td><td class="p-3">Campanha (newsletter)</td><td class="p-3"><span class="px-2 py-0.5 border border-gray-800 rounded-full text-xs">Novo</span></td><td class="p-3">28/10/2026 11:05</td><td class="p-3"><a href="#">WA</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 flex justify-between text-sm text-gray-600 border-t"><span>3 de 3 leads</span><span>‹ 1 ›  · 25 por página</span></div>
+    </section>
+
+    <section class="grid gap-4 md:grid-cols-3 text-sm">
+      <div class="bg-white border rounded p-4"><b>Painel de filtros</b><p class="text-gray-600 mt-1">Status (múltiplo), serviço, canal de captação, canal de origem, campanha (utm_campaign), período de criação. Todos na URL (RF-023).</p></div>
+      <div class="bg-white border rounded p-4"><b>Exportar CSV</b><p class="text-gray-600 mt-1">Exporta o que está filtrado. Modal: "Exportar 3 leads? A exportação fica registrada no log." UTF-8 com BOM, separador ; (RF-026). Até ~5 mil linhas direto; acima disso, por fila com link por e-mail.</p></div>
+      <div class="bg-white border rounded p-4"><b>Vazio / sem resultado</b><p class="text-gray-600 mt-1">"Nenhum lead encontrado com esses filtros." + botão "Limpar filtros". Lista vazia: "Os leads do site aparecem aqui."</p></div>
+      <div class="bg-white border rounded p-4 md:col-span-3"><b>Celular</b><p class="text-gray-600 mt-1">Cada linha vira um cartão: nome, serviço, status e WA; demais colunas na ficha (layout padrão de tabela empilhada do Filament).</p></div>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

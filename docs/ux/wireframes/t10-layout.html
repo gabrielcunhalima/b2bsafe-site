@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-10 Cabeçalho e rodapé — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2">Wireframe <b>T-10 Cabeçalho e rodapé</b> (RF-001, RF-009 · RN-015) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="cabecalho-site"></div>
+
+  <main id="conteudo" class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10">
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Menu no celular (aberto)</h2>
+      <div class="w-72 border-8 border-gray-800 rounded-[2rem] overflow-hidden bg-white">
+        <div class="h-14 px-4 flex items-center justify-between border-b"><span class="font-black tracking-widest text-sm">B2BSAFE</span><button aria-expanded="true" class="px-2 py-1 border rounded text-sm"><i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Fechar</button></div>
+        <nav id="menu-movel" aria-label="Principal" class="p-4 flex flex-col text-base">
+          <a href="#" class="py-3 border-b">Serviços</a><a href="#" class="py-3 border-b">Maquininha</a><a href="#" class="py-3 border-b">Sobre</a><a href="#" class="py-3 border-b">Parcerias</a><a href="#" class="py-3 border-b">Credenciamento</a>
+          <a href="#" class="mt-4 py-3 text-center bg-gray-800 text-white rounded font-semibold">Fale conosco</a>
+        </nav>
+      </div>
+    </section>
+    <section class="text-sm space-y-3">
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Comportamento</h2>
+      <ul class="list-disc ml-5 space-y-2 text-gray-700">
+        <li>Cabeçalho fixo no topo, 64 px; abaixo de 1024 px vira o botão "Menu".</li>
+        <li>O menu móvel abre como painel em tela cheia; Esc ou "Fechar" fecham; o foco volta ao botão.</li>
+        <li>Âncoras com rolagem suave e deslocamento da altura do cabeçalho; o item da seção visível fica marcado (<code>aria-current</code>).</li>
+        <li>Fora da Home (Maquininha, políticas), as âncoras apontam para <code>/#secao</code>.</li>
+        <li>"Pular para o conteúdo" é o primeiro item focável.</li>
+        <li>Rodapé: as duas empresas com CNPJ e endereço, contato, redes atuais (sem "Connect Partners"), links legais, "Preferências de cookies" e o aviso de parceiro C6 (RN-015).</li>
+      </ul>
+    </section>
+  </main>
+
+  <div data-incluir="rodape-site"></div>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

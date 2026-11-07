@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-12 Dashboard — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-12 Dashboard</b> (RF-020, RF-031 · RN-005, RN-007, RN-010) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="painel:Dashboard:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="text-2xl font-bold">Dashboard</h1>
+      <div class="flex flex-wrap gap-2 text-sm" role="group" aria-label="Período">
+        <button class="px-3 py-1.5 border rounded bg-white">7 dias</button>
+        <button class="px-3 py-1.5 border rounded bg-gray-800 text-white" aria-pressed="true">30 dias</button>
+        <button class="px-3 py-1.5 border rounded bg-white">90 dias</button>
+        <button class="px-3 py-1.5 border rounded bg-white"><i data-lucide="calendar" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Personalizado</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <section aria-label="Indicadores" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      <div class="bg-white border rounded p-4"><p class="text-xs text-gray-500">Leads hoje</p><p class="text-3xl font-bold">4</p><p class="text-xs text-gray-600"><i data-lucide="trending-up" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> 2 vs. ontem</p></div>
+      <div class="bg-white border rounded p-4"><p class="text-xs text-gray-500">Leads no período</p><p class="text-3xl font-bold">38</p><p class="text-xs text-gray-600"><i data-lucide="trending-up" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> 18% vs. 30 dias anteriores</p></div>
+      <div class="bg-white border rounded p-4"><p class="text-xs text-gray-500">Conversão</p><p class="text-3xl font-bold">18,4%</p><p class="text-xs text-gray-600">7 de 38 · <i data-lucide="trending-down" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> 1,2 p.p.</p></div>
+      <div class="bg-white border rounded p-4"><p class="text-xs text-gray-500">Tempo até o 1º contato</p><p class="text-3xl font-bold">2h30</p><p class="text-xs text-gray-600">média · <i data-lucide="trending-up" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> melhorou 40 min</p></div>
+      <div class="bg-white border rounded p-4"><p class="text-xs text-gray-500">Cliques no WhatsApp</p><p class="text-3xl font-bold">45</p><p class="text-xs text-gray-600">não são leads (RN-010)</p></div>
+    </section>
+
+    <div class="grid gap-6 xl:grid-cols-2">
+      <section class="bg-white border rounded p-4">
+        <div class="flex justify-between"><h2 class="font-semibold">Leads por canal de captação</h2><button class="text-xs underline">Ver como tabela</button></div>
+        <div class="mt-4 space-y-3 text-sm">
+          <div><div class="flex justify-between"><span>Formulário</span><span>24</span></div><div class="h-3 bg-gray-200 rounded"><div class="h-3 bg-gray-700 rounded" style="width:63%"></div></div></div>
+          <div><div class="flex justify-between"><span>Chatbot</span><span>14</span></div><div class="h-3 bg-gray-200 rounded"><div class="h-3 bg-gray-500 rounded" style="width:37%"></div></div></div>
+        </div>
+      </section>
+      <section class="bg-white border rounded p-4">
+        <div class="flex justify-between"><h2 class="font-semibold">Leads por serviço</h2><button class="text-xs underline">Ver como tabela</button></div>
+        <table class="mt-4 w-full text-sm">
+          <caption class="sr-only">Leads por serviço no período</caption>
+          <tbody>
+            <tr><th scope="row" class="text-left font-normal py-1">Crédito</th><td class="w-1/2"><div class="h-3 bg-gray-700 rounded" style="width:90%"></div></td><td class="text-right">14</td></tr>
+            <tr><th scope="row" class="text-left font-normal py-1">Maquininha</th><td><div class="h-3 bg-gray-700 rounded" style="width:65%"></div></td><td class="text-right">10</td></tr>
+            <tr><th scope="row" class="text-left font-normal py-1">Conta Corrente</th><td><div class="h-3 bg-gray-700 rounded" style="width:40%"></div></td><td class="text-right">6</td></tr>
+            <tr><th scope="row" class="text-left font-normal py-1">Outros</th><td><div class="h-3 bg-gray-700 rounded" style="width:50%"></div></td><td class="text-right">8</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="bg-white border rounded p-4 xl:col-span-2">
+        <h2 class="font-semibold">Leads por dia</h2>
+        <div class="mt-4 h-40 flex items-end gap-1" aria-hidden="true">
+          <script>document.write(Array.from({length:30},(_, i)=>`<div class="flex-1 bg-gray-${i%7===5?'800':'400'}" style="height:${15+((i*37)%80)}%"></div>`).join(''))</script>
+        </div>
+        <p class="mt-2 text-xs text-gray-500">Gráfico com tabela alternativa ("Ver como tabela") e descrição textual do resumo (RF-020).</p>
+      </section>
+    </div>
+
+    <section class="bg-white border rounded">
+      <div class="flex justify-between p-4"><h2 class="font-semibold">Últimos leads</h2><a href="t14-leads.html" class="text-sm underline">Ver todos</a></div>
+      <table class="w-full text-sm">
+        <thead class="bg-gray-50 text-left text-gray-500"><tr><th class="p-3">Nome</th><th class="p-3">Serviço</th><th class="p-3 hidden md:table-cell">Canal</th><th class="p-3 hidden md:table-cell">Origem</th><th class="p-3">Status</th><th class="p-3">Quando</th></tr></thead>
+        <tbody>
+          <tr class="border-t"><td class="p-3"><a href="t16-ficha-lead.html" class="underline">Carlos Lima</a></td><td class="p-3">Maquininha</td><td class="p-3 hidden md:table-cell">Chatbot</td><td class="p-3 hidden md:table-cell">Campanha (instagram)</td><td class="p-3"><span class="px-2 py-0.5 border border-gray-800 rounded-full text-xs">Novo</span></td><td class="p-3">há 12 min</td></tr>
+          <tr class="border-t"><td class="p-3"><a href="t16-ficha-lead.html" class="underline">Ana Souza</a> <span class="text-xs"><i data-lucide="refresh-cw" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> voltou</span></td><td class="p-3">Crédito</td><td class="p-3 hidden md:table-cell">Formulário</td><td class="p-3 hidden md:table-cell">Google Ads</td><td class="p-3"><span class="px-2 py-0.5 bg-gray-200 rounded-full text-xs">Em contato</span></td><td class="p-3">há 2 h</td></tr>
+          <tr class="border-t"><td class="p-3"><a href="t16-ficha-lead.html" class="underline">Pedro Martins</a></td><td class="p-3">Conta Corrente</td><td class="p-3 hidden md:table-cell">Formulário</td><td class="p-3 hidden md:table-cell">Busca orgânica</td><td class="p-3"><span class="px-2 py-0.5 bg-gray-200 rounded-full text-xs">Proposta</span></td><td class="p-3">ontem</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sino de notificações (RF-031) -->
+    <section id="notificacoes" class="max-w-sm">
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Sino aberto (RF-031, em todas as telas)</h2>
+      <div class="bg-white border rounded shadow-lg">
+        <div class="flex justify-between p-3 border-b text-sm"><b>Notificações</b><button class="underline text-xs">Marcar todas como lidas</button></div>
+        <ul class="text-sm divide-y">
+          <li class="p-3 bg-gray-50"><p class="font-semibold"><i data-lucide="circle" class="inline-block w-4 h-4 align-[-3px] fill-current w-2 h-2" aria-hidden="true"></i> Novo lead: Carlos Lima</p><p class="text-xs text-gray-600">Maquininha · Chatbot · há 12 min</p><a href="t16-ficha-lead.html" class="text-xs underline">Abrir ficha</a></li>
+          <li class="p-3 bg-gray-50"><p class="font-semibold"><i data-lucide="circle" class="inline-block w-4 h-4 align-[-3px] fill-current w-2 h-2" aria-hidden="true"></i> Ana Souza voltou a entrar em contato</p><p class="text-xs text-gray-600">Crédito · Formulário · há 2 h</p></li>
+          <li class="p-3"><p>Novo lead: Pedro Martins</p><p class="text-xs text-gray-600">Conta Corrente · ontem</p></li>
+        </ul>
+      </div>
+      <p class="mt-2 text-xs text-gray-500">Atualiza a cada 30 s (polling do Livewire). Estado vazio: "Nenhuma notificação por aqui."</p>
+    </section>
+
+    <section class="grid gap-4 md:grid-cols-3 text-sm">
+      <div class="bg-white border rounded p-4"><b>Vazio</b><p class="text-gray-600 mt-1">"Ainda não há leads neste período. Compartilhe o link do site com <code>?utm_source=</code> para medir suas campanhas."</p></div>
+      <div class="bg-white border rounded p-4"><b>Carregando</b><div class="mt-2 h-8 bg-gray-200 rounded animate-pulse"></div></div>
+      <div class="bg-white border rounded p-4"><b>Atendente</b><p class="text-gray-600 mt-1">Vê o mesmo dashboard; não vê "Usuários" nem "Log de auditoria" no menu (RN-017).</p></div>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

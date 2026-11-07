@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-17 Usuários — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-17 Usuários</b> (RF-019 · RN-017, RN-018, RN-019) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a> · Só administrador.</div>
+  <div data-incluir="painel:Usuários:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-6">
+    <div class="flex justify-between items-center"><h1 class="text-2xl font-bold">Usuários</h1><button class="px-4 py-2 bg-gray-800 text-white rounded text-sm font-semibold">+ Convidar usuário</button></div>
+    <section class="relative bg-white border rounded overflow-x-auto">
+      <table class="w-full text-sm min-w-[40rem]">
+        <thead class="bg-gray-50 text-left text-gray-500"><tr><th class="p-3">Nome</th><th class="p-3">E-mail</th><th class="p-3">Perfil</th><th class="p-3">Situação</th><th class="p-3">Último acesso</th><th class="p-3"><span class="sr-only">Ações</span></th></tr></thead>
+        <tbody>
+          <tr class="border-t"><td class="p-3 font-semibold">Gabriel Lima</td><td class="p-3">gabriel@exemplo.dev</td><td class="p-3">Administrador</td><td class="p-3">Ativo</td><td class="p-3">agora</td><td class="p-3"><button class="underline">Editar</button></td></tr>
+          <tr class="border-t"><td class="p-3 font-semibold">Mariana Silva</td><td class="p-3">mariana@b2bsafe.com.br</td><td class="p-3">Atendente</td><td class="p-3">Ativo</td><td class="p-3">06/11 18:20</td><td class="p-3"><button class="underline">Editar</button> · <button class="underline">Desativar</button></td></tr>
+          <tr class="border-t"><td class="p-3 font-semibold">Rafael Costa</td><td class="p-3">rafael@b2bsafe.com.br</td><td class="p-3">Atendente</td><td class="p-3"><span class="px-2 py-0.5 border rounded-full text-xs">Convite pendente</span></td><td class="p-3">—</td><td class="p-3"><button class="underline">Reenviar convite</button></td></tr>
+          <tr class="border-t text-gray-500"><td class="p-3">Bruno Alves</td><td class="p-3">bruno@b2bsafe.com.br</td><td class="p-3">Atendente</td><td class="p-3">Desativado</td><td class="p-3">12/10</td><td class="p-3"><button class="underline">Reativar</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="grid gap-6 lg:grid-cols-2 text-sm">
+      <section>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Convidar / editar (modal)</h2>
+        <form class="bg-white border rounded shadow-xl p-6 space-y-4">
+          <h3 class="text-lg font-bold">Convidar usuário</h3>
+          <div><label class="block font-semibold" for="n">Nome *</label><input id="n" class="mt-1 w-full border rounded px-3 py-2"></div>
+          <div><label class="block font-semibold" for="e">E-mail *</label><input id="e" type="email" class="mt-1 w-full border rounded px-3 py-2"><p class="mt-1 text-xs text-gray-500">Único. O convite vale 24 horas (RN-019).</p></div>
+          <fieldset><legend class="font-semibold">Perfil *</legend>
+            <label class="flex gap-2 mt-1"><input type="radio" name="p" checked> Atendente: trata leads, vê relatórios, exporta CSV</label>
+            <label class="flex gap-2 mt-1"><input type="radio" name="p"> Administrador: tudo, mais usuários, LGPD e auditoria</label>
+          </fieldset>
+          <div class="flex justify-end gap-2"><button type="button" class="px-4 py-2 border-2 border-gray-800 rounded">Cancelar</button><button type="button" class="px-4 py-2 bg-gray-800 text-white rounded font-semibold">Enviar convite</button></div>
+        </form>
+      </section>
+      <section class="space-y-3">
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Bloqueios e confirmações</h2>
+        <div role="alert" class="bg-white border border-gray-400 rounded p-4"><i data-lucide="triangle-alert" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Gabriel é o único administrador ativo. Promova outro usuário antes de desativá-lo ou torná-lo atendente (RN-018).</div>
+        <div class="bg-white border rounded p-4"><b>Desativar Mariana?</b> Ela perde o acesso na hora; os leads e as anotações dela continuam. <div class="mt-2 flex gap-2"><button class="px-3 py-1 border rounded">Cancelar</button><button class="px-3 py-1 bg-gray-800 text-white rounded">Desativar</button></div></div>
+        <div class="bg-white border rounded p-4">Não há exclusão de usuário, só desativação (preserva autoria e auditoria). Toda ação aqui vai para o log (RF-030).</div>
+        <div class="bg-white border rounded p-4"><b>Atendente</b> que acessar <code>/painel/usuarios</code> pela URL vê "Você não tem permissão para acessar esta página" (403).</div>
+      </section>
+    </div>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

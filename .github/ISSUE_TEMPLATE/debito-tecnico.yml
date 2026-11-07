@@ -1,0 +1,27 @@
+name: Débito técnico
+description: Algo que funciona, mas precisa ser melhorado no código ou na infraestrutura
+title: "refactor: "
+labels: ["tipo:debito"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema atual
+    validations:
+      required: true
+  - type: textarea
+    id: impacto
+    attributes:
+      label: Impacto
+      description: Risco, custo de manutenção, desempenho, segurança.
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta de solução
+  - type: input
+    id: onde
+    attributes:
+      label: Onde está no código
+      placeholder: app/Actions/RegistrarLead.php

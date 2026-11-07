@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-11 Login — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2">Wireframe <b>T-11 Login, recuperar e definir senha</b> (RF-018, RF-019 · RN-016, RN-019) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a> · Telas padrão do Filament com o logo e a cor da marca.</div>
+  <main class="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">1. Entrar (/painel/login)</h2>
+      <form class="bg-white border rounded-xl p-6 space-y-4">
+        <p class="text-center font-black tracking-widest">B2BSAFE</p>
+        <h3 class="text-center text-lg font-bold">Entrar no painel</h3>
+        <div><label class="block text-sm font-semibold" for="e">E-mail</label><input id="e" type="email" autocomplete="username" class="mt-1 w-full px-3 py-2 border rounded" value="mariana@b2bsafe.com.br"></div>
+        <div><label class="block text-sm font-semibold" for="s">Senha</label><div class="flex mt-1"><input id="s" type="password" autocomplete="current-password" class="flex-1 px-3 py-2 border rounded-l"><button type="button" class="px-3 border border-l-0 rounded-r text-xs" aria-label="Mostrar senha"><i data-lucide="eye" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div></div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox"> Manter conectado</label>
+        <button type="button" class="w-full py-2 bg-gray-800 text-white rounded font-semibold">Entrar</button>
+        <a href="#rec" class="block text-center text-sm underline">Esqueci minha senha</a>
+      </form>
+    </section>
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">2. Erros</h2>
+      <div class="bg-white border rounded-xl p-6 space-y-4 text-sm">
+        <div role="alert" class="border border-gray-400 bg-gray-100 rounded p-3">E-mail ou senha incorretos.</div>
+        <div role="alert" class="border border-gray-400 bg-gray-100 rounded p-3">Muitas tentativas. Tente de novo em 15 minutos.</div>
+        <div role="alert" class="border border-gray-400 bg-gray-100 rounded p-3">Este usuário está desativado. Fale com o administrador.</div>
+        <p class="text-xs text-gray-500">A mensagem de credencial errada não diz se o e-mail existe. 5 erros = bloqueio de 15 min (RN-016).</p>
+      </div>
+    </section>
+    <section id="rec">
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">3. Recuperar senha</h2>
+      <form class="bg-white border rounded-xl p-6 space-y-4 text-sm">
+        <h3 class="text-lg font-bold">Recuperar senha</h3>
+        <p class="text-gray-600">Enviaremos um link válido por 24 horas.</p>
+        <div><label class="block font-semibold" for="e2">E-mail</label><input id="e2" class="mt-1 w-full px-3 py-2 border rounded"></div>
+        <button type="button" class="w-full py-2 bg-gray-800 text-white rounded font-semibold">Enviar link</button>
+        <div role="status" class="bg-gray-100 p-3">Se o e-mail estiver cadastrado, você receberá o link em instantes.</div>
+      </form>
+    </section>
+    <section class="md:col-span-2 lg:col-span-1">
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">4. Definir senha (convite ou redefinição)</h2>
+      <form class="bg-white border rounded-xl p-6 space-y-4 text-sm">
+        <h3 class="text-lg font-bold">Olá, Mariana! Crie sua senha</h3>
+        <div><label class="block font-semibold" for="n1">Nova senha</label><input id="n1" type="password" autocomplete="new-password" aria-describedby="dica" class="mt-1 w-full px-3 py-2 border rounded"><p id="dica" class="mt-1 text-xs text-gray-500">Mínimo de 12 caracteres. Uma frase longa funciona bem.</p></div>
+        <div><label class="block font-semibold" for="n2">Repita a senha</label><input id="n2" type="password" autocomplete="new-password" class="mt-1 w-full px-3 py-2 border rounded"></div>
+        <button type="button" class="w-full py-2 bg-gray-800 text-white rounded font-semibold">Salvar e entrar</button>
+      </form>
+    </section>
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">5. Link expirado</h2>
+      <div class="bg-white border rounded-xl p-6 text-sm space-y-3">
+        <h3 class="text-lg font-bold">Link expirado</h3>
+        <p class="text-gray-600">Este link vale 24 horas. Peça um novo ao administrador ou use "Esqueci minha senha".</p>
+        <a href="#rec" class="inline-block px-4 py-2 border-2 border-gray-800 rounded font-semibold">Pedir novo link</a>
+      </div>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

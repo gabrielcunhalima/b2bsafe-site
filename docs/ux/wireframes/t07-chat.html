@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-07 Assistente virtual — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script>
+    // Moldura da janela do chat, repetida em cada estado.
+    function janela(corpo, rodape = true) {
+      return `
+      <div class="w-full max-w-sm h-[34rem] bg-white border border-gray-300 rounded-xl shadow-xl flex flex-col overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-800 text-white">
+          <div><p class="font-semibold text-sm">Assistente B2BSAFE</p><p class="text-xs text-gray-300">Assistente virtual (IA) de um parceiro C6</p></div>
+          <div class="flex gap-1"><button class="px-2" aria-label="Minimizar">–</button><button class="px-2" aria-label="Fechar"><i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 space-y-3 text-sm" role="log" aria-live="polite">${corpo}</div>
+        ${rodape ? `<div class="border-t p-3">
+          <div class="flex gap-2"><label for="m" class="sr-only">Sua mensagem</label><textarea id="m" rows="1" maxlength="500" class="flex-1 px-3 py-2 border border-gray-400 rounded resize-none" placeholder="Escreva sua dúvida…"></textarea><button class="px-4 bg-gray-800 text-white rounded" aria-label="Enviar"><i data-lucide="send" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div>
+          <p class="mt-1 text-[11px] text-gray-500">Não informe CPF, senhas ou dados de cartão. 0/500</p></div>` : ''}
+      </div>`;
+    }
+    const bot = t => `<div class="max-w-[85%] bg-gray-100 rounded-lg rounded-tl-none px-3 py-2">${t}</div>`;
+    const eu = t => `<div class="max-w-[85%] ml-auto bg-gray-700 text-white rounded-lg rounded-tr-none px-3 py-2">${t}</div>`;
+    const estado = (n, titulo, html, nota) => `
+      <section class="flex flex-col items-start gap-2">
+        <h2 class="text-sm font-semibold text-gray-500">${n}. ${titulo}</h2>${html}
+        <p class="text-xs text-gray-600 max-w-sm">${nota}</p>
+      </section>`;
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2">Wireframe <b>T-07 Widget do assistente</b> (RF-013 a RF-017 · RN-001, RN-011, RN-013, RN-014, RN-016) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <main class="max-w-7xl mx-auto px-4 py-10 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+    <script>
+      document.write([
+        estado(1, 'Fechado', `<div class="flex flex-col items-end gap-3"><span class="w-14 h-14 rounded-full bg-gray-600 text-white flex items-center justify-center text-xs font-bold">WA</span><span class="h-14 px-5 rounded-full bg-gray-800 text-white flex items-center gap-2 text-sm"><i data-lucide="message-circle" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Assistente</span></div>`,
+          'Dois botões empilhados no canto direito (decisão de UX). O script do chat só carrega depois da página (RNF-015). Na primeira visita, um balão "Posso ajudar?" aparece após 8 s, uma vez só.'),
+        estado(2, 'Aviso de IA e consentimento', janela(`
+          <div class="border border-gray-300 rounded p-4 space-y-3">
+            <p class="font-semibold">Antes de começar</p>
+            <p>Sou um <b>assistente virtual com inteligência artificial</b> da B2BSAFE, escritório parceiro do C6 Empresas. Não sou um canal oficial do C6.</p>
+            <p>Suas mensagens são processadas pela Mistral AI (França) e guardadas por até 24 meses. <a href="t04-privacidade.html#s3" class="underline">Política de Privacidade</a>.</p>
+            <button class="w-full py-2 bg-gray-800 text-white rounded font-semibold">Concordo, vamos conversar</button>
+            <a href="#" class="block text-center underline">Prefiro falar no WhatsApp</a>
+          </div>`, false),
+          'Sem campo de mensagem até o "Concordo" (RF-013). O aceite grava data, hora e versão (RN-011). Foco inicial no texto do aviso.'),
+        estado(3, 'Saudação e sugestões', janela(`
+          ${bot('Olá!  Posso tirar dúvidas sobre conta PJ, crédito, maquininha e outros serviços do C6 Empresas. Como posso ajudar?')}
+          <div class="flex flex-wrap gap-2 pt-1">
+            <button class="px-3 py-1.5 border border-gray-500 rounded-full">Quero crédito para minha empresa</button>
+            <button class="px-3 py-1.5 border border-gray-500 rounded-full">Como abrir conta PJ?</button>
+            <button class="px-3 py-1.5 border border-gray-500 rounded-full">Taxas da maquininha</button>
+            <button class="px-3 py-1.5 border border-gray-500 rounded-full">Falar com um atendente</button>
+          </div>`),
+          'Os 4 botões enviam o texto como mensagem e somem depois da primeira mensagem. Os textos ficam em configuração.'),
+        estado(4, 'Conversa e digitando', janela(`
+          ${eu('Qual a taxa da maquininha no crédito?')}
+          ${bot('No crédito à vista a C6 Pay parte de 3,49%, mas a taxa final depende da análise do C6 e do seu faturamento. Quer que um especialista simule para o seu negócio?')}
+          ${eu('Quero sim')}
+          <div class="w-16 bg-gray-100 rounded-lg px-3 py-2" aria-label="O assistente está digitando">• • •</div>`),
+          'Nunca promete taxa final nem aprovação (RN-014). Indicador "digitando" anunciado uma vez para leitor de tela. Tempo limite de 10 s.'),
+        estado(5, 'Captação de dados na conversa', janela(`
+          ${bot('Perfeito! Para o especialista falar com você, qual é o seu nome e o seu WhatsApp com DDD?')}
+          ${eu('Carlos Lima, 48 99812-3344')}
+          ${bot('Obrigado, Carlos! Registrei seu contato e um especialista vai chamar você no WhatsApp (48) 99812-3344 sobre a maquininha. Posso ajudar em mais alguma coisa?')}
+          <p class="text-center text-xs text-gray-500"><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Contato registrado</p>`),
+          'O n8n devolve <code>lead</code>; o Laravel valida (RN-002), cria o lead com canal "chatbot" e confirma (RF-015). O selo "Contato registrado" só aparece quando o Laravel gravou o lead.'),
+        estado(6, 'Transbordo para o WhatsApp', janela(`
+          ${eu('Quero falar com uma pessoa')}
+          ${bot('Claro! Um atendente continua com você pelo WhatsApp. Já deixei um resumo da conversa na mensagem.')}
+          <a href="#" class="block text-center py-3 bg-gray-800 text-white rounded font-semibold">WA · Falar com um atendente no WhatsApp</a>`),
+          'Mensagem pronta: "Olá! Vim pelo assistente do site. Assunto: taxas da maquininha." O clique é vinculado à conversa (RF-016, RN-010).'),
+        estado(7, 'Indisponível (fallback)', janela(`
+          ${eu('Vocês fazem antecipação?')}
+          <div role="alert" class="border border-gray-400 rounded p-3 space-y-2">
+            <p class="font-semibold">O assistente está indisponível agora.</p>
+            <p>Mas a gente responde rapidinho por aqui:</p>
+            <a href="#" class="block text-center py-2 bg-gray-800 text-white rounded font-semibold">WA · Falar no WhatsApp</a>
+            <a href="t01-home.html#contato" class="block text-center py-2 border-2 border-gray-800 rounded font-semibold">Deixar meus dados</a>
+          </div>`),
+          'Aparece quando o n8n não responde em 10 s ou dá erro; nunca mostra erro técnico (RF-014). A mensagem do visitante fica gravada.'),
+        estado(8, 'Limite atingido', janela(`
+          ${bot('Esta conversa chegou ao limite de mensagens. Para continuar, fale com um atendente:')}
+          <a href="#" class="block text-center py-2 bg-gray-800 text-white rounded font-semibold">WA · Continuar no WhatsApp</a>`, false),
+          'Ao chegar a 50 mensagens na conversa ou 30 por hora (RN-016). Mensagem acima de 500 caracteres é bloqueada no campo, com o contador.'),
+        estado(9, 'Celular', `<div class="w-[20rem] h-[36rem] border-8 border-gray-800 rounded-[2rem] overflow-hidden flex flex-col bg-white">
+          <div class="flex items-center justify-between px-4 py-3 bg-gray-800 text-white text-sm"><span>Assistente B2BSAFE</span><button aria-label="Fechar"><i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div>
+          <div class="flex-1 p-3 space-y-3 text-sm">${bot('Olá!  Como posso ajudar?')}</div>
+          <div class="border-t p-2 flex gap-2"><input class="flex-1 px-3 py-2 border rounded" placeholder="Escreva…"><button class="px-3 bg-gray-800 text-white rounded"><i data-lucide="send" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div></div>`,
+          'Abaixo de 640 px o chat abre em tela cheia; os botões flutuantes somem enquanto ele está aberto. A conversa continua ao mudar de página (UUID na sessão).'),
+      ].join(''));
+    </script>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

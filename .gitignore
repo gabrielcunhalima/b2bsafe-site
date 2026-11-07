@@ -1,0 +1,39 @@
+# Segredos e configuração local (nunca versionar)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credenciais*.json
+service-account*.json
+
+# Laravel
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/bootstrap/cache/*.php
+.phpunit.result.cache
+.phpunit.cache/
+/coverage/
+/tests/Browser/Screenshots/
+/tests/Browser/console/
+
+# Dados dos containers locais (MariaDB, n8n, Qdrant, Mailpit)
+/docker/dados/
+
+# Ferramentas e sistema
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.fleet/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Claude Code: configurações pessoais
+.claude/settings.local.json

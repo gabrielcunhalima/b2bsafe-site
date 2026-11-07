@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-15 Funil (kanban) — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+  <script>
+    const card = (nome, servico, canal) => `
+      <article class="bg-white border border-gray-300 rounded p-3 text-sm shadow-sm cursor-grab" tabindex="0" aria-label="${nome}, ${servico}">
+        <div class="flex justify-between gap-2"><a href="t16-ficha-lead.html" class="font-semibold underline">${nome}</a><button class="text-gray-500" aria-label="Mover ${nome}"><i data-lucide="ellipsis" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div>
+        <p class="text-gray-600">${servico}</p>
+        <div class="mt-2 flex justify-between items-center"><span class="px-2 py-0.5 bg-gray-100 border rounded text-xs">${canal}</span><a href="#" class="px-2 py-1 bg-gray-700 text-white rounded text-xs" aria-label="Chamar ${nome} no WhatsApp">WA</a></div>
+      </article>`;
+    const coluna = (titulo, n, cards) => `
+      <section class="w-72 shrink-0 bg-gray-200 rounded p-3 flex flex-col gap-3" aria-label="${titulo}, ${n} leads">
+        <h2 class="font-semibold text-sm flex justify-between">${titulo}<span class="text-gray-500">${n}</span></h2>${cards.join('')}
+      </section>`;
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-15 Funil</b> (RF-025 · RN-004, RN-005, RN-006) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="painel:Funil:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-4">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="text-2xl font-bold">Funil</h1>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <select class="px-3 py-2 border rounded bg-white" aria-label="Serviço"><option>Todos os serviços</option></select>
+        <select class="px-3 py-2 border rounded bg-white" aria-label="Período"><option>Últimos 30 dias</option></select>
+        <a href="t14-leads.html" class="px-3 py-2 border rounded bg-white"><i data-lucide="menu" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Ver lista</a>
+      </div>
+    </div>
+
+    <div class="flex gap-4 overflow-x-auto pb-4">
+      <script>
+        document.write([
+          coluna('Novo', 2, [card('Carlos Lima', 'Maquininha', 'Chatbot'), card('Ana Paula Ribeiro', 'Conta Corrente', 'Formulário')]),
+          coluna('Em contato', 2, [card('Ana Souza', 'Crédito', 'Formulário'), card('Roberto Dias', 'Câmbio', 'Chatbot')]),
+          coluna('Proposta', 1, [card('Pedro Martins', 'Conta Corrente', 'Formulário')]),
+          coluna('Convertido', 1, [card('Luiza Prado', 'Maquininha', 'Formulário')]),
+          coluna('Perdido', 1, [card('João Neves', 'Consórcio', 'Chatbot')]),
+        ].join(''));
+      </script>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      <section>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Mover para Perdido (RN-006)</h2>
+        <div role="dialog" aria-modal="true" aria-labelledby="p" class="bg-white border rounded shadow-xl p-6 text-sm space-y-4">
+          <h3 id="p" class="text-lg font-bold">Por que João Neves foi perdido?</h3>
+          <fieldset class="space-y-2"><legend class="sr-only">Motivo</legend>
+            <label class="flex gap-2"><input type="radio" name="m"> Sem interesse</label>
+            <label class="flex gap-2"><input type="radio" name="m" checked> Sem retorno</label>
+            <label class="flex gap-2"><input type="radio" name="m"> Não aprovado / não atende requisitos</label>
+            <label class="flex gap-2"><input type="radio" name="m"> Escolheu outra instituição</label>
+            <label class="flex gap-2"><input type="radio" name="m"> Duplicado/spam</label>
+            <label class="flex gap-2"><input type="radio" name="m"> Outro</label>
+          </fieldset>
+          <div><label class="block font-semibold" for="o">Detalhe <span class="font-normal text-gray-500">(obrigatório em "Outro")</span></label><textarea id="o" class="mt-1 w-full border rounded px-3 py-2" rows="2"></textarea></div>
+          <div class="flex justify-end gap-2"><button class="px-4 py-2 border-2 border-gray-800 rounded">Cancelar</button><button class="px-4 py-2 bg-gray-800 text-white rounded font-semibold">Mover para Perdido</button></div>
+        </div>
+        <p class="mt-2 text-xs text-gray-500">Cancelar devolve o card à coluna de origem.</p>
+      </section>
+      <section>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Alternativa ao arrastar (teclado e celular)</h2>
+        <div class="bg-white border rounded shadow p-2 text-sm w-56">
+          <p class="px-3 py-1 text-xs text-gray-500">Mover Ana Souza para…</p>
+          <button class="block w-full text-left px-3 py-2 text-gray-400" disabled>Novo (não permitido)</button>
+          <button class="block w-full text-left px-3 py-2 bg-gray-100"><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Em contato</button>
+          <button class="block w-full text-left px-3 py-2 hover:bg-gray-100">Proposta</button>
+          <button class="block w-full text-left px-3 py-2 hover:bg-gray-100">Convertido</button>
+          <button class="block w-full text-left px-3 py-2 hover:bg-gray-100">Perdido…</button>
+        </div>
+        <p class="mt-2 text-xs text-gray-500">O botão <i data-lucide="ellipsis" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> do card abre este menu. Voltar para Novo nunca é permitido (RN-004). A mudança é anunciada: "Ana Souza movida para Proposta".</p>
+      </section>
+      <section class="text-sm space-y-3">
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Estados</h2>
+        <div class="bg-white border rounded p-3"><b>Sucesso</b>: toast "Ana Souza movida para Proposta" com "Desfazer" por 5 s (exceto Perdido).</div>
+        <div class="bg-white border rounded p-3"><b>Erro</b>: card volta à coluna e toast "Não foi possível mover. Tente de novo."</div>
+        <div class="bg-white border rounded p-3"><b>Coluna vazia</b>: "Nenhum lead aqui."</div>
+        <div class="bg-white border rounded p-3"><b>Celular</b>: uma coluna por vez, com abas Novo · Em contato · …; mover pelo menu <i data-lucide="ellipsis" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i>.</div>
+        <div class="bg-white border rounded p-3"><b>Convertido e Perdido</b> mostram só os últimos 30 dias por padrão, para o quadro não crescer sem fim.</div>
+      </section>
+    </div>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tipografia B2BSAFE — opções</title>
+  <!-- Só para comparar: no site final as fontes ficam hospedadas no próprio servidor (sem Google Fonts). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Onest:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Work+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&family=Open+Sans:wght@400;600;700;800&family=Public+Sans:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <style>
+    .opcao .corpo, .opcao .corpo p, .opcao .corpo td, .opcao .corpo button { font-family: var(--texto); }
+    /* depois da regra do texto e mais específica: títulos e números grandes usam a fonte de título */
+    .opcao .corpo h3, .opcao .corpo p.titulo { font-family: var(--titulo); }
+    .num { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="bg-[#F4F5F7] text-[#1A1A1A]">
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold">Tipografia: opções sans</h1>
+    <p class="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded bg-[#FFCC29] text-[#060606] font-semibold">Escolhida em 07/11/2026: <a href="#op28" class="underline">28. Urbanist</a>, para títulos e texto.</p>
+    <p class="mt-2 text-gray-600 max-w-3xl">Mesmo conteúdo e mesmas cores (branco e gelo, preto e o amarelo do logo); só a fonte muda. Repare nos acentos (ç, ã, ê), nos números (reais e porcentagens, importantes no painel) e no peso do título. Todas são gratuitas (licença OFL) e podem ser hospedadas no próprio site.</p>
+    <nav aria-label="Opções" class="mt-6 flex flex-wrap gap-2 text-sm" id="atalhos"></nav>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-2" id="opcoes"></div>
+  </main>
+
+  <script>
+    const opcoes = [
+      ['1', 'Google Sans Flex', 'Google Sans Flex', 'Google Sans Flex', 'A fonte da Google (Android, Workspace), aberta em 2025. Amigável, geométrica e muito legível; variável, um arquivo só.'],
+      ['2', 'DM Sans', 'DM Sans', 'DM Sans', 'Geométrica e leve, de baixo contraste. Moderna sem exagero; boa em títulos grandes e textos curtos.'],
+      ['3', 'Manrope + Inter', 'Manrope', 'Inter', 'Títulos geométricos com personalidade; Inter no texto, a mais legível em celular e nos números do painel.'],
+      ['4', 'Plus Jakarta Sans', 'Plus Jakarta Sans', 'Plus Jakarta Sans', 'Corporativa e acolhedora, um pouco mais arredondada. Consistente entre site e painel.'],
+      ['5', 'IBM Plex Sans', 'IBM Plex Sans', 'IBM Plex Sans', 'Institucional e técnica, comum no mercado financeiro. Passa seriedade; menos calorosa.'],
+      ['6', 'Figtree', 'Figtree', 'Figtree', 'Geométrica e simpática, a mais próxima do espírito da Google Sans. Leve e limpa.'],
+      ['7', 'Outfit', 'Outfit', 'Outfit', 'Geométrica de formas redondas, lembra a antiga Product Sans. Forte em títulos; menos confortável em texto longo.'],
+      ['8', 'Onest', 'Onest', 'Onest', 'Neo-grotesca recente, neutra e elegante, com ótimo desenho de números.'],
+      ['9', 'Geist', 'Geist', 'Geist', 'Da Vercel: precisa, técnica e contemporânea; muito usada em produtos digitais.'],
+      ['10', 'Instrument Sans', 'Instrument Sans', 'Instrument Sans', 'Grotesca levemente condensada, sóbria e editorial; títulos com bastante presença.'],
+      // 11 a 20: as mais recomendadas para sites de finanças, bancos e fintechs (pesquisa de 2026-11-07)
+      ['11', 'Inter', 'Inter', 'Inter', 'A mais recomendada para fintech: feita para telas, números muito claros em tabelas e dashboards. Neutra, às vezes genérica demais.'],
+      ['12', 'Source Sans 3', 'Source Sans 3', 'Source Sans 3', 'Da Adobe, citada como excelente para texto em tela. Humanista, séria e confortável em leitura longa (políticas, termos).'],
+      ['13', 'Work Sans', 'Work Sans', 'Work Sans', 'Grotesca otimizada para tela, recomendada para texto e interfaces financeiras. Títulos largos e firmes.'],
+      ['14', 'Nunito Sans', 'Nunito Sans', 'Nunito Sans', 'Alternativa livre às fontes premium de fintech; terminais suaves, passa proximidade sem perder seriedade.'],
+      ['15', 'Lato', 'Lato', 'Lato', 'Usada pelo banco digital Ally. Clássica, calorosa e estável; poucos pesos (regular, negrito e black).'],
+      ['16', 'Open Sans', 'Open Sans', 'Open Sans', 'A sans "acessível e moderna" mais citada para combinar com instituições tradicionais. Muito legível, bem conhecida.'],
+      ['17', 'Public Sans', 'Public Sans', 'Public Sans', 'Criada para os sites do governo dos EUA: neutra, forte e institucional. Passa confiança de órgão oficial.'],
+      ['18', 'Hanken Grotesk', 'Hanken Grotesk', 'Hanken Grotesk', 'Grotesca contemporânea, próxima das fontes pagas usadas por fintechs (Aeonik, GT America). Elegante e limpa.'],
+      ['19', 'Sora', 'Sora', 'Sora', 'Criada para o ecossistema de cripto e finanças digitais. Geométrica e tecnológica, com números largos.'],
+      ['20', 'Archivo', 'Archivo', 'Archivo', 'Grotesca robusta pensada para texto e dados; títulos com muita presença, ótima em números e tabelas.'],
+      // 21 a 40: mais opções sans (clássicas, grotescas contemporâneas e de legibilidade)
+      ['21', 'Roboto', 'Roboto', 'Roboto', 'A fonte padrão do Android e do Google: neutra, conhecida e muito legível; pode soar comum demais.'],
+      ['22', 'Montserrat', 'Montserrat', 'Montserrat', 'Geométrica de títulos largos e marcantes, muito usada em sites institucionais brasileiros.'],
+      ['23', 'Poppins', 'Poppins', 'Poppins', 'Geométrica e redonda, popular em fintechs e startups; amigável, mas bem difundida.'],
+      ['24', 'Raleway', 'Raleway', 'Raleway', 'Elegante e fina, com ar sofisticado; melhor em títulos que em texto longo.'],
+      ['25', 'Mulish', 'Mulish', 'Mulish', 'Minimalista e limpa, de traço leve; boa em interfaces e textos curtos.'],
+      ['26', 'Rubik', 'Rubik', 'Rubik', 'Cantos levemente arredondados, robusta e simpática; números bem desenhados.'],
+      ['27', 'Lexend', 'Lexend', 'Lexend', 'Desenhada para reduzir o esforço de leitura (pesquisa de legibilidade); espaçada e clara.'],
+      ['28', 'Urbanist', 'Urbanist', 'Urbanist', 'Geométrica moderna e limpa, de proporções equilibradas; visual contemporâneo.'],
+      ['29', 'Albert Sans', 'Albert Sans', 'Albert Sans', 'Grotesca escandinava, sóbria e versátil; passa precisão sem frieza.'],
+      ['30', 'Red Hat Display', 'Red Hat Display', 'Red Hat Display', 'Da Red Hat: corporativa e confiante, com personalidade discreta nos títulos.'],
+      ['31', 'Be Vietnam Pro', 'Be Vietnam Pro', 'Be Vietnam Pro', 'Neo-grotesca de proporções generosas, muito legível; ótimo suporte a acentos.'],
+      ['32', 'Schibsted Grotesk', 'Schibsted Grotesk', 'Schibsted Grotesk', 'Criada para um grande grupo de mídia nórdico: editorial, firme e confiável.'],
+      ['33', 'Bricolage Grotesque', 'Bricolage Grotesque', 'Bricolage Grotesque', 'Grotesca com personalidade e leve contraste; títulos com caráter, mais ousada.'],
+      ['34', 'Space Grotesk', 'Space Grotesk', 'Space Grotesk', 'Derivada de uma monoespaçada: técnica e diferente, números com estilo próprio.'],
+      ['35', 'Barlow', 'Barlow', 'Barlow', 'Levemente condensada e arredondada, inspirada em placas; boa para dados e tabelas.'],
+      ['36', 'Karla', 'Karla', 'Karla', 'Grotesca com pequenas irregularidades, calorosa; menos corporativa.'],
+      ['37', 'Epilogue', 'Epilogue', 'Epilogue', 'Grotesca com títulos fortes e de presença; ar editorial e moderno.'],
+      ['38', 'Readex Pro', 'Readex Pro', 'Readex Pro', 'Ampliação da Lexend com foco em legibilidade; espaçada e clara em tela.'],
+      ['39', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Next', 'Criada pelo Braille Institute para máxima legibilidade (baixa visão); letras bem distintas (o zero tem um traço para não confundir com O), ótima para acessibilidade.'],
+      ['40', 'Host Grotesk', 'Host Grotesk', 'Host Grotesk', 'Grotesca recente (2024), limpa e equilibrada; contemporânea sem chamar atenção.'],
+      // 41 e 42: combinações pedidas pelo responsável (Urbanist no texto)
+      ['41', 'Raleway + Urbanist', 'Raleway', 'Urbanist', 'Títulos elegantes da Raleway com o texto geométrico e limpo da Urbanist. Sofisticado e leve.'],
+      ['42', 'Sora + Urbanist', 'Sora', 'Urbanist', 'Títulos e números grandes na Sora (geométrica, tecnológica) com o texto mais leve e arejado da Urbanist.'],
+    ];
+    document.getElementById('atalhos').innerHTML = opcoes.map(([id, nome]) =>
+      `<a href="#op${id}" class="px-3 py-1.5 bg-white border rounded-full hover:bg-gray-50">${id}. ${nome}</a>`).join('');
+    document.getElementById('opcoes').innerHTML = opcoes.map(([id, nome, titulo, texto, desc]) => `
+      <article id="op${id}" class="opcao bg-white border rounded-lg overflow-hidden scroll-mt-6" style="--titulo:'${titulo}', sans-serif; --texto:'${texto}', sans-serif">
+        <div class="px-6 py-4 bg-[#060606] text-white flex items-center gap-3" style="font-family: system-ui"><span class="w-7 h-7 rounded-full bg-[#FFCC29] text-[#060606] text-sm font-bold flex items-center justify-center">${id}</span><h2 class="font-bold text-lg">${nome}</h2></div>
+        <div class="corpo p-6 space-y-5">
+          <h3 class="text-4xl font-extrabold leading-tight text-[#060606]">Sua empresa em boas mãos.</h3>
+          <p class="text-base leading-relaxed text-[#4B5563]">Mais do que soluções financeiras, oferecemos parceria, orientação e segurança para impulsionar o crescimento da sua empresa. Crédito, câmbio, previdência e consórcio com atenção à sua realidade.</p>
+          <div class="flex flex-wrap gap-3">
+            <button class="px-5 py-2.5 rounded bg-[#060606] text-white font-semibold">Quero abrir minha conta</button>
+            <button class="px-5 py-2.5 rounded bg-[#FFCC29] text-[#060606] font-semibold">Ver taxas e condições</button>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="border rounded p-3"><p class="text-xs text-[#6B7280]">Leads no mês</p><p class="titulo num text-3xl font-bold">1.248</p></div>
+            <div class="border rounded p-3"><p class="text-xs text-[#6B7280]">Conversão</p><p class="titulo num text-3xl font-bold">18,4%</p></div>
+            <div class="border rounded p-3"><p class="text-xs text-[#6B7280]">Crédito à vista</p><p class="titulo num text-3xl font-bold">3,49%</p></div>
+          </div>
+          <table class="w-full text-sm num">
+            <tbody>
+              <tr><td class="py-1.5 font-semibold">Ana Souza</td><td>Crédito</td><td>(48) 99999-1234</td><td class="text-right">R$ 80.000,00</td></tr>
+              <tr class="border-t"><td class="py-1.5 font-semibold">João Neves</td><td>Câmbio</td><td>(11) 98765-4321</td><td class="text-right">R$ 1.250.000,00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="px-6 pb-6 text-sm text-[#4B5563]" style="font-family: system-ui">${desc}</p>
+      </article>`).join('');
+  </script>
+</body>
+</html>

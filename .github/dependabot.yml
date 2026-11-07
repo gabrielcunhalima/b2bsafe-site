@@ -1,0 +1,58 @@
+version: 2
+
+# composer, npm e docker passam a ter manifestos na /scaffold; até lá o Dependabot só avisa que não os encontrou.
+updates:
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Sao_Paulo
+    labels: ["tipo:debito"]
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      composer-menores:
+        update-types: [minor, patch]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Sao_Paulo
+    labels: ["tipo:debito"]
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      npm-menores:
+        update-types: [minor, patch]
+
+  - package-ecosystem: docker-compose
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Sao_Paulo
+    labels: ["tipo:infra"]
+    commit-message:
+      prefix: chore
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Sao_Paulo
+    labels: ["tipo:infra"]
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]

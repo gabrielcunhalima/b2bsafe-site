@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-18 Log de auditoria — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-18 Log de auditoria</b> (RF-030 · RN-012, RN-017) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a> · Só leitura, só administrador.</div>
+  <div data-incluir="painel:Log de auditoria:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-4">
+    <h1 class="text-2xl font-bold">Log de auditoria</h1>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <select class="px-3 py-2 border rounded bg-white" aria-label="Ação"><option>Todas as ações</option><option>Exportação CSV</option><option>Exportação de titular</option><option>Anonimização</option><option>Usuários</option><option>Login bloqueado</option></select>
+      <select class="px-3 py-2 border rounded bg-white" aria-label="Usuário"><option>Todos os usuários</option></select>
+      <select class="px-3 py-2 border rounded bg-white" aria-label="Período"><option>Últimos 30 dias</option></select>
+    </div>
+    <section class="relative bg-white border rounded overflow-x-auto">
+      <table class="w-full text-sm min-w-[44rem]">
+        <thead class="bg-gray-50 text-left text-gray-500"><tr><th class="p-3">Quando</th><th class="p-3">Quem</th><th class="p-3">Ação</th><th class="p-3">Alvo</th><th class="p-3">Detalhe</th></tr></thead>
+        <tbody>
+          <tr class="border-t"><td class="p-3">07/11 15:10</td><td class="p-3">Gabriel</td><td class="p-3">Anonimização</td><td class="p-3">Lead #128</td><td class="p-3">Pedido do titular por e-mail</td></tr>
+          <tr class="border-t"><td class="p-3">07/11 09:30</td><td class="p-3">Mariana</td><td class="p-3">Exportação CSV</td><td class="p-3">38 leads</td><td class="p-3">Filtros: 30 dias, todos os status</td></tr>
+          <tr class="border-t"><td class="p-3">06/11 17:02</td><td class="p-3">Gabriel</td><td class="p-3">Usuário convidado</td><td class="p-3">rafael@b2bsafe.com.br</td><td class="p-3">Perfil Atendente</td></tr>
+          <tr class="border-t"><td class="p-3">06/11 08:15</td><td class="p-3">—</td><td class="p-3">Login bloqueado</td><td class="p-3">bruno@b2bsafe.com.br</td><td class="p-3">5 tentativas, IP 177.x.x.x</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <p class="text-xs text-gray-500">Sem editar nem apagar. Guardado por 24 meses (RN-012). Vazio: "Nenhuma ação registrada no período."</p>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

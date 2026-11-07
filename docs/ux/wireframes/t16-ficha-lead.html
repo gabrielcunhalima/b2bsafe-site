@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-16 Ficha do lead — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_comum.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2 lg:pl-64">Wireframe <b>T-16 Ficha do lead</b> (RF-024, RF-030 · RN-003, RN-004, RN-005, RN-012, RN-017) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <div data-incluir="painel:Leads:admin"></div>
+
+  <main class="lg:ml-60 p-4 md:p-6 space-y-4">
+    <nav aria-label="Trilha" class="text-sm text-gray-500"><a href="t14-leads.html" class="underline">Leads</a> › Ana Souza</nav>
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h1 class="text-2xl font-bold">Ana Souza</h1>
+        <p class="text-sm text-gray-600">Crédito · criado em 05/11/2026 09:12 · <span class="font-semibold"><i data-lucide="refresh-cw" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> voltou a entrar em contato em 07/11</span></p>
+      </div>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <a href="#" class="px-4 py-2 bg-gray-800 text-white rounded font-semibold">WA · Chamar no WhatsApp</a>
+        <label class="sr-only" for="st">Status</label>
+        <select id="st" class="px-3 py-2 border rounded bg-white"><option>Em contato</option><option>Proposta</option><option>Convertido</option><option>Perdido…</option></select>
+        <button class="px-3 py-2 border rounded bg-white" aria-haspopup="menu"><i data-lucide="ellipsis" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> LGPD</button>
+      </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[22rem_1fr]">
+      <!-- Coluna esquerda -->
+      <div class="space-y-4 text-sm">
+        <section class="bg-white border rounded p-4">
+          <h2 class="font-semibold mb-3">Dados</h2>
+          <dl class="grid grid-cols-[7rem_1fr] gap-y-2">
+            <dt class="text-gray-500">WhatsApp</dt><dd>(48) 99999-1234</dd>
+            <dt class="text-gray-500">E-mail</dt><dd>ana.souza@padariasouza.com.br</dd>
+            <dt class="text-gray-500">Serviço</dt><dd>Crédito</dd>
+            <dt class="text-gray-500">Canal</dt><dd>Formulário (+1 chatbot)</dd>
+            <dt class="text-gray-500">Mensagem</dt><dd>Preciso de capital de giro para a segunda loja.</dd>
+            <dt class="text-gray-500">1º contato</dt><dd>05/11 11:42 (2h30)</dd>
+          </dl>
+          <button class="mt-3 text-xs underline">Editar dados</button>
+        </section>
+        <section class="bg-white border rounded p-4">
+          <h2 class="font-semibold mb-3">Origem (primeiro toque)</h2>
+          <dl class="grid grid-cols-[7rem_1fr] gap-y-2">
+            <dt class="text-gray-500">Canal</dt><dd class="font-semibold">Google Ads</dd>
+            <dt class="text-gray-500">Campanha</dt><dd>credito-giro-floripa</dd>
+            <dt class="text-gray-500">utm_source</dt><dd>google</dd>
+            <dt class="text-gray-500">utm_medium</dt><dd>cpc</dd>
+            <dt class="text-gray-500">gclid</dt><dd class="truncate">Cj0KCQiA…</dd>
+            <dt class="text-gray-500">Entrada</dt><dd>/ (Home)</dd>
+            <dt class="text-gray-500">Referrer</dt><dd>google.com</dd>
+          </dl>
+        </section>
+        <section class="bg-white border rounded p-4">
+          <h2 class="font-semibold mb-3">Consentimentos</h2>
+          <ul class="space-y-1">
+            <li><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Política de Privacidade v1 · formulário · 05/11 09:12</li>
+            <li><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Aviso do assistente v1 · chat · 07/11 14:03</li>
+            <li><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Cookies estatísticos · 05/11 09:10</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Coluna direita: linha do tempo -->
+      <section class="bg-white border rounded p-4 text-sm">
+        <div class="flex flex-wrap justify-between items-center gap-2">
+          <h2 class="font-semibold">Linha do tempo</h2>
+          <div class="flex gap-1 text-xs" role="group" aria-label="Filtrar linha do tempo">
+            <button class="px-2 py-1 bg-gray-800 text-white rounded" aria-pressed="true">Tudo</button><button class="px-2 py-1 border rounded">Anotações</button><button class="px-2 py-1 border rounded">Conversa</button><button class="px-2 py-1 border rounded">Status</button>
+          </div>
+        </div>
+        <form class="mt-4">
+          <label for="an" class="sr-only">Nova anotação</label>
+          <textarea id="an" rows="2" class="w-full border rounded px-3 py-2" placeholder="Escreva uma anotação para a equipe…"></textarea>
+          <div class="mt-2 flex justify-end"><button type="button" class="px-4 py-2 bg-gray-800 text-white rounded font-semibold">Adicionar anotação</button></div>
+        </form>
+        <ol class="mt-6 space-y-3">
+          <li class="border rounded p-3"><p class="text-xs text-gray-500">07/11 14:05 · Interação · Chatbot</p><p class="font-semibold">Voltou a entrar em contato pelo assistente</p>
+            <details class="mt-2 border rounded"><summary class="px-3 py-2 cursor-pointer">Ver conversa (6 mensagens)</summary>
+              <div class="p-3 space-y-2 bg-gray-50">
+                <p><b>Visitante 14:03</b> Já mandei o formulário, vocês fazem antecipação de recebíveis?</p>
+                <p><b>Assistente 14:03</b> Sim! A antecipação depende de análise do C6…</p>
+                <p><b>Visitante 14:04</b> meu CPF é ***.***.***-** <span class="text-xs text-gray-500">(mascarado, RN-013)</span></p>
+              </div></details></li>
+          <li class="border rounded p-3"><p class="text-xs text-gray-500">06/11 10:20 · Anotação · Mariana</p><p>Liguei, pediu proposta para R$ 80 mil. Enviar simulação até sexta.</p></li>
+          <li class="border rounded p-3"><p class="text-xs text-gray-500">05/11 11:42 · Status · Mariana</p><p>Novo <i data-lucide="arrow-right" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> <b>Em contato</b> <span class="text-xs text-gray-500">(1º contato registrado)</span></p></li>
+          <li class="border rounded p-3"><p class="text-xs text-gray-500">05/11 09:12 · Interação · Formulário</p><p>Lead criado pelo formulário: "Preciso de capital de giro para a segunda loja."</p></li>
+        </ol>
+      </section>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3 text-sm">
+      <section>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Menu LGPD (só administrador)</h2>
+        <div class="bg-white border rounded shadow p-2 w-64"><button class="block w-full text-left px-3 py-2 hover:bg-gray-100"><i data-lucide="download" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Exportar dados do titular (JSON)</button><button class="block w-full text-left px-3 py-2 hover:bg-gray-100 font-semibold"><i data-lucide="triangle-alert" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Anonimizar agora</button></div>
+        <p class="mt-2 text-xs text-gray-500">Atendente não vê este menu (RN-017).</p>
+      </section>
+      <section class="lg:col-span-2">
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">Confirmar anonimização (RF-030)</h2>
+        <div role="alertdialog" aria-modal="true" aria-labelledby="an-t" class="bg-white border rounded shadow-xl p-6 space-y-3 max-w-lg">
+          <h3 id="an-t" class="text-lg font-bold">Anonimizar Ana Souza?</h3>
+          <p>Nome, e-mail, WhatsApp, mensagem, anotações e conversas serão apagados. Ficam só canal, serviço, status e datas. <b>Não dá para desfazer.</b></p>
+          <label for="conf" class="block font-semibold">Digite ANONIMIZAR para confirmar</label>
+          <input id="conf" class="w-full border rounded px-3 py-2">
+          <div class="flex justify-end gap-2"><button class="px-4 py-2 border-2 border-gray-800 rounded">Cancelar</button><button class="px-4 py-2 bg-gray-800 text-white rounded font-semibold" disabled>Anonimizar</button></div>
+        </div>
+        <p class="mt-2 text-xs text-gray-500">Depois: a ficha mostra "Lead anonimizado em 07/11/2026 por Gabriel", sem ações, e o status fica travado (RN-004). Registrado no log.</p>
+      </section>
+    </div>
+    <p class="text-xs text-gray-500">Celular: as colunas empilham (dados <i data-lucide="arrow-right" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> linha do tempo); "Chamar no WhatsApp" fica fixo no pé da tela.</p>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

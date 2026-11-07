@@ -1,0 +1,53 @@
+name: Funcionalidade
+description: Nova funcionalidade ou história de usuário
+title: "US-XXX — "
+labels: ["tipo:feature"]
+body:
+  - type: textarea
+    id: historia
+    attributes:
+      label: História
+      description: Como <ator>, quero <ação>, para <benefício>.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite
+      description: Um item por linha, em checklist.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: rf
+    attributes:
+      label: Requisitos funcionais (RF)
+      placeholder: RF-006, RF-008
+    validations:
+      required: true
+  - type: input
+    id: rn
+    attributes:
+      label: Regras de negócio (RN)
+      placeholder: RN-001, RN-002 (ou "nenhuma")
+    validations:
+      required: true
+  - type: input
+    id: telas
+    attributes:
+      label: Telas
+      description: IDs do docs/10-ux.md, com link para o wireframe.
+      placeholder: T-03
+  - type: input
+    id: dependencias
+    attributes:
+      label: Dependências
+      placeholder: "#12, #15 (ou nenhuma)"
+  - type: dropdown
+    id: tamanho
+    attributes:
+      label: Tamanho
+      options: [P, M, G]
+    validations:
+      required: true

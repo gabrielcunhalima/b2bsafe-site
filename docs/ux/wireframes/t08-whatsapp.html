@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-08 Botões flutuantes — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2">Wireframe <b>T-08 Botão de WhatsApp e convivência com o chat</b> (RF-005, RF-013 · RN-010, RN-021) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+  <main class="max-w-6xl mx-auto px-4 py-10 grid gap-10 md:grid-cols-3">
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Desktop</h2>
+      <div class="relative h-80 bg-white border rounded">
+        <div class="absolute right-4 bottom-4 flex flex-col items-end gap-3">
+          <span class="relative group"><span class="w-14 h-14 rounded-full bg-gray-600 text-white flex items-center justify-center text-xs font-bold">WA</span><span class="absolute right-16 top-3 whitespace-nowrap bg-gray-800 text-white text-xs px-2 py-1 rounded">Falar no WhatsApp</span></span>
+          <span class="h-14 px-5 rounded-full bg-gray-800 text-white flex items-center gap-2 text-sm"><i data-lucide="message-circle" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Assistente</span>
+        </div>
+      </div>
+      <p class="mt-2 text-xs text-gray-600">Dica de texto no hover/foco. Área de toque mínima de 56 px; 12 px entre os botões.</p>
+    </section>
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Celular</h2>
+      <div class="relative w-64 h-[30rem] border-8 border-gray-800 rounded-[2rem] bg-white overflow-hidden">
+        <div class="p-3 text-xs text-gray-400">[ página ]</div>
+        <div class="absolute right-3 bottom-3 flex flex-col items-end gap-3">
+          <span class="w-12 h-12 rounded-full bg-gray-600 text-white flex items-center justify-center text-[10px] font-bold">WA</span>
+          <span class="w-12 h-12 rounded-full bg-gray-800 text-white flex items-center justify-center"><i data-lucide="message-circle" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></span>
+        </div>
+      </div>
+      <p class="mt-2 text-xs text-gray-600">Só ícones, com <code>aria-label</code>. Ficam acima da faixa de cookies quando ela está aberta e somem com o chat aberto.</p>
+    </section>
+    <section class="text-sm space-y-3">
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">Mensagem pronta por contexto (RN-021)</h2>
+      <table class="w-full bg-white border text-xs">
+        <thead class="bg-gray-200 text-left"><tr><th class="p-2">Onde</th><th class="p-2">Número</th><th class="p-2">Texto</th></tr></thead>
+        <tbody>
+          <tr class="border-t"><td class="p-2">Flutuante (geral)</td><td class="p-2">98420-5023</td><td class="p-2">Olá! Vim pelo site da B2BSAFE.</td></tr>
+          <tr class="border-t"><td class="p-2">Card de serviço</td><td class="p-2">98420-5023</td><td class="p-2">…quero saber sobre Crédito.</td></tr>
+          <tr class="border-t"><td class="p-2">Seção/página Maquininha</td><td class="p-2">92460-0991</td><td class="p-2">…quero saber sobre a maquininha C6 Pay.</td></tr>
+          <tr class="border-t"><td class="p-2">Transbordo do chat</td><td class="p-2">98420-5023</td><td class="p-2">…Vim pelo assistente. Assunto: …</td></tr>
+        </tbody>
+      </table>
+      <p class="text-xs text-gray-600">Na página Maquininha, o flutuante usa o número da maquininha. Cada clique grava <code>cliques_whatsapp</code> (sem atrasar a abertura) e envia <code>click_whatsapp</code> ao GA4 se houver consentimento.</p>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>

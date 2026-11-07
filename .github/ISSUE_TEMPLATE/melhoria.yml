@@ -1,0 +1,28 @@
+name: Melhoria
+description: Ajuste ou evolução de algo que já existe (passa pela /nova-demanda)
+title: "melhoria: "
+body:
+  - type: textarea
+    id: hoje
+    attributes:
+      label: Como é hoje
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Como deveria ser
+    validations:
+      required: true
+  - type: textarea
+    id: motivo
+    attributes:
+      label: Por que
+      description: Benefício para o visitante, a equipe comercial ou o proprietário.
+    validations:
+      required: true
+  - type: input
+    id: requisitos
+    attributes:
+      label: RF/RN afetados
+      placeholder: RF-020

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-06 Cookies — wireframe</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="bg-yellow-50 border-b border-yellow-300 text-xs px-4 py-2">Wireframe <b>T-06 Banner e preferências de cookies</b> (RF-009, RF-010 · RN-009, RN-011) · <a href="index.html" class="underline"><i data-lucide="arrow-left" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> índice</a></div>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
+    <section>
+      <h2 class="text-sm font-semibold text-gray-500 mb-2">1. Faixa no rodapé (primeiro acesso ou nova versão da política)</h2>
+      <div class="relative h-72 bg-white border border-gray-300 rounded overflow-hidden">
+        <div class="p-6 text-gray-400 text-sm">[ conteúdo da página continua visível e navegável ]</div>
+        <div role="region" aria-label="Aviso de cookies" class="absolute inset-x-0 bottom-0 bg-white shadow-[0_-8px_24px_rgba(0,0,0,0.12)]">
+          <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center gap-4">
+            <p class="text-sm flex-1">Usamos cookies necessários para o site funcionar e, se você permitir, cookies estatísticos (Google Analytics) para entender como o site é usado. <a href="t04-privacidade.html#s4" class="underline">Saiba mais</a>.</p>
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 border-2 border-gray-800 rounded text-sm font-semibold">Personalizar</button>
+              <button class="px-4 py-2 bg-gray-800 text-white rounded text-sm font-semibold">Recusar</button>
+              <button class="px-4 py-2 bg-gray-800 text-white rounded text-sm font-semibold">Aceitar todos</button>
+            </div>
+          </div>
+        </div>
+        <div class="absolute right-4 bottom-36 md:bottom-24 flex flex-col gap-2 opacity-60"><span class="w-12 h-12 rounded-full bg-gray-600"></span><span class="w-12 h-12 rounded-full bg-gray-800"></span></div>
+      </div>
+      <p class="mt-2 text-xs text-gray-500">"Recusar" e "Aceitar todos" com o mesmo peso visual (RF-009). Não é modal: o foco não fica preso. Enquanto a faixa está aberta, os botões flutuantes sobem acima dela. No celular os botões ocupam a largura toda, em coluna.</p>
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">2. Personalizar (diálogo)</h2>
+        <div role="dialog" aria-modal="true" aria-labelledby="pref-t" class="bg-white border border-gray-300 rounded shadow-xl p-6 max-w-md">
+          <div class="flex justify-between items-start"><h3 id="pref-t" class="text-lg font-bold">Preferências de cookies</h3><button aria-label="Fechar" class="px-2"><i data-lucide="x" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i></button></div>
+          <div class="mt-4 space-y-4 text-sm">
+            <div class="flex justify-between gap-4 border-b pb-4">
+              <div><p class="font-semibold">Necessários</p><p class="text-gray-600">Sessão, segurança e lembrar sua escolha. Sempre ativos.</p></div>
+              <span class="text-xs px-2 py-1 bg-gray-200 rounded self-start">Sempre ativo</span>
+            </div>
+            <div class="flex justify-between gap-4">
+              <div><p class="font-semibold"><label for="est">Estatísticos</label></p><p class="text-gray-600">Google Analytics 4: páginas visitadas e origem da visita, sem identificar você.</p></div>
+              <button id="est" role="switch" aria-checked="false" class="w-12 h-7 rounded-full bg-gray-300 relative self-start shrink-0"><span class="absolute left-1 top-1 w-5 h-5 rounded-full bg-white border"></span></button>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2 justify-end">
+            <button class="px-4 py-2 border-2 border-gray-800 rounded text-sm font-semibold">Recusar todos</button>
+            <button class="px-4 py-2 bg-gray-800 text-white rounded text-sm font-semibold">Salvar escolhas</button>
+          </div>
+        </div>
+        <p class="mt-2 text-xs text-gray-500">Estatísticos começa desligado. Foco preso no diálogo; Esc fecha; ao fechar, o foco volta ao botão que abriu.</p>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-gray-500 mb-2">3. Depois da escolha</h2>
+        <div role="status" class="bg-white border border-gray-300 rounded p-4 text-sm max-w-md"><i data-lucide="check" class="inline-block w-4 h-4 align-[-3px]" aria-hidden="true"></i> Preferências salvas. Você pode mudar quando quiser em "Preferências de cookies", no rodapé.</div>
+        <ul class="mt-4 text-xs text-gray-600 list-disc ml-5 space-y-1">
+          <li>Aviso some sozinho após 4 s (região <code>status</code>, lida pelo leitor de tela).</li>
+          <li>Escolha guardada por 12 meses com data e versão (RN-011); nova versão da política reabre a faixa.</li>
+          <li>Aceitou: Consent Mode passa <code>analytics_storage</code> para <code>granted</code> e a origem passa a durar 90 dias (RN-009).</li>
+          <li>O link "Preferências de cookies" do rodapé reabre o diálogo 2 com a escolha atual.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script>addEventListener('load', () => lucide.createIcons())</script>
+</body>
+</html>
