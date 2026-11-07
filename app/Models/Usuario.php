@@ -30,7 +30,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $ultimo_acesso_em
  */
 #[Table('usuarios')]
-#[Fillable(['nome', 'email', 'senha', 'perfil', 'ativo', 'recebe_resumo_semanal'])]
+#[Fillable(['nome', 'email', 'senha', 'password', 'perfil', 'ativo', 'recebe_resumo_semanal'])]
 #[Hidden(['senha', 'remember_token'])]
 class Usuario extends Authenticatable implements FilamentUser, HasName
 {
