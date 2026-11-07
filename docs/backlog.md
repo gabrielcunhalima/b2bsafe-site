@@ -5,7 +5,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Site público (area:site)
 
 ### US-001 — Layout base: cabeçalho, rodapé e navegação
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#1](https://github.com/gabrielcunhalima/b2bsafe-site/issues/1)
 - **Como** visitante, **quero** um menu que leve a cada seção e um rodapé com os dados da empresa, **para** encontrar rápido o que procuro e confiar que é um parceiro oficial.
 - **Critérios de aceite:**
   - [ ] Menu com âncoras para as seções da Home e link para a Maquininha; rolagem suave e menu móvel acessível.
@@ -18,7 +18,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-10
 
 ### US-002 — Home institucional
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#2](https://github.com/gabrielcunhalima/b2bsafe-site/issues/2)
 - **Como** visitante, **quero** conhecer a B2BSAFE e os serviços do C6 Empresas numa página só, **para** decidir com qual serviço quero falar.
 - **Critérios de aceite:**
   - [ ] Seções Apresentação, Serviços (7 cards), Maquininha C6 Pay (seção própria com imagem, chamada para o WhatsApp (11) 92460-0991 e link para `/maquininha`), Sobre (selo Conexão Awards 2025), Parcerias / Trabalhe conosco, Fale conosco, Credenciamento (com "Verificar no C6 Bank") e Canais oficiais C6.
@@ -32,7 +32,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-01
 
 ### US-003 — Página Maquininha (C6 Pay)
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#3](https://github.com/gabrielcunhalima/b2bsafe-site/issues/3)
 - **Como** lojista, **quero** ver as vantagens da maquininha e pedir a minha, **para** começar a receber pagamentos.
 - **Critérios de aceite:**
   - [ ] Tabela de taxas (débito, crédito à vista, parcelado) em configuração, com data de referência e aviso de sujeição à análise do C6.
@@ -45,7 +45,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-02
 
 ### US-004 — Política de Privacidade do site
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#4](https://github.com/gabrielcunhalima/b2bsafe-site/issues/4)
 - **Como** visitante, **quero** saber como meus dados são usados, **para** decidir se envio meus dados ou converso com o assistente.
 - **Critérios de aceite:**
   - [ ] Página `/privacidade` cobrindo o formulário, o chatbot (Mistral, França), os cookies e o GA4, a retenção de 24 meses, os direitos do titular e o DPO ti@b2bsafe.com.br.
@@ -58,7 +58,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-04
 
 ### US-005 — Política e Termos do B2BSafe Connect em /policy
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#5](https://github.com/gabrielcunhalima/b2bsafe-site/issues/5)
 - **Como** responsável pelo B2BSafe Connect, **quero** manter `/policy` no ar, **para** cumprir a exigência da Meta.
 - **Critérios de aceite:**
   - [ ] `/policy` com o texto atual, com as numerações de seção e o link `/policy.` corrigidos.
@@ -70,7 +70,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-05
 
 ### US-006 — Página 404 amigável
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#6](https://github.com/gabrielcunhalima/b2bsafe-site/issues/6)
 - **Como** visitante que caiu num link errado, **quero** uma página com caminhos úteis, **para** não desistir do contato.
 - **Critérios de aceite:**
   - [ ] Página 404 com links para a Home, a Maquininha, o formulário e o WhatsApp, no layout do site.
@@ -83,7 +83,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Captação de leads (area:leads)
 
 ### US-007 — Atribuição de origem do visitante
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#7](https://github.com/gabrielcunhalima/b2bsafe-site/issues/7)
 - **Como** proprietário, **quero** saber de qual canal e campanha veio cada contato, **para** investir na estratégia que dá mais resultado.
 - **Critérios de aceite:**
   - [ ] Um middleware guarda o primeiro toque (UTM, gclid, fbclid, referrer, página de entrada) na sessão; com consentimento estatístico, também num cookie de 90 dias (RN-009).
@@ -96,7 +96,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** —
 
 ### US-008 — Formulário de lead
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#8](https://github.com/gabrielcunhalima/b2bsafe-site/issues/8)
 - **Como** visitante, **quero** deixar meus dados e o serviço de interesse, **para** ser contatado pela B2BSAFE.
 - **Critérios de aceite:**
   - [ ] Campos nome, WhatsApp, e-mail, serviço, mensagem (opcional) e aceite da política (desmarcado); validação no navegador e no servidor (RN-001, RN-002).
@@ -110,7 +110,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-03
 
 ### US-009 — Deduplicação de leads
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#9](https://github.com/gabrielcunhalima/b2bsafe-site/issues/9)
 - **Como** atendente, **quero** que contatos repetidos da mesma pessoa caiam no mesmo lead, **para** não atender duas vezes nem perder o histórico.
 - **Critérios de aceite:**
   - [ ] Mesmo WhatsApp normalizado ou mesmo e-mail com lead aberto há até 30 dias: grava uma interação no lead existente e marca "voltou a entrar em contato".
@@ -123,7 +123,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-16
 
 ### US-010 — Aviso de novo lead por e-mail e no painel
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#10](https://github.com/gabrielcunhalima/b2bsafe-site/issues/10)
 - **Como** equipe comercial, **quero** receber um e-mail e uma notificação no painel a cada lead novo, **para** responder rápido.
 - **Critérios de aceite:**
   - [ ] E-mail com os dados, a origem, o serviço e o link para a ficha; variante "voltou a entrar em contato".
@@ -137,7 +137,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** E-01
 
 ### US-011 — Botões de WhatsApp com registro de clique
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#11](https://github.com/gabrielcunhalima/b2bsafe-site/issues/11)
 - **Como** visitante, **quero** falar no WhatsApp com uma mensagem pronta, **para** não ter que explicar de onde vim.
 - **Critérios de aceite:**
   - [ ] Botão flutuante e chamadas para ação no formato `https://wa.me/55...?text=...`; número geral (11) 98420-5023, Maquininha (11) 92460-0991 (RN-021); números em configuração.
@@ -152,7 +152,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Consentimento e medição (area:analytics)
 
 ### US-012 — Banner e preferências de cookies
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#12](https://github.com/gabrielcunhalima/b2bsafe-site/issues/12)
 - **Como** visitante, **quero** escolher quais cookies aceito, **para** controlar meus dados.
 - **Critérios de aceite:**
   - [ ] "Aceitar todos", "Recusar" (com o mesmo destaque) e "Personalizar" (necessários e estatísticos).
@@ -165,7 +165,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-06
 
 ### US-013 — GA4 com Consent Mode v2 e eventos de conversão
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#13](https://github.com/gabrielcunhalima/b2bsafe-site/issues/13)
 - **Como** proprietário, **quero** medir as visitas e as conversões no Google Analytics, **para** comparar os canais.
 - **Critérios de aceite:**
   - [ ] Consent Mode v2 com padrão negado; sem consentimento, nenhum cookie `_ga`.
@@ -180,7 +180,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Assistente virtual (area:chatbot)
 
 ### US-014 — Ambiente do n8n, Qdrant e túnel em Docker
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#14](https://github.com/gabrielcunhalima/b2bsafe-site/issues/14)
 - **Como** responsável, **quero** subir o n8n, o Qdrant e o túnel com um comando, **para** desenvolver e demonstrar o assistente.
 - **Critérios de aceite:**
   - [ ] Serviços `n8n`, `qdrant` e `cloudflared` no `docker compose`, com volumes persistentes e `chatbot/base/` montado como `/documentos/b2bsafe`.
@@ -193,7 +193,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** —
 
 ### US-015 — Base de conhecimento e workflow de ingestão
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#15](https://github.com/gabrielcunhalima/b2bsafe-site/issues/15)
 - **Como** responsável, **quero** alimentar a base do assistente com o conteúdo do site, o FAQ e os materiais do C6, **para** que ele responda com informação correta.
 - **Critérios de aceite:**
   - [ ] Documentos em Markdown em `chatbot/base/` (site revisado, FAQ, materiais fornecidos), com origem e data em cada arquivo.
@@ -206,7 +206,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** —
 
 ### US-016 — Workflow de atendimento (RAG + Mistral)
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#16](https://github.com/gabrielcunhalima/b2bsafe-site/issues/16)
 - **Como** visitante, **quero** respostas corretas sobre os produtos, **para** tirar dúvidas na hora.
 - **Critérios de aceite:**
   - [ ] Webhook valida o segredo; busca top-k no Qdrant com limiar; prompt com as regras fixas primeiro (identidade de assistente de parceiro, RN-014, não pedir dados sensíveis), depois os trechos, o contexto e o histórico (últimas 6 trocas).
@@ -219,7 +219,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** —
 
 ### US-017 — Widget do assistente no site
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#17](https://github.com/gabrielcunhalima/b2bsafe-site/issues/17)
 - **Como** visitante, **quero** conversar com o assistente em qualquer página, **para** ser atendido logo no primeiro acesso.
 - **Critérios de aceite:**
   - [ ] Botão de chat em todas as páginas públicas; aviso de IA e de processamento pela Mistral, com o link para a política; a conversa só começa depois do "Concordo" (consentimento gravado).
@@ -234,7 +234,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-07
 
 ### US-018 — Proxy do chat no Laravel com fallback e mascaramento
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#18](https://github.com/gabrielcunhalima/b2bsafe-site/issues/18)
 - **Como** responsável, **quero** que o site intermedeie o chat, **para** proteger o n8n e nunca mostrar erro ao visitante.
 - **Critérios de aceite:**
   - [ ] `POST /chat/mensagens`: valida, limita (500 caracteres, 30 mensagens por sessão por hora, 50 por conversa) e mascara CPF, CNPJ, cartão e senha antes de enviar e de gravar (RN-013).
@@ -247,7 +247,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-07
 
 ### US-019 — Lead criado pela conversa
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#19](https://github.com/gabrielcunhalima/b2bsafe-site/issues/19)
 - **Como** atendente, **quero** que os dados informados no chat virem lead automaticamente, **para** dar sequência sem copiar nada.
 - **Critérios de aceite:**
   - [ ] Quando o n8n devolve `lead` com nome e WhatsApp válidos, cria ou atualiza o lead (canal "chatbot", origem, serviço, consentimento do chat) e dispara o e-mail.
@@ -260,7 +260,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-07
 
 ### US-020 — Transbordo para atendente no WhatsApp
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#20](https://github.com/gabrielcunhalima/b2bsafe-site/issues/20)
 - **Como** visitante, **quero** passar para uma pessoa quando o assistente não resolver, **para** não ficar sem resposta.
 - **Critérios de aceite:**
   - [ ] Com `handoff` (ou o pedido explícito do visitante), mostra "Falar com um atendente no WhatsApp" com uma mensagem pronta resumindo o assunto.
@@ -272,7 +272,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-07
 
 ### US-021 — Histórico das conversas
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#21](https://github.com/gabrielcunhalima/b2bsafe-site/issues/21)
 - **Como** atendente, **quero** ler a conversa que o lead teve com o assistente, **para** retomar o atendimento já sabendo o contexto.
 - **Critérios de aceite:**
   - [ ] Cada mensagem gravada (papel, conteúdo mascarado, data, `topico`, `sem_resposta`, `diagnostico`).
@@ -286,7 +286,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Área restrita (area:painel)
 
 ### US-022 — Login e recuperação de senha
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#22](https://github.com/gabrielcunhalima/b2bsafe-site/issues/22)
 - **Como** membro da equipe, **quero** entrar no painel com segurança, **para** acessar os leads.
 - **Critérios de aceite:**
   - [ ] Login por e-mail e senha no Filament (`/painel`), logout, recuperação de senha por e-mail (link de 24 h).
@@ -299,7 +299,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-11, T-19
 
 ### US-023 — Gestão de usuários
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#23](https://github.com/gabrielcunhalima/b2bsafe-site/issues/23)
 - **Como** administrador, **quero** convidar e gerir a equipe, **para** controlar quem acessa os leads.
 - **Critérios de aceite:**
   - [ ] Criar (com convite por e-mail para definir a senha), editar, desativar, reativar e mudar o perfil.
@@ -312,7 +312,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-17, E-02
 
 ### US-024 — Lista de leads com busca e filtros
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#24](https://github.com/gabrielcunhalima/b2bsafe-site/issues/24)
 - **Como** atendente, **quero** buscar e filtrar os leads, **para** organizar meu trabalho.
 - **Critérios de aceite:**
   - [ ] Busca por nome, e-mail e telefone; filtros de status, serviço, canal, origem e período; ordenação e paginação; filtros na URL.
@@ -324,7 +324,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-14
 
 ### US-025 — Ficha do lead
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#25](https://github.com/gabrielcunhalima/b2bsafe-site/issues/25)
 - **Como** atendente, **quero** ver tudo sobre o lead num lugar só, **para** fazer um bom primeiro contato.
 - **Critérios de aceite:**
   - [ ] Duas colunas (empilhadas no celular): à esquerda dados, origem, consentimentos e ações; à direita a linha do tempo única (status, interações, anotações e conversa do chat).
@@ -337,7 +337,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-16
 
 ### US-026 — Funil em kanban
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#26](https://github.com/gabrielcunhalima/b2bsafe-site/issues/26)
 - **Como** atendente, **quero** arrastar os leads entre as etapas, **para** acompanhar o funil visualmente.
 - **Critérios de aceite:**
   - [ ] Colunas Novo, Em contato, Proposta, Convertido e Perdido (Flowforge); arrastar muda o status e registra o histórico.
@@ -351,7 +351,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-15
 
 ### US-027 — Dashboard de indicadores
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#27](https://github.com/gabrielcunhalima/b2bsafe-site/issues/27)
 - **Como** proprietário, **quero** ver os números do comercial ao entrar, **para** saber como está o resultado.
 - **Critérios de aceite:**
   - [ ] Leads de hoje, da semana e do mês, com a variação contra o período anterior; taxa de conversão (RN-007); tempo médio até o primeiro contato (RN-005); leads por serviço e por canal; cliques no WhatsApp; últimos leads.
@@ -364,7 +364,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-12
 
 ### US-028 — Relatório de origem e estratégia
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#28](https://github.com/gabrielcunhalima/b2bsafe-site/issues/28)
 - **Como** proprietário, **quero** comparar leads e conversões por canal e campanha, **para** descobrir qual estratégia é mais assertiva.
 - **Critérios de aceite:**
   - [ ] Tabela e gráfico por canal, `utm_source`, `utm_campaign` e serviço, com leads, convertidos e taxa; cliques no WhatsApp por origem.
@@ -377,7 +377,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** T-13
 
 ### US-029 — Exportação CSV
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#29](https://github.com/gabrielcunhalima/b2bsafe-site/issues/29)
 - **Como** atendente, **quero** exportar os leads filtrados, **para** trabalhar numa planilha quando precisar.
 - **Critérios de aceite:**
   - [ ] CSV UTF-8 com BOM, separador `;`, que abre corretamente no Excel em português; respeita os filtros da lista.
@@ -391,7 +391,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: LGPD (area:lgpd)
 
 ### US-030 — Retenção e anonimização automática
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#30](https://github.com/gabrielcunhalima/b2bsafe-site/issues/30)
 - **Como** encarregado de dados, **quero** que os dados antigos sejam anonimizados sozinhos, **para** cumprir a retenção de 24 meses.
 - **Critérios de aceite:**
   - [ ] Tarefa diária: anonimiza os leads e apaga as conversas, mensagens, interações e anotações cuja última interação passou de 24 meses; mantém os agregados (RN-012).
@@ -404,7 +404,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Telas:** —
 
 ### US-031 — Direitos do titular e log de auditoria
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#31](https://github.com/gabrielcunhalima/b2bsafe-site/issues/31)
 - **Como** administrador, **quero** atender o pedido de um titular e consultar as ações sensíveis, **para** demonstrar conformidade.
 - **Critérios de aceite:**
   - [ ] Na ficha: "Exportar dados do titular" (JSON/CSV) e "Anonimizar agora" (com confirmação, sem volta); só o administrador vê essas ações.
@@ -418,7 +418,7 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 ## Épico: Operação (area:infra)
 
 ### US-032 — Backup diário do banco
-- **Issue:** (preenchido pela /configurar-repositorio)
+- **Issue:** [#32](https://github.com/gabrielcunhalima/b2bsafe-site/issues/32)
 - **Como** responsável, **quero** um backup diário fora da hospedagem, **para** cumprir o RPO de 24 h.
 - **Critérios de aceite:**
   - [ ] Tarefa agendada gera o dump compactado e envia para o armazenamento externo (definido na `/configurar-infra`); mantém 30 dias.
