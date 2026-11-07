@@ -22,14 +22,14 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 - [x] Requisitos/regras descobertos no design registrados
 
 ## Repositório — /configurar-repositorio
-- [ ] Arquivos base (.gitignore, README, CHANGELOG, CONTRIBUTING, SECURITY)
-- [ ] Templates de issue e PR, CODEOWNERS, dependabot
-- [ ] Repositório criado e primeiro push
-- [ ] Labels e milestones
-- [ ] GitHub Project
-- [ ] Backlog convertido em issues
-- [ ] Proteção da `main`, secret scanning, push protection
-- [ ] Environments `homologacao` e `producao`
+- [x] Arquivos base (.gitignore, README, CHANGELOG, CONTRIBUTING, SECURITY)
+- [x] Templates de issue e PR, CODEOWNERS, dependabot
+- [x] Repositório criado e primeiro push
+- [x] Labels e milestones
+- [ ] GitHub Project — aguardando `gh auth refresh -s project`
+- [x] Backlog convertido em issues (#1 a #32, milestone MVP)
+- [ ] Proteção da `main`, secret scanning, push protection — indisponíveis em repositório privado no plano Free (exigem GitHub Pro); merge só por squash e alertas do Dependabot ativos
+- [x] Environments `homologacao` e `producao` (produção só com tags `v*`; revisor obrigatório indisponível no plano Free)
 
 ## Scaffold — /scaffold
 - [ ] Projeto criado na stack definida

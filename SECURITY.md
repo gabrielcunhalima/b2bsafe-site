@@ -2,7 +2,7 @@
 
 ## Como relatar uma vulnerabilidade
 
-Não abra issue pública. Use o recurso **"Report a vulnerability"** (aba Security deste repositório) ou fale diretamente com o responsável pelo projeto, @gabrielcunhalima.
+Não abra issue. Fale diretamente com o responsável pelo projeto, @gabrielcunhalima (o relato privado do GitHub não está disponível neste repositório privado).
 
 Inclua: o que foi encontrado, como reproduzir, o impacto e, se possível, uma sugestão de correção. O retorno inicial acontece em até 5 dias úteis.
 
