@@ -41,4 +41,43 @@ Novo site da **B2BSAFE Floripa** (escritório parceiro oficial do C6 Empresas), 
 
 ## Comandos
 
-A definir na `/scaffold`.
+Os mesmos comandos rodam localmente e no CI. Neste Windows, o Composer está em `C:\Users\Alejandro\AppData\Local\Programs\Composer`: no PowerShell, use `composer`; no Git Bash, use `php /c/Users/Alejandro/AppData/Local/Programs/Composer/composer.phar`.
+
+| Comando | O que faz |
+| --- | --- |
+| `composer setup` | Prepara tudo do zero: dependências, `.env`, chave do n8n, Docker (MariaDB e Mailpit), migrations com seed, build dos assets e hooks do git |
+| `composer dev` | Servidor, Vite e fila para desenvolvimento |
+| `composer lint` / `composer format` | Confere / aplica a formatação (Pint) |
+| `composer analyse` | Análise estática (Larastan nível 6) |
+| `composer test` | Testes unitários e de feature (Pest, MariaDB na base `b2bsafe_testes`) |
+| `composer test:e2e` | Testes no navegador (Pest Browser + Playwright); exige `npm run build` e `npx playwright install chromium` |
+| `composer check` | lint + analyse + test (o que o CI exige) |
+| `docker compose up -d` | MariaDB (3314), Mailpit (8026), n8n (5679) e Qdrant (6335), só em 127.0.0.1 |
+| `docker compose --profile app up -d` | Também a aplicação em container (http://localhost:8014) |
+| `docker compose --profile tunel up -d` | Túnel trycloudflare do n8n para a demonstração |
+
+Usuários locais do seed: `admin@b2bsafe.test` e `atendente@b2bsafe.test` (senha `senha-local-123`, só para desenvolvimento). Painel em `/painel`, health check em `/saude`.
+
+## Estrutura
+
+```
+app/Enums            StatusLead, MotivoPerda, PerfilUsuario... (valores fixos com rótulo em português)
+app/Models           Usuario (tabela usuarios, coluna senha), Lead, Origem, Conversa... (docs/06)
+app/Actions          regras de negócio testáveis (criadas nas issues)
+app/Filament         recursos e páginas do painel; provider em app/Providers/Filament
+config/b2bsafe.php   serviços, números de WhatsApp, versões das políticas, chatbot, GA4
+resources/views      components/layouts/site, paginas/, errors/
+resources/css        app.css (tokens do design system) e filament/painel/theme.css
+chatbot/             base de conhecimento (.md) e workflows do n8n exportados sem credenciais
+docker/              Dockerfile da app, init do MariaDB, gerador da chave do n8n
+tests/               Unit (puro), Feature (HTTP + banco), Browser (E2E)
+```
+
+## Convenções de código
+
+- Regras de negócio em `app/Actions` (uma classe por caso de uso, ex.: `RegistrarLead`), nunca em controllers ou recursos do Filament. Cada RN tem teste que a cita (`it('... (RN-003)')`).
+- Status, perfis e motivos são enums em `app/Enums`, gravados como texto e com rótulo via `getLabel()`.
+- Models com atributos PHP (`#[Table]`, `#[Fillable]`), casts para os enums e `@property` quando o Larastan precisar do tipo.
+- Datas em UTC no banco; o painel exibe em America/Sao_Paulo (`FilamentTimezone`).
+- O hook do Claude Code (`.claude/settings.json`) formata com o Pint cada PHP editado; o Lefthook formata no commit e confere a mensagem (Conventional Commits).
+- Assets do Filament (`public/js|css|fonts/filament`) são gerados no `composer install` e não vão para o git.

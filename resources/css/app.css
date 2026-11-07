@@ -1,0 +1,59 @@
+/* Site público: tokens de docs/ux/design-system.md */
+@import 'tailwindcss';
+@import '@fontsource-variable/urbanist';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Urbanist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    /* Cores do logo: fundo branco e gelo, preto (2ª cor) e amarelo (3ª cor, só destaque) */
+    --color-fundo: #ffffff;
+    --color-gelo: #f4f5f7;
+    --color-preto: #060606;
+    --color-preto-hover: #262626;
+    --color-amarelo: #ffcc29;
+    --color-amarelo-hover: #f2b705;
+    --color-texto: #1a1a1a;
+    --color-texto-suave: #4b5563;
+    --color-texto-terciario: #5f6673;
+    --color-borda: #e2e4e8;
+    --color-sucesso: #15803d;
+    --color-erro: #b91c1c;
+    --color-aviso: #a16207;
+    --color-whatsapp: #075e54;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+    }
+
+    body {
+        @apply bg-fundo font-sans text-texto antialiased;
+    }
+
+    /* Foco sempre visível (WCAG 2.4.7); sobre fundo escuro o contorno fica amarelo */
+    :focus-visible {
+        @apply outline-3 outline-offset-2 outline-preto;
+    }
+
+    .fundo-escuro :focus-visible {
+        @apply outline-amarelo;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}

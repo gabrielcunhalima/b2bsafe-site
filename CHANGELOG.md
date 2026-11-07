@@ -11,3 +11,8 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Documentação da descoberta: visão, atores, 31 requisitos funcionais, 21 regras de negócio, 33 requisitos não funcionais, modelo de dados, stack, ADRs, MVP e backlog com 32 histórias.
 - UX: mapa de navegação, wireframes de 19 telas e 2 e-mails, design system (cores do logo, fonte Urbanist, regras de interface).
 - Estrutura do repositório: modelos de issue e PR, CODEOWNERS, Dependabot, guia de contribuição e política de segurança.
+- Base técnica: Laravel 13, painel Filament 5 em `/painel` (login, redefinição de senha, notificações), Flowforge e ícones Lucide.
+- Modelo de dados: migrations, models, enums, factories e seeders das 12 tabelas do domínio (docs/06-modelo-de-dados.md).
+- Ambiente local em Docker: MariaDB 11.8, Mailpit, n8n, Qdrant e túnel cloudflared; aplicação opcional em container.
+- Health check em `/saude` (aplicação, banco e fila), páginas de erro amigáveis, layout base com os tokens do design system e fonte Urbanist local, logs em JSON.
+- Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.

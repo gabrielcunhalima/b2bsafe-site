@@ -32,13 +32,13 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 - [x] Environments `homologacao` e `producao` (produção só com tags `v*`; revisor obrigatório indisponível no plano Free)
 
 ## Scaffold — /scaffold
-- [ ] Projeto criado na stack definida
-- [ ] Lint, formatação, análise estática e testes
-- [ ] Ambiente local Docker com o mesmo banco de produção
-- [ ] Comandos padronizados (setup, dev, lint, format, analyse, test, test:e2e, check)
-- [ ] Health check, layout base, logs estruturados
-- [ ] Modelos, migrations, factories e seeders
-- [ ] `.claude/settings.json` do projeto
+- [x] Projeto criado na stack definida
+- [x] Lint, formatação, análise estática e testes
+- [x] Ambiente local Docker com o mesmo banco de produção
+- [x] Comandos padronizados (setup, dev, lint, format, analyse, test, test:e2e, check)
+- [x] Health check, layout base, logs estruturados
+- [x] Modelos, migrations, factories e seeders
+- [x] `.claude/settings.json` do projeto
 - [ ] PR do scaffold aberto
 
 ## CI — /configurar-ci
