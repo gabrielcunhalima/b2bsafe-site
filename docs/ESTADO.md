@@ -1,6 +1,6 @@
 # Estado do projeto
 
-- **Fase atual:** Construção
+- **Fase atual:** Construção (Entrega 1 implementada, falta o deploy)
 - **Última skill executada:** /implementar 1 em 2026-11-09
 - **Versão em produção:** nenhuma
 - **Milestone atual:** Entrega 1 — Landing page (até 2026-12-06); Entrega 2 — Assistente e painel depois
@@ -26,8 +26,10 @@
 - Antes da produção: hospedar o n8n e o Qdrant fora do computador do responsável (ADR-005).
 
 ## Próximos passos
-1. `/revisar` do PR da Home (#2) e merge.
-2. `/implementar 8` — formulário de lead no Fale conosco (com #7 origem e #9 deduplicação), depois #10 (e-mail), #11 (WhatsApp), #3 (Maquininha), #4/#5 (políticas), #12/#13 (cookies e GA4), #39 (SEO) e #40 (deploy).
+1. `/configurar-infra` e `/configurar-cd` — deploy da landing page na Hostinger (#40): exige o acesso SSH/Git da conta, o subdomínio `b2bsafe.gabrielcunhalima.dev`, o banco MariaDB do servidor e a senha de app do Gmail.
+2. Trocar os logos das redes pelos SVGs oficiais (#36) quando os arquivos dos kits de marca forem fornecidos.
+3. `/revisar` geral da Entrega 1 em homologação e roteiro de aceite com a B2BSAFE (`/testar`).
+4. Entrega 2: assistente virtual (#14–#21) e painel (#22–#32, #38).
 
 ## Auditorias (última execução)
 | Tipo | Data | Resultado |
@@ -52,3 +54,4 @@
 | 2026-11-09 | /implementar 4, 5 | `/privacidade` (texto novo, versão e data em configuração) e `/policy` do Connect com as seções corrigidas e 301 de `/policy.`. |
 | 2026-11-09 | /implementar 12, 13 | Banner de cookies (T-06) com registro versionado e GA4 em Consent Mode v2 básico (sem requisição ao Google antes do aceite). Eventos `chat_start` e `chat_lead` ficam para o assistente (Entrega 2). |
 | 2026-11-09 | /implementar 39 | SEO técnico completo. Lighthouse mobile com APP_ENV=production: SEO/acessibilidade/boas práticas 100 e desempenho 95–98 nas 4 páginas; compressão e cache ficam para o servidor (#40). |
+| 2026-11-09 | (Entrega 1) | Landing page completa localmente: Home, Maquininha, Privacidade, /policy, 404, formulário com deduplicação e e-mail, WhatsApp com registro de clique, cookies, GA4 e SEO. Issues #1–#13 e #39 fechadas; abertas #36 (logos oficiais) e #40 (deploy). |

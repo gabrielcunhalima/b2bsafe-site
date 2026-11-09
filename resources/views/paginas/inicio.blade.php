@@ -41,7 +41,7 @@
                 <span class="flex size-14 items-center justify-center rounded-full bg-amarelo text-preto">
                     <i data-lucide="lock" class="size-7" aria-hidden="true"></i>
                 </span>
-                <p class="mt-6 text-2xl leading-snug font-bold">Escritório parceiro oficial do C6 Empresas</p>
+                <p class="mt-6 text-2xl leading-snug font-bold">Escritório parceiro C6 Empresas</p>
                 <ul class="mt-6 space-y-4 text-white/80">
                     <li class="flex gap-3"><i data-lucide="user-round-check" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Atendimento próximo para pequenas e médias empresas</li>
                     <li class="flex gap-3"><i data-lucide="layers" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Conta PJ, crédito, maquininha e investimentos num só lugar</li>

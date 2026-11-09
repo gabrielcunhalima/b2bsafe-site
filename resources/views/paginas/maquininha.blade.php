@@ -28,7 +28,7 @@
                 </h1>
                 <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
                     Adesão zero, parcelamento em até 12x e recebimento em até 2 dias úteis. Custo zero, segura e digital,
-                    com o atendimento de um escritório parceiro oficial do C6 Empresas.
+                    com o atendimento de um escritório parceiro C6 Empresas.
                 </p>
                 <div class="mt-10 flex flex-col gap-3 sm:flex-row">
                     <a href="{{ $linkMaquininha }}" target="_blank" rel="noopener noreferrer" data-whatsapp="maquininha-topo" data-servico="maquininha"
