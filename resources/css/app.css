@@ -35,6 +35,11 @@
         @apply bg-fundo font-sans text-texto antialiased;
     }
 
+    /* Elementos do Alpine escondidos até ele iniciar (menu móvel) */
+    [x-cloak] {
+        display: none !important;
+    }
+
     /* Foco sempre visível (WCAG 2.4.7); sobre fundo escuro o contorno fica amarelo */
     :focus-visible {
         @apply outline-3 outline-offset-2 outline-preto;
