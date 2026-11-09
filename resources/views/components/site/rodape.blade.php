@@ -27,7 +27,7 @@
             <p class="font-semibold text-white">Contato</p>
             <ul class="mt-2 space-y-2">
                 <li>
-                    <a href="https://wa.me/{{ $whatsapp }}?text={{ rawurlencode('Olá! Vim pelo site da B2BSAFE.') }}"
+                    <a href="{{ \App\Support\WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="rodape"
                        class="inline-flex items-center gap-2 rounded hover:text-white hover:underline">
                         <x-icone-marca nome="whatsapp" class="size-4 text-amarelo" /> WhatsApp {{ $whatsappExibicao }}
                     </a>

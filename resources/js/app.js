@@ -1,10 +1,39 @@
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
-import { createIcons, ArrowRight, ChevronRight, ExternalLink, Lock, Mail, MapPin, Menu, MessageCircle, X } from 'lucide';
+import {
+    createIcons,
+    ArrowLeftRight,
+    ArrowRight,
+    Award,
+    Check,
+    ChevronRight,
+    CircleCheck,
+    CreditCard,
+    ExternalLink,
+    HandCoins,
+    Handshake,
+    KeyRound,
+    Landmark,
+    Layers,
+    Lock,
+    Mail,
+    MapPin,
+    Menu,
+    MessageCircle,
+    MessageCircleQuestion,
+    ShieldCheck,
+    TrendingUp,
+    UserRoundCheck,
+    UsersRound,
+    Wifi,
+    X,
+} from 'lucide';
 
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
-createIcons({ icons: { ArrowRight, ChevronRight, ExternalLink, Lock, Mail, MapPin, Menu, MessageCircle, X } });
+createIcons({
+    icons: { ArrowLeftRight, ArrowRight, Award, Check, ChevronRight, CircleCheck, CreditCard, ExternalLink, HandCoins, Handshake, KeyRound, Landmark, Layers, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, ShieldCheck, TrendingUp, UserRoundCheck, UsersRound, Wifi, X },
+});
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
 Alpine.data('menuSite', () => ({

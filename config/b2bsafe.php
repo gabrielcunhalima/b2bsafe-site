@@ -21,6 +21,22 @@ return [
         'outro' => 'Outro',
     ],
 
+    // Cards de serviços da Home (RF-001): chave de "servicos", texto e ícone Lucide.
+    'vitrine' => [
+        'credito' => ['descricao' => 'Menores taxas, sem burocracia e com bons prazos de pagamento.', 'icone' => 'hand-coins'],
+        'conta_corrente' => ['descricao' => 'Conta grátis, Pix e saques ilimitados e até 100 TEDs gratuitos.', 'icone' => 'landmark'],
+        'cambio' => ['descricao' => 'Boas cotações para enviar e receber recursos do exterior.', 'icone' => 'arrow-left-right'],
+        'investimentos' => ['descricao' => 'CDB com liquidez diária e prazos de 6 meses a 3 anos.', 'icone' => 'trending-up'],
+        'cartao' => ['descricao' => 'Sem anuidade, com as funções de crédito e débito.', 'icone' => 'credit-card'],
+        'consorcio' => ['descricao' => 'As melhores ofertas adaptadas à necessidade da sua empresa.', 'icone' => 'key-round'],
+        'seguros_previdencia' => ['descricao' => 'Proteção e planejamento adaptados ao seu bolso e à sua vida.', 'icone' => 'shield-check'],
+    ],
+
+    // Escritórios parceiros listados no credenciamento (RF-001).
+    'escritorios_parceiros' => [
+        ['nome' => 'Rosiane Mazzorana Ltda', 'cnpj' => '54.192.797/0001-03'],
+    ],
+
     // Números de WhatsApp por contexto, só dígitos com DDI (RN-021).
     'whatsapp' => [
         'geral' => env('WHATSAPP_GERAL', '5511984205023'),
