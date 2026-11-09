@@ -4,6 +4,7 @@ use App\Http\Controllers\CliqueWhatsappController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PreferenciasCookiesController;
 use App\Http\Controllers\SaudeController;
+use App\Http\Controllers\SeoController;
 use App\Http\Middleware\RegistrarPrimeiroToque;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -19,6 +20,10 @@ Route::middleware(RegistrarPrimeiroToque::class)->group(function () {
     Route::view('/privacidade', 'paginas.privacidade')->name('privacidade');
     Route::view('/policy', 'paginas.policy')->name('policy');
 });
+
+// SEO técnico (RF-011): robots.txt por ambiente e sitemap das páginas públicas
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 
 // Link quebrado do site antigo: "/policy." (com ponto) vai para /policy (RF-004)
 Route::permanentRedirect('/policy.', '/policy');
