@@ -1,0 +1,12 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Nível 6: exige tipos em parâmetros e retornos. Subir aos poucos conforme o código amadurece.
+    level: 6
+    paths:
+        - app
+        - config
+        - database
+        - routes
+    tmpDir: storage/framework/cache/phpstan

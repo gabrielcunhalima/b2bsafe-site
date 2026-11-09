@@ -1,0 +1,10 @@
+/* Tema do painel: Filament padrão com a fonte Urbanist local e o fundo gelo (docs/ux/design-system.md) */
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '@fontsource-variable/urbanist';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+.fi-body {
+    background-color: #f4f5f7;
+}

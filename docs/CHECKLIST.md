@@ -32,22 +32,22 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 - [x] Environments `homologacao` e `producao` (produção só com tags `v*`; revisor obrigatório indisponível no plano Free)
 
 ## Scaffold — /scaffold
-- [ ] Projeto criado na stack definida
-- [ ] Lint, formatação, análise estática e testes
-- [ ] Ambiente local Docker com o mesmo banco de produção
-- [ ] Comandos padronizados (setup, dev, lint, format, analyse, test, test:e2e, check)
-- [ ] Health check, layout base, logs estruturados
-- [ ] Modelos, migrations, factories e seeders
-- [ ] `.claude/settings.json` do projeto
-- [ ] PR do scaffold aberto
+- [x] Projeto criado na stack definida
+- [x] Lint, formatação, análise estática e testes
+- [x] Ambiente local Docker com o mesmo banco de produção
+- [x] Comandos padronizados (setup, dev, lint, format, analyse, test, test:e2e, check)
+- [x] Health check, layout base, logs estruturados
+- [x] Modelos, migrations, factories e seeders
+- [x] `.claude/settings.json` do projeto
+- [x] PR do scaffold aberto (#34)
 
 ## CI — /configurar-ci
-- [ ] `ci.yml` (lint, análise, testes, build, cobertura, auditoria de dependências)
-- [ ] `e2e.yml`
-- [ ] `codeql.yml`
-- [ ] Validação do título do PR
-- [ ] Checks obrigatórios na `main`
-- [ ] Badge no README
+- [x] `ci.yml` (lint, análise, testes, build, cobertura, auditoria de dependências)
+- [x] `e2e.yml`
+- [x] `codeql.yml`
+- [x] Validação do título do PR
+- [x] Checks obrigatórios na `main` (9 checks; o do título do PR entra após o merge do #34)
+- [x] Badge no README
 
 ## Construção — /implementar e /revisar
 - [ ] Todas as issues do MVP implementadas

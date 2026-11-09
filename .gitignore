@@ -37,3 +37,24 @@ npm-debug.log*
 
 # Claude Code: configurações pessoais
 .claude/settings.local.json
+
+# Do skeleton do Laravel
+.env.backup
+.env.production
+.phpactor.json
+/.codex
+/.cursor/
+/.nova
+/.zed
+/auth.json
+/public/fonts-manifest.dev.json
+_ide_helper.php
+Homestead.json
+Homestead.yaml
+
+# Assets do Filament: gerados no `composer install` (filament:upgrade)
+/public/js/filament/
+/public/css/filament/
+/public/fonts/filament/
+/public/js/relaticle/
+/public/css/relaticle/

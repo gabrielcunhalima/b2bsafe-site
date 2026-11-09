@@ -1,0 +1,157 @@
+# Integração contínua: valida todo PR e todo push na main.
+# Os jobs chamam os mesmos comandos do projeto (composer lint/analyse/test), para local e CI não divergirem.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PHP_VERSION: "8.5"
+  NODE_VERSION: "24"
+
+jobs:
+  lint:
+    name: Formatação (Pint)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          coverage: none
+          tools: composer:v2
+      - uses: actions/cache@v6
+        with:
+          path: vendor
+          key: vendor-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - run: composer lint
+
+  analise:
+    name: Análise estática (Larastan)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          coverage: none
+          tools: composer:v2
+      - uses: actions/cache@v6
+        with:
+          path: vendor
+          key: vendor-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - run: composer analyse
+
+  testes:
+    name: Testes (Pest + MariaDB)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      # Mesmo banco da produção (Hostinger)
+      mariadb:
+        image: mariadb:11.8.9
+        env:
+          MARIADB_ROOT_PASSWORD: raiz-ci
+          MARIADB_DATABASE: b2bsafe_testes
+          MARIADB_USER: b2bsafe
+          MARIADB_PASSWORD: b2bsafe-ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_USERNAME: b2bsafe
+      DB_PASSWORD: b2bsafe-ci
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          coverage: pcov
+          tools: composer:v2
+      - uses: actions/cache@v6
+        with:
+          path: vendor
+          key: vendor-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Prepara o .env
+        run: cp .env.example .env && php artisan key:generate --ansi
+      - name: Testes com cobertura (mínimo 70%)
+        run: composer test:cobertura -- --min=70 --coverage-clover=storage/cobertura.xml
+      - name: Resumo da cobertura
+        if: always()
+        run: |
+          if [ -f storage/cobertura.xml ]; then
+            php -r '$x = simplexml_load_file("storage/cobertura.xml")->project->metrics; printf("### Cobertura: %.1f%% das linhas (%d de %d)\n", 100 * $x["coveredstatements"] / max(1, $x["statements"]), $x["coveredstatements"], $x["statements"]);' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  frontend:
+    name: Build do frontend (Vite)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      # O tema do painel importa o CSS do Filament de vendor/
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          coverage: none
+          tools: composer:v2
+      - uses: actions/cache@v6
+        with:
+          path: vendor
+          key: vendor-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+  auditoria:
+    name: Auditoria de dependências
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: composer audit
+        run: composer audit --locked --no-interaction
+      - name: npm audit (alta e crítica)
+        run: npm audit --audit-level=high
+
+  segredos:
+    name: Varredura de segredos (Gitleaks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

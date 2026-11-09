@@ -1,0 +1,13 @@
+# Hooks de git leves: só os arquivos alterados. Instalado pelo `composer setup` (npx lefthook install).
+pre-commit:
+  parallel: true
+  jobs:
+    - name: formata PHP (Pint)
+      glob: "*.php"
+      run: php vendor/bin/pint {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  jobs:
+    - name: Conventional Commits
+      run: sh scripts/verificar-mensagem-commit.sh {1}

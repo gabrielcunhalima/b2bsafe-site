@@ -1,0 +1,9 @@
+{
+    "preset": "laravel",
+    "exclude": [
+        "docs",
+        "conteudo",
+        "chatbot",
+        "lang"
+    ]
+}

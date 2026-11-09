@@ -1,0 +1,88 @@
+# Ambiente local da B2BSAFE.
+#   docker compose up -d                       → banco, e-mail, n8n e Qdrant
+#   docker compose --profile app up -d         → também a aplicação em container (opcional; dá para rodar o PHP direto no computador)
+#   docker compose --profile tunel up -d       → também o túnel trycloudflare do n8n (demonstração)
+# Portas só em 127.0.0.1 e configuráveis no .env, para não conflitar com outros projetos.
+
+name: b2bsafe
+
+services:
+  mariadb:
+    image: mariadb:11.8.9
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-raiz-local}
+      MARIADB_DATABASE: ${DB_DATABASE:-b2bsafe}
+      MARIADB_USER: ${DB_USERNAME:-b2bsafe}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-b2bsafe-local}
+      TZ: UTC
+    ports:
+      - "127.0.0.1:${PORTA_BANCO:-3314}:3306"
+    volumes:
+      - ./docker/dados/mariadb:/var/lib/mysql
+      - ./docker/mariadb/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.33.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORTA_MAILPIT_WEB:-8026}:8025"
+      - "127.0.0.1:${PORTA_MAILPIT_SMTP:-1026}:1025"
+
+  n8n:
+    image: n8nio/n8n:2.46.6
+    restart: unless-stopped
+    environment:
+      GENERIC_TIMEZONE: America/Sao_Paulo
+      TZ: America/Sao_Paulo
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Defina N8N_ENCRYPTION_KEY no .env}
+      N8N_SECURE_COOKIE: "false"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_PERSONALIZATION_ENABLED: "false"
+      WEBHOOK_URL: ${N8N_WEBHOOK_URL:-http://localhost:5679/}
+    ports:
+      - "127.0.0.1:${PORTA_N8N:-5679}:5678"
+    volumes:
+      - ./docker/dados/n8n:/home/node/.n8n
+      - ./chatbot/base:/documentos/b2bsafe:ro
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    restart: unless-stopped
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:-}
+    ports:
+      - "127.0.0.1:${PORTA_QDRANT:-6335}:6333"
+    volumes:
+      - ./docker/dados/qdrant:/qdrant/storage
+
+  app:
+    profiles: ["app"]
+    build: ./docker/app
+    environment:
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+    ports:
+      - "127.0.0.1:${PORTA_APP:-8014}:8000"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  cloudflared:
+    profiles: ["tunel"]
+    image: cloudflare/cloudflared:2026.10.7
+    restart: unless-stopped
+    command: tunnel --no-autoupdate --url http://n8n:5678
+    depends_on:
+      - n8n
