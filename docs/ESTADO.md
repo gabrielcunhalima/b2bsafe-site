@@ -47,3 +47,4 @@
 | 2026-11-09 | (planejamento) | MVP dividido em Entrega 1 (landing page: #1–#13, #36, SEO #39, deploy #40) e Entrega 2 (assistente e painel: #14–#32, sino #38). #10 ficou só com o e-mail. |
 | 2026-11-09 | /implementar 2 | Home institucional com as 8 seções do T-01; 13 testes novos (feature e navegador). Lighthouse mobile: desempenho 97, acessibilidade 100, boas práticas 100, SEO 63 só pelo `noindex` proposital da demonstração. |
 | 2026-11-09 | /implementar 7, 8, 9, 10, 11 | Captação: primeiro toque e classificação do canal, formulário de lead com deduplicação, e-mail pela fila (conferido no Mailpit) e registro de cliques no WhatsApp com botão flutuante. 47 testes novos. |
+| 2026-11-09 | /implementar 3, 6 | Página Maquininha (taxas em configuração, formulário com o serviço já escolhido) e 404 com links úteis. |

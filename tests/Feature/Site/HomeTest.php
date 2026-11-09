@@ -47,10 +47,10 @@ it('usa o WhatsApp da maquininha na seção da C6 Pay (RN-021)', function () {
         ->assertSee('(11) 92460-0991');
 });
 
-it('não leva à página da maquininha enquanto ela não existir (RF-002)', function () {
+it('leva da seção Maquininha à página de taxas e condições (RF-001)', function () {
     $this->get(route('inicio'))
-        ->assertDontSee('Ver taxas e condições')
-        ->assertDontSee('href="'.url('/maquininha').'"', escape: false);
+        ->assertSee('Ver taxas e condições')
+        ->assertSee('href="'.route('maquininha').'"', escape: false);
 });
 
 it('mostra o selo do Conexão Awards na seção Sobre', function () {

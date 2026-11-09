@@ -32,6 +32,18 @@ return [
         'seguros_previdencia' => ['descricao' => 'Proteção e planejamento adaptados ao seu bolso e à sua vida.', 'icone' => 'shield-check'],
     ],
 
+    // Página Maquininha (RF-002): taxas de referência da C6 Pay. Valores do site oficial do C6,
+    // consultados em 07/11/2026; a confirmar com a B2BSAFE (pendência no docs/ESTADO.md).
+    'maquininha' => [
+        'taxas_referencia_em' => '2026-11-07',
+        'taxas' => [
+            ['modalidade' => 'Débito', 'taxa' => '1,39%', 'recebimento' => '1 dia útil'],
+            ['modalidade' => 'Crédito à vista', 'taxa' => '3,49%', 'recebimento' => '1 dia útil'],
+            ['modalidade' => 'Crédito parcelado (2x a 12x)', 'taxa' => '2,79%', 'recebimento' => 'Conforme o plano'],
+        ],
+        'bandeiras' => ['Visa', 'Mastercard', 'Elo', 'Hipercard', 'American Express'],
+    ],
+
     // Escritórios parceiros listados no credenciamento (RF-001).
     'escritorios_parceiros' => [
         ['nome' => 'Rosiane Mazzorana Ltda', 'cnpj' => '54.192.797/0001-03'],

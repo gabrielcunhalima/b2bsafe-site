@@ -26,4 +26,6 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
   - deduplicação de 30 dias pelo WhatsApp ou e-mail (RN-003);
   - e-mail de novo lead e de "voltou a entrar em contato" pela fila;
   - registro dos cliques no WhatsApp por sendBeacon e botão flutuante (RN-010).
+- Página Maquininha C6 Pay (#3): vantagens, tabela de taxas em configuração com data de referência e aviso do C6, condições, bandeiras e o formulário com o serviço Maquininha; todo o conteúdo usa o WhatsApp da maquininha (RN-021).
+- Página 404 amigável (#6) com links para a Home, a Maquininha, o formulário e o WhatsApp.
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.
