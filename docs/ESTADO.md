@@ -15,6 +15,7 @@
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
 - Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. A imagem da C6 Pay fornecida pelo responsável está na seção Maquininha; falta só confirmar com a B2BSAFE a permissão de uso da imagem do C6. A foto do hero segue como composição com ícones até haver foto licenciada.
+- Revisão jurídica da Política de Privacidade do site (`/privacidade`, texto novo) pela B2BSAFE antes da produção.
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).
 - Fornecer os materiais do C6/B2BSAFE para a base do chatbot e confirmar se podem ser usados.
@@ -48,3 +49,4 @@
 | 2026-11-09 | /implementar 2 | Home institucional com as 8 seções do T-01; 13 testes novos (feature e navegador). Lighthouse mobile: desempenho 97, acessibilidade 100, boas práticas 100, SEO 63 só pelo `noindex` proposital da demonstração. |
 | 2026-11-09 | /implementar 7, 8, 9, 10, 11 | Captação: primeiro toque e classificação do canal, formulário de lead com deduplicação, e-mail pela fila (conferido no Mailpit) e registro de cliques no WhatsApp com botão flutuante. 47 testes novos. |
 | 2026-11-09 | /implementar 3, 6 | Página Maquininha (taxas em configuração, formulário com o serviço já escolhido) e 404 com links úteis. |
+| 2026-11-09 | /implementar 4, 5 | `/privacidade` (texto novo, versão e data em configuração) e `/policy` do Connect com as seções corrigidas e 301 de `/policy.`. |

@@ -15,7 +15,12 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 Route::middleware(RegistrarPrimeiroToque::class)->group(function () {
     Route::view('/', 'paginas.inicio')->name('inicio');
     Route::view('/maquininha', 'paginas.maquininha')->name('maquininha');
+    Route::view('/privacidade', 'paginas.privacidade')->name('privacidade');
+    Route::view('/policy', 'paginas.policy')->name('policy');
 });
+
+// Link quebrado do site antigo: "/policy." (com ponto) vai para /policy (RF-004)
+Route::permanentRedirect('/policy.', '/policy');
 
 // Formulário de lead (RF-006); o limite de 5 envios por hora fica no controller (RN-016)
 Route::post('/contato', [LeadController::class, 'store'])->name('leads.store');

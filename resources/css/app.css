@@ -35,6 +35,32 @@
         @apply bg-fundo font-sans text-texto antialiased;
     }
 
+    /* Texto das páginas legais (políticas e termos) */
+    .texto-legal {
+        @apply space-y-10 text-lg leading-relaxed text-texto;
+    }
+
+    .texto-legal h2 {
+        @apply text-2xl font-extrabold text-preto;
+    }
+
+    .texto-legal h3 {
+        @apply mt-5 font-bold text-preto;
+    }
+
+    .texto-legal p,
+    .texto-legal ul {
+        @apply mt-4;
+    }
+
+    .texto-legal ul {
+        @apply list-disc space-y-2 pl-6;
+    }
+
+    .texto-legal a {
+        @apply rounded font-semibold text-preto underline;
+    }
+
     /* Elementos do Alpine escondidos até ele iniciar (menu móvel) */
     [x-cloak] {
         display: none !important;
