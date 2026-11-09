@@ -34,7 +34,7 @@ it('mostra no rodapé o contato e só as redes sociais atuais, sem Connect Partn
         ->assertSee('https://wa.me/5511984205023', escape: false)
         ->assertSee('(11) 98420-5023')
         ->assertSee('https://www.linkedin.com/company/b2bsafe-consulting/', escape: false)
-        ->assertSee('https://www.instagram.com/b2b_bancos/', escape: false)
+        ->assertSee('https://www.instagram.com/b2bsafefloripa/', escape: false)
         ->assertSee('https://www.facebook.com/b2bsafe/', escape: false)
         ->assertDontSee('Connect Partners')
         ->assertDontSee('connect-partners', escape: false);

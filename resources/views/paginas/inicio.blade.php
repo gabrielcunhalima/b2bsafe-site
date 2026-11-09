@@ -37,17 +37,10 @@
                 </p>
             </div>
 
-            <div class="fundo-escuro rounded-2xl bg-preto p-8 text-white shadow-xl md:p-10">
-                <span class="flex size-14 items-center justify-center rounded-full bg-amarelo text-preto">
-                    <i data-lucide="lock" class="size-7" aria-hidden="true"></i>
-                </span>
-                <p class="mt-6 text-2xl leading-snug font-bold">Escritório parceiro C6 Empresas</p>
-                <ul class="mt-6 space-y-4 text-white/80">
-                    <li class="flex gap-3"><i data-lucide="user-round-check" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Atendimento próximo para pequenas e médias empresas</li>
-                    <li class="flex gap-3"><i data-lucide="layers" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Conta PJ, crédito, maquininha e investimentos num só lugar</li>
-                    <li class="flex gap-3"><i data-lucide="award" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Escritório destaque 2025 no Conexão Awards</li>
-                </ul>
-            </div>
+            {{-- Arte da conta PJ do C6 (fornecida pelo responsável; original em docs/marca/) --}}
+            <img src="{{ asset('img/conta-pj-c6.webp') }}" width="900" height="901" fetchpriority="high"
+                 alt="Abra sua conta PJ no C6 Bank em poucos toques e aproveite: conta completa e sem tarifa, 100 boletos de cobrança grátis e Pix ilimitado todo mês, acompanhamento e gestão da conta pelo app ou web banking. Parceiros C6 Empresas."
+                 class="mx-auto w-full max-w-md rounded-2xl shadow-xl lg:max-w-none">
         </div>
     </section>
 

@@ -77,7 +77,7 @@ return [
     // Redes sociais atuais da B2BSAFE (sem os perfis antigos "Connect Partners").
     'redes_sociais' => [
         'linkedin' => ['rotulo' => 'LinkedIn', 'url' => 'https://www.linkedin.com/company/b2bsafe-consulting/'],
-        'instagram' => ['rotulo' => 'Instagram', 'url' => 'https://www.instagram.com/b2b_bancos/'],
+        'instagram' => ['rotulo' => 'Instagram', 'url' => 'https://www.instagram.com/b2bsafefloripa/'],
         'facebook' => ['rotulo' => 'Facebook', 'url' => 'https://www.facebook.com/b2bsafe/'],
     ],
 

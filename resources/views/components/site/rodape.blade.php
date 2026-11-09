@@ -8,7 +8,7 @@
 <footer class="fundo-escuro bg-preto text-sm text-white/75">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-            <img src="{{ asset('img/b2bsafe-logo-branco.webp') }}" alt="B2BSAFE" width="191" height="41" loading="lazy" class="h-8 w-auto">
+            <img src="{{ asset('img/b2bsafe-c6-empresas.webp') }}" alt="B2BSAFE, parceiro C6 Empresas" width="556" height="210" loading="lazy" class="h-16 w-auto">
             <p class="mt-3 leading-relaxed">Escritório parceiro  C6 Empresas. B2BSAFE, Be Safe!</p>
         </div>
 

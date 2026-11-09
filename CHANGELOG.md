@@ -32,4 +32,5 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Banner e preferências de cookies (#12): faixa no rodapé com "Recusar" e "Aceitar todos" de mesmo peso, diálogo "Personalizar", registro da escolha com versão e categorias (RN-011), cookie de 12 meses e reabertura pelo rodapé.
 - GA4 com Consent Mode v2 no modo básico (#13): o script do Google só carrega depois do aceite estatístico; eventos `generate_lead` e `click_whatsapp`; desligado nos ambientes local e de teste.
 - SEO técnico (#39): título e descrição por página, URL canônica, Open Graph e Twitter Card com imagem de 1200 × 630, dados estruturados FinancialService com os dois endereços, `sitemap.xml`, `robots.txt` por ambiente, `noindex` no painel e preload da fonte. Lighthouse mobile (produção simulada): SEO, acessibilidade e boas práticas 100 nas quatro páginas.
+- Arte "Abra sua conta PJ no C6 Bank" no topo da Home, logo B2BSAFE com C6 Empresas no rodapé e Instagram atualizado para @b2bsafefloripa.
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.
