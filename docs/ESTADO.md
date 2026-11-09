@@ -1,16 +1,17 @@
 # Estado do projeto
 
 - **Fase atual:** Construção
-- **Última skill executada:** /configurar-ci em 2026-11-09
+- **Última skill executada:** /implementar 1 em 2026-11-09
 - **Versão em produção:** nenhuma
 - **Milestone atual:** MVP (demonstração até 2026-12-06)
 - **Incidentes abertos:** nenhum
 
 ## Pendências
-- Fazer o merge do PR #34 (scaffold + CI, todos os checks verdes) e, depois, incluir o check "Título no padrão Conventional Commits" como obrigatório no ruleset.
+- Incluir o check "Título no padrão Conventional Commits" como obrigatório no ruleset da `main`.
+- Fornecer o logo da B2BSAFE em SVG (o cabeçalho e o rodapé usam o nome em texto até lá).
 - Rodar `gh auth refresh -s project` para eu criar o GitHub Project (quadro Backlog → Concluído) e adicionar as 32 issues.
 - Repositório público temporariamente (decisão do responsável): ruleset da `main`, secret scanning, push protection e revisor em `producao` ativos. Ao voltar a privado, esses recursos param no plano Free.
-- Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9) e as traduções pt_BR das mensagens de validação do Laravel (pacote de idioma) na primeira issue com formulário.
+- Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).
@@ -22,8 +23,8 @@
 - Antes da produção: hospedar o n8n e o Qdrant fora do computador do responsável (ADR-005).
 
 ## Próximos passos
-1. Merge do PR #34 (squash).
-2. `/implementar 1` — layout base do site (cabeçalho, rodapé, navegação).
+1. `/revisar` do PR do layout base (#1) e merge.
+2. `/implementar 2` — Home institucional (seções que as âncoras do menu já apontam).
 
 ## Auditorias (última execução)
 | Tipo | Data | Resultado |
@@ -39,3 +40,4 @@
 | 2026-11-07 | (repositório) | Repositório tornado público; ruleset da `main`, secret scanning, push protection, relato privado e revisor em `producao` aplicados. |
 | 2026-11-07 | /scaffold | Laravel 13.40 + Filament 5.11 + Flowforge, 12 models/migrations do domínio, enums, Docker (MariaDB 11.8.9, Mailpit, n8n 2.46.6, Qdrant 1.20, cloudflared), Pint, Larastan 6, Pest 5 (15 testes + 2 E2E), Lefthook, hook do Claude Code. Setup do zero e check verdes. |
 | 2026-11-09 | /configurar-ci | Workflows CI (Pint, Larastan, Pest no MariaDB com cobertura mínima 70% — atual 98,2%, build, audit, Gitleaks), E2E, CodeQL e título do PR; 9 checks obrigatórios na `main`; docs/infra.md e selos no README. |
+| 2026-11-09 | /implementar 1 | Layout base: cabeçalho com âncoras e item ativo, menu móvel acessível, rodapé com dados legais, redes e aviso de parceiro C6 (RN-015). 7 testes de feature e 11 no navegador. |

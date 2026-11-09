@@ -27,6 +27,43 @@ return [
         'maquininha' => env('WHATSAPP_MAQUININHA', '5511924600991'),
     ],
 
+    // Dados institucionais do rodapé e do credenciamento (RF-001, RN-015).
+    'empresas' => [
+        [
+            'nome' => 'B2BSAFE Floripa Ltda',
+            'cnpj' => '58.358.780/0001-26',
+            'endereco' => 'Av. Marechal Castelo Branco, 65',
+            'cidade' => 'São José (SC) · 88101-020',
+        ],
+        [
+            'nome' => 'B2BSafe Consulting Partners Ltda',
+            'cnpj' => '41.708.313/0001-86',
+            'endereco' => 'Rua Peruíbe, 397',
+            'cidade' => 'Vinhedo (SP) · 13287-140',
+        ],
+    ],
+
+    // E-mail público de contato; o domínio definitivo entra só por configuração.
+    'email_contato' => env('EMAIL_CONTATO', 'contato@b2bsafe.com.br'),
+
+    // Redes sociais atuais da B2BSAFE (sem os perfis antigos "Connect Partners").
+    'redes_sociais' => [
+        'linkedin' => ['rotulo' => 'LinkedIn', 'url' => 'https://www.linkedin.com/company/b2bsafe-consulting/'],
+        'instagram' => ['rotulo' => 'Instagram', 'url' => 'https://www.instagram.com/b2b_bancos/'],
+        'facebook' => ['rotulo' => 'Facebook', 'url' => 'https://www.facebook.com/b2bsafe/'],
+    ],
+
+    // Canais oficiais do C6 Bank exibidos no aviso de parceiro (RN-015).
+    'canais_c6' => [
+        'SAC 24h' => '0800 660 0060',
+        'Central' => '3003 6116',
+        'Ouvidoria' => '0800 660 6060',
+        'E-mail' => 'faleconosco@c6bank.com.br',
+    ],
+
+    // Página oficial de parceiros do C6, para o visitante conferir o credenciamento (RF-001).
+    'verificacao_c6' => 'https://www.c6bank.com.br/parceiro-c6-empresas/',
+
     // Versões dos documentos aceitos; mudar a versão reabre o banner de cookies (RN-011).
     'versoes' => [
         'politica_privacidade' => env('VERSAO_POLITICA_PRIVACIDADE', '1'),
