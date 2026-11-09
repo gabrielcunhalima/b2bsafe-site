@@ -8,7 +8,7 @@
 <footer class="fundo-escuro bg-preto text-sm text-white/75">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-            <p class="text-lg font-extrabold tracking-widest text-white">B2BSAFE</p>
+            <img src="{{ asset('img/b2bsafe-logo-branco.webp') }}" alt="B2BSAFE" width="191" height="41" loading="lazy" class="h-8 w-auto">
             <p class="mt-3 leading-relaxed">Escritório parceiro oficial do C6 Empresas. B2BSAFE, Be Safe!</p>
         </div>
 
@@ -27,7 +27,7 @@
             <p class="font-semibold text-white">Contato</p>
             <ul class="mt-2 space-y-2">
                 <li>
-                    <a href="https://wa.me/{{ $whatsapp }}?text={{ rawurlencode('Olá! Vim pelo site da B2BSAFE.') }}"
+                    <a href="{{ \App\Support\WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="rodape"
                        class="inline-flex items-center gap-2 rounded hover:text-white hover:underline">
                         <x-icone-marca nome="whatsapp" class="size-4 text-amarelo" /> WhatsApp {{ $whatsappExibicao }}
                     </a>

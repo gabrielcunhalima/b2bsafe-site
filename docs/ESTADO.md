@@ -3,17 +3,18 @@
 - **Fase atual:** Construção
 - **Última skill executada:** /implementar 1 em 2026-11-09
 - **Versão em produção:** nenhuma
-- **Milestone atual:** MVP (demonstração até 2026-12-06)
+- **Milestone atual:** Entrega 1 — Landing page (até 2026-12-06); Entrega 2 — Assistente e painel depois
 - **Incidentes abertos:** nenhum
 
 ## Pendências
 - Incluir o check "Título no padrão Conventional Commits" como obrigatório no ruleset da `main`.
-- Fornecer o logo da B2BSAFE em SVG (o cabeçalho e o rodapé usam o nome em texto até lá).
+- Logo da B2BSAFE aplicado (PNG de 191 × 41 px, em `docs/marca/`). Pedir o SVG ou um PNG com pelo menos 3x esse tamanho, porque em telas retina o logo fica levemente desfocado.
 - Baixar os SVGs oficiais de LinkedIn, Instagram, Facebook e WhatsApp nos kits de marca (exigem aceitar os termos) para trocar os desenhos provisórios em `resources/views/components/icone-marca.blade.php` (revisão do PR #35, D-001, #36).
 - Rodar `gh auth refresh -s project` para eu criar o GitHub Project (quadro Backlog → Concluído) e adicionar as 32 issues.
 - Repositório público temporariamente (decisão do responsável): ruleset da `main`, secret scanning, push protection e revisor em `producao` ativos. Ao voltar a privado, esses recursos param no plano Free.
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
+- Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. A imagem da C6 Pay fornecida pelo responsável está na seção Maquininha; falta só confirmar com a B2BSAFE a permissão de uso da imagem do C6. A foto do hero segue como composição com ícones até haver foto licenciada.
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).
 - Fornecer os materiais do C6/B2BSAFE para a base do chatbot e confirmar se podem ser usados.
@@ -24,8 +25,8 @@
 - Antes da produção: hospedar o n8n e o Qdrant fora do computador do responsável (ADR-005).
 
 ## Próximos passos
-1. Merge do PR de ajustes da revisão do layout.
-2. `/implementar 2` — Home institucional (seções que as âncoras do menu já apontam).
+1. `/revisar` do PR da Home (#2) e merge.
+2. `/implementar 8` — formulário de lead no Fale conosco (com #7 origem e #9 deduplicação), depois #10 (e-mail), #11 (WhatsApp), #3 (Maquininha), #4/#5 (políticas), #12/#13 (cookies e GA4), #39 (SEO) e #40 (deploy).
 
 ## Auditorias (última execução)
 | Tipo | Data | Resultado |
@@ -43,3 +44,5 @@
 | 2026-11-09 | /configurar-ci | Workflows CI (Pint, Larastan, Pest no MariaDB com cobertura mínima 70% — atual 98,2%, build, audit, Gitleaks), E2E, CodeQL e título do PR; 9 checks obrigatórios na `main`; docs/infra.md e selos no README. |
 | 2026-11-09 | /implementar 1 | Layout base: cabeçalho com âncoras e item ativo, menu móvel acessível, rodapé com dados legais, redes e aviso de parceiro C6 (RN-015). 7 testes de feature e 11 no navegador. |
 | 2026-11-09 | /revisar 35 | Layout base aprovado com ressalvas, sem bloqueantes. Ajustados: item ativo ao voltar ao topo, formatação de telefone testada (`App\Support\Telefone`), aviso de nova aba, área de toque dos links legais, item ativo no menu móvel. Logos oficiais das redes viraram o débito D-001. |
+| 2026-11-09 | (planejamento) | MVP dividido em Entrega 1 (landing page: #1–#13, #36, SEO #39, deploy #40) e Entrega 2 (assistente e painel: #14–#32, sino #38). #10 ficou só com o e-mail. |
+| 2026-11-09 | /implementar 2 | Home institucional com as 8 seções do T-01; 13 testes novos (feature e navegador). Lighthouse mobile: desempenho 97, acessibilidade 100, boas práticas 100, SEO 63 só pelo `noindex` proposital da demonstração. |

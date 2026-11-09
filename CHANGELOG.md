@@ -18,4 +18,6 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Traduções do Laravel em português (pt_BR) e factories de todas as tabelas do domínio.
 - Layout base do site (#1): cabeçalho fixo com menu por âncoras e item da seção visível marcado, menu móvel em tela cheia (Esc fecha e o foco volta ao botão), rodapé com as duas empresas, contato, redes sociais atuais, links legais, preferências de cookies e aviso de parceiro C6 (RN-015).
 - Ajustes da revisão do layout: formatação de telefones testada, aviso de link em nova aba, área de toque mínima nos links legais e item ativo também no menu do celular.
+- Home institucional (#2): apresentação, 7 cards de serviço que abrem o WhatsApp citando o serviço, seção própria da Maquininha C6 Pay com o WhatsApp da maquininha, Sobre com o selo Conexão Awards 2025, Parcerias, Fale conosco, Credenciamento e Canais oficiais C6. Links de WhatsApp montados por `App\Support\WhatsApp` (RN-021) e marcados para o registro de clique (#11).
+- Logo da B2BSAFE no cabeçalho e no menu do celular, versão clara no rodapé, imagem do selo Conexão Awards 2025 na seção Sobre e imagem da C6 Pay na seção Maquininha (originais em `docs/marca/`).
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.

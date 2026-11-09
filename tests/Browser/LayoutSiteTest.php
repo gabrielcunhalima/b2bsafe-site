@@ -43,3 +43,15 @@ it('abre o menu do celular cobrindo a tela inteira', function () {
         ->click('[aria-controls="menu-movel"]')
         ->assertScript('document.getElementById("menu-movel").getBoundingClientRect().height', 740);
 });
+
+it('marca no menu a seção visível e desmarca ao voltar ao topo', function () {
+    $pagina = visit('/')->resize(1440, 900);
+
+    $pagina->script('document.getElementById("sobre").scrollIntoView()');
+    $pagina->wait(0.5);
+    $pagina->assertAttribute('header nav[aria-label="Principal"] a[href="#sobre"]', 'aria-current', 'true');
+
+    $pagina->script('window.scrollTo(0, 0)');
+    $pagina->wait(0.5);
+    $pagina->assertAttributeMissing('header nav[aria-label="Principal"] a[href="#sobre"]', 'aria-current');
+});
