@@ -1,5 +1,7 @@
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
+import { iniciarAnalytics } from './analytics';
+import preferenciasCookies from './cookies';
 import formularioLead from './formulario-lead';
 import { preSelecionarServico, registrarCliquesWhatsapp } from './whatsapp';
 import {
@@ -81,6 +83,10 @@ Alpine.data('menuSite', () => ({
 }));
 
 Alpine.data('formularioLead', formularioLead);
+Alpine.data('preferenciasCookies', preferenciasCookies);
+
+// Antes do Alpine: o banner avisa a escolha de cookies ao iniciar
+iniciarAnalytics();
 
 registrarCliquesWhatsapp();
 preSelecionarServico();

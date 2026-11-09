@@ -50,3 +50,4 @@
 | 2026-11-09 | /implementar 7, 8, 9, 10, 11 | Captação: primeiro toque e classificação do canal, formulário de lead com deduplicação, e-mail pela fila (conferido no Mailpit) e registro de cliques no WhatsApp com botão flutuante. 47 testes novos. |
 | 2026-11-09 | /implementar 3, 6 | Página Maquininha (taxas em configuração, formulário com o serviço já escolhido) e 404 com links úteis. |
 | 2026-11-09 | /implementar 4, 5 | `/privacidade` (texto novo, versão e data em configuração) e `/policy` do Connect com as seções corrigidas e 301 de `/policy.`. |
+| 2026-11-09 | /implementar 12, 13 | Banner de cookies (T-06) com registro versionado e GA4 em Consent Mode v2 básico (sem requisição ao Google antes do aceite). Eventos `chat_start` e `chat_lead` ficam para o assistente (Entrega 2). |
