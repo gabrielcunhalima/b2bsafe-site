@@ -42,12 +42,12 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 - [ ] PR do scaffold aberto
 
 ## CI — /configurar-ci
-- [ ] `ci.yml` (lint, análise, testes, build, cobertura, auditoria de dependências)
-- [ ] `e2e.yml`
-- [ ] `codeql.yml`
-- [ ] Validação do título do PR
-- [ ] Checks obrigatórios na `main`
-- [ ] Badge no README
+- [x] `ci.yml` (lint, análise, testes, build, cobertura, auditoria de dependências)
+- [x] `e2e.yml`
+- [x] `codeql.yml`
+- [x] Validação do título do PR
+- [x] Checks obrigatórios na `main` (9 checks; o do título do PR entra após o merge do #34)
+- [x] Badge no README
 
 ## Construção — /implementar e /revisar
 - [ ] Todas as issues do MVP implementadas

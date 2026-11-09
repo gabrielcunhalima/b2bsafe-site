@@ -1,13 +1,13 @@
 # Estado do projeto
 
-- **Fase atual:** Fundação técnica
-- **Última skill executada:** /scaffold em 2026-11-07
+- **Fase atual:** Construção
+- **Última skill executada:** /configurar-ci em 2026-11-09
 - **Versão em produção:** nenhuma
 - **Milestone atual:** MVP (demonstração até 2026-12-06)
 - **Incidentes abertos:** nenhum
 
 ## Pendências
-- Abrir o PR `chore: scaffold inicial` (branch `chore/scaffold`) e validá-lo com o CI da `/configurar-ci` antes do merge.
+- Fazer o merge do PR #34 (scaffold + CI, todos os checks verdes) e, depois, incluir o check "Título no padrão Conventional Commits" como obrigatório no ruleset.
 - Rodar `gh auth refresh -s project` para eu criar o GitHub Project (quadro Backlog → Concluído) e adicionar as 32 issues.
 - Repositório público temporariamente (decisão do responsável): ruleset da `main`, secret scanning, push protection e revisor em `producao` ativos. Ao voltar a privado, esses recursos param no plano Free.
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9) e as traduções pt_BR das mensagens de validação do Laravel (pacote de idioma) na primeira issue com formulário.
@@ -22,8 +22,8 @@
 - Antes da produção: hospedar o n8n e o Qdrant fora do computador do responsável (ADR-005).
 
 ## Próximos passos
-1. `/configurar-ci` — workflows sobre o PR do scaffold, antes do merge.
-2. Merge do PR do scaffold e `/implementar 1` (layout base do site).
+1. Merge do PR #34 (squash).
+2. `/implementar 1` — layout base do site (cabeçalho, rodapé, navegação).
 
 ## Auditorias (última execução)
 | Tipo | Data | Resultado |
@@ -38,3 +38,4 @@
 | 2026-11-07 | /configurar-repositorio | Repositório privado github.com/gabrielcunhalima/b2bsafe-site; 16 labels, milestones MVP e v1.0, 32 issues (#1–#32), merge só por squash, environments, Dependabot. Ruleset, secret scanning e revisor obrigatório recusados pelo plano Free. |
 | 2026-11-07 | (repositório) | Repositório tornado público; ruleset da `main`, secret scanning, push protection, relato privado e revisor em `producao` aplicados. |
 | 2026-11-07 | /scaffold | Laravel 13.40 + Filament 5.11 + Flowforge, 12 models/migrations do domínio, enums, Docker (MariaDB 11.8.9, Mailpit, n8n 2.46.6, Qdrant 1.20, cloudflared), Pint, Larastan 6, Pest 5 (15 testes + 2 E2E), Lefthook, hook do Claude Code. Setup do zero e check verdes. |
+| 2026-11-09 | /configurar-ci | Workflows CI (Pint, Larastan, Pest no MariaDB com cobertura mínima 70% — atual 98,2%, build, audit, Gitleaks), E2E, CodeQL e título do PR; 9 checks obrigatórios na `main`; docs/infra.md e selos no README. |
