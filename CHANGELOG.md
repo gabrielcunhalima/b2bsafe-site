@@ -17,4 +17,5 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Health check em `/saude` (aplicação, banco e fila), páginas de erro amigáveis, layout base com os tokens do design system e fonte Urbanist local, logs em JSON.
 - Traduções do Laravel em português (pt_BR) e factories de todas as tabelas do domínio.
 - Layout base do site (#1): cabeçalho fixo com menu por âncoras e item da seção visível marcado, menu móvel em tela cheia (Esc fecha e o foco volta ao botão), rodapé com as duas empresas, contato, redes sociais atuais, links legais, preferências de cookies e aviso de parceiro C6 (RN-015).
+- Ajustes da revisão do layout: formatação de telefones testada, aviso de link em nova aba, área de toque mínima nos links legais e item ativo também no menu do celular.
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.
