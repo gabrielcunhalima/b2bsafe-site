@@ -119,27 +119,12 @@
                 <p class="mt-6 text-sm text-white/70">WhatsApp da maquininha: {{ Telefone::formatar($whatsappMaquininha) }}</p>
             </div>
 
-            {{-- Ilustração genérica de maquininha até a liberação da imagem oficial da C6 Pay (pendência no ESTADO) --}}
-            <div class="relative flex justify-center" aria-hidden="true">
-                <div class="absolute top-1/2 left-1/2 size-80 -translate-1/2 rounded-full bg-amarelo/15 blur-2xl"></div>
-                <div class="relative w-60 rotate-3 rounded-[2.25rem] bg-[#1c1c1c] p-4 shadow-2xl ring-1 ring-white/10">
-                    <div class="rounded-2xl bg-fundo p-5 text-preto">
-                        <div class="flex items-center justify-between text-xs font-semibold text-texto-suave">
-                            <span>Crédito 3x</span>
-                            <i data-lucide="wifi" class="size-4"></i>
-                        </div>
-                        <p class="mt-6 text-sm text-texto-suave">Valor</p>
-                        <p class="text-3xl font-extrabold">R$ 450,00</p>
-                        <p class="mt-6 flex items-center gap-2 rounded-lg bg-amarelo px-3 py-2 text-sm font-bold">
-                            <i data-lucide="circle-check" class="size-4"></i> Pagamento aprovado
-                        </p>
-                    </div>
-                    <div class="mt-4 grid grid-cols-3 gap-2">
-                        @foreach (range(1, 12) as $tecla)
-                            <span class="h-8 rounded-lg bg-white/10"></span>
-                        @endforeach
-                    </div>
-                </div>
+            {{-- Imagem oficial da C6 Pay (fundo transparente) sobre um círculo amarelo, para a máquina preta não sumir no fundo preto --}}
+            <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                <div class="absolute inset-[8%] rounded-full bg-amarelo" aria-hidden="true"></div>
+                <img src="{{ asset('img/maquininha-c6-pay.webp') }}" width="900" height="843" loading="lazy"
+                     alt="Maquininha C6 Pay com tela de pagamento e teclado, aceitando Elo, Mastercard, Hipercard e Visa"
+                     class="relative w-full drop-shadow-2xl">
             </div>
         </div>
     </section>

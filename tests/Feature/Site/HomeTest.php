@@ -98,3 +98,11 @@ it('mostra a imagem do selo Conexão Awards 2025 com texto alternativo', functio
 it('serve as imagens da marca', function (string $arquivo) {
     expect(public_path("img/{$arquivo}"))->toBeFile();
 })->with(['b2bsafe-logo.webp', 'b2bsafe-logo-branco.webp', 'conexao-awards-2025.webp']);
+
+it('mostra a imagem da C6 Pay na seção Maquininha', function () {
+    $this->get(route('inicio'))
+        ->assertSeeInOrder(['id="maquininha"', 'img/maquininha-c6-pay.webp', 'id="sobre"'], escape: false)
+        ->assertSee('alt="Maquininha C6 Pay', escape: false);
+
+    expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
+});

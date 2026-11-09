@@ -14,7 +14,7 @@
 - Repositório público temporariamente (decisão do responsável): ruleset da `main`, secret scanning, push protection e revisor em `producao` ativos. Ao voltar a privado, esses recursos param no plano Free.
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
-- Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. Foto do hero e imagem oficial da C6 Pay seguem como composições com ícones até a licença ou permissão de uso (a ilustração da maquininha é genérica, sem marca).
+- Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. A imagem da C6 Pay fornecida pelo responsável está na seção Maquininha; falta só confirmar com a B2BSAFE a permissão de uso da imagem do C6. A foto do hero segue como composição com ícones até haver foto licenciada.
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).
 - Fornecer os materiais do C6/B2BSAFE para a base do chatbot e confirmar se podem ser usados.
