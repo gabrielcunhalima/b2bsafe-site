@@ -51,6 +51,8 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 
 ## Construção — /implementar e /revisar
 - [ ] Todas as issues do MVP implementadas
+  - [x] Entrega 1 (landing page): #1–#13 e #39 (2026-11-09); faltam #36 (logos oficiais) e #40 (deploy)
+  - [ ] Entrega 2 (assistente e painel)
 - [ ] Todos os PRs revisados e mesclados
 
 ## Testes — /testar
