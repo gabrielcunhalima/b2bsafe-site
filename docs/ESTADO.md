@@ -51,3 +51,4 @@
 | 2026-11-09 | /implementar 3, 6 | Página Maquininha (taxas em configuração, formulário com o serviço já escolhido) e 404 com links úteis. |
 | 2026-11-09 | /implementar 4, 5 | `/privacidade` (texto novo, versão e data em configuração) e `/policy` do Connect com as seções corrigidas e 301 de `/policy.`. |
 | 2026-11-09 | /implementar 12, 13 | Banner de cookies (T-06) com registro versionado e GA4 em Consent Mode v2 básico (sem requisição ao Google antes do aceite). Eventos `chat_start` e `chat_lead` ficam para o assistente (Entrega 2). |
+| 2026-11-09 | /implementar 39 | SEO técnico completo. Lighthouse mobile com APP_ENV=production: SEO/acessibilidade/boas práticas 100 e desempenho 95–98 nas 4 páginas; compressão e cache ficam para o servidor (#40). |

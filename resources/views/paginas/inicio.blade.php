@@ -11,6 +11,11 @@
 @endphp
 
 <x-layouts.site>
+    @push('head')
+        {{-- Dados estruturados da empresa com os dois endereços (RF-011) --}}
+        <script type="application/ld+json">{!! json_encode(\App\Support\Seo::dadosEstruturados(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>
+    @endpush
+
     {{-- Apresentação --}}
     <section class="bg-gelo">
         <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:py-24 lg:grid-cols-[1.2fr_1fr]">

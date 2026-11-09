@@ -10,8 +10,29 @@
         {{-- GA4 só carrega depois do consentimento estatístico (RF-010) --}}
         <meta name="ga4-id" content="{{ $ga4 }}">
     @endif
-    <title>{{ $titulo ? $titulo.' | B2BSAFE' : 'B2BSAFE | Escritório parceiro C6 Empresas' }}</title>
+    @php($tituloCompleto = $titulo ? $titulo.' | B2BSAFE' : 'B2BSAFE | Escritório parceiro C6 Empresas')
+    <title>{{ $tituloCompleto }}</title>
     <meta name="description" content="{{ $descricao }}">
+    {{-- SEO técnico (RF-011): URL canônica sem parâmetros de campanha, Open Graph e Twitter Card --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="B2BSAFE">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="{{ $tituloCompleto }}">
+    <meta property="og:description" content="{{ $descricao }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('img/og-b2bsafe.jpg') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="B2BSAFE, escritório parceiro oficial do C6 Empresas">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#060606">
+    @stack('head')
+    {{-- Fonte carregada cedo: evita o texto "pular" quando a Urbanist chega (CLS) --}}
+    @unless (\Illuminate\Support\Facades\Vite::isRunningHot())
+        <link rel="preload" as="font" type="font/woff2" crossorigin
+              href="{{ \Illuminate\Support\Facades\Vite::asset('node_modules/@fontsource-variable/urbanist/files/urbanist-latin-wght-normal.woff2') }}">
+    @endunless
     @unless (app()->isProduction())
         {{-- Demonstração e homologação fora dos buscadores (RF-011) --}}
         <meta name="robots" content="noindex, nofollow">
