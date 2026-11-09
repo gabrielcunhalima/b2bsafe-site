@@ -25,4 +25,14 @@ enum StatusLead: string implements HasLabel
             self::Perdido => 'Perdido',
         };
     }
+
+    /**
+     * Status em que o lead ainda está em tratamento: um novo contato vira interação (RN-003).
+     *
+     * @return list<self>
+     */
+    public static function abertos(): array
+    {
+        return [self::Novo, self::EmContato, self::Proposta];
+    }
 }

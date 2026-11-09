@@ -190,30 +190,44 @@
         </div>
     </section>
 
-    {{-- Fale conosco: o formulário de lead (T-03) entra aqui na #8 --}}
+    {{-- Fale conosco: formulário de lead (RF-006, T-03) e os canais diretos --}}
     <section id="contato" class="bg-gelo">
-        <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:py-24 lg:grid-cols-2">
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:py-24 lg:grid-cols-[1fr_1.3fr]">
             <div>
                 <h2 class="text-3xl font-extrabold text-preto md:text-4xl">Fale conosco</h2>
                 <p class="mt-3 max-w-lg text-lg text-texto-suave">
-                    Conte o que sua empresa precisa e um especialista da B2BSAFE responde. Se preferir, chame no WhatsApp ou mande um e-mail.
+                    Deixe seus dados e um especialista da B2BSAFE entra em contato. Se preferir, chame no WhatsApp ou mande um e-mail.
                 </p>
+                <ul class="mt-8 space-y-4">
+                    <li>
+                        <a href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="contato"
+                           class="flex items-center gap-4 rounded-xl bg-fundo p-4 shadow-sm transition-shadow hover:shadow-md">
+                            <span class="flex size-11 items-center justify-center rounded-full bg-whatsapp text-white">
+                                <x-icone-marca nome="whatsapp" class="size-5" />
+                            </span>
+                            <span>
+                                <span class="block font-bold text-preto">WhatsApp</span>
+                                <span class="block text-texto-suave">{{ Telefone::formatar($whatsappGeral) }}</span>
+                            </span>
+                            <span class="sr-only">(abre o WhatsApp em nova aba)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ $email }}?subject={{ rawurlencode('Contato pelo site da B2BSAFE') }}"
+                           class="flex items-center gap-4 rounded-xl bg-fundo p-4 shadow-sm transition-shadow hover:shadow-md">
+                            <span class="flex size-11 items-center justify-center rounded-full bg-preto text-white">
+                                <i data-lucide="mail" class="size-5" aria-hidden="true"></i>
+                            </span>
+                            <span>
+                                <span class="block font-bold text-preto">E-mail</span>
+                                <span class="block break-all text-texto-suave">{{ $email }}</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                <li class="rounded-xl bg-fundo p-6 shadow-sm">
-                    <p class="flex items-center gap-2 font-bold text-preto"><x-icone-marca nome="whatsapp" class="size-5 text-whatsapp" /> WhatsApp</p>
-                    <p class="mt-1 text-texto-suave">{{ Telefone::formatar($whatsappGeral) }}</p>
-                    <x-botao-whatsapp :href="WhatsApp::link()" class="mt-4 w-full sm:w-auto">Chamar no WhatsApp</x-botao-whatsapp>
-                </li>
-                <li class="rounded-xl bg-fundo p-6 shadow-sm">
-                    <p class="flex items-center gap-2 font-bold text-preto"><i data-lucide="mail" class="size-5" aria-hidden="true"></i> E-mail</p>
-                    <p class="mt-1 break-all text-texto-suave">{{ $email }}</p>
-                    <a href="mailto:{{ $email }}?subject={{ rawurlencode('Contato pelo site da B2BSAFE') }}"
-                       class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded bg-preto px-6 py-3 font-semibold text-white transition-colors hover:bg-preto-hover sm:w-auto">
-                        Enviar e-mail
-                    </a>
-                </li>
-            </ul>
+
+            <x-formulario-lead />
         </div>
     </section>
 
