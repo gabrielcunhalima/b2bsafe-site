@@ -13,6 +13,8 @@
     $servicoInicial = old('servico', request()->query('servico', $servico));
     $servicoInicial = array_key_exists((string) $servicoInicial, config('b2bsafe.servicos')) ? $servicoInicial : '';
     $campo = 'w-full rounded-lg border bg-fundo px-4 py-3 text-texto transition-colors placeholder:text-texto-terciario focus:border-preto';
+    // Links de WhatsApp do formulário seguem o contexto da página: na Maquininha, o número da maquininha (RN-021)
+    $linkWhatsapp = $servicoInicial ? WhatsApp::linkDoServico($servicoInicial) : WhatsApp::link();
     $erroCampo = fn (string $nome) => $errors->has($nome) ? 'border-2 border-erro' : 'border-borda';
 @endphp
 
@@ -30,7 +32,7 @@
             Em breve um especialista da B2BSAFE fala com você sobre <strong class="text-preto" x-text="sucesso?.nome_servico"></strong>.
         </p>
         <p class="mt-4 text-texto-suave">Quer adiantar? Continue a conversa pelo WhatsApp.</p>
-        <a :href="sucesso?.whatsapp" href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer"
+        <a :href="sucesso?.whatsapp" href="{{ $linkWhatsapp }}" target="_blank" rel="noopener noreferrer"
            data-whatsapp="formulario-sucesso" :data-servico="sucesso?.servico"
            class="mt-5 inline-flex items-center justify-center gap-2 rounded bg-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:bg-[#054a42]">
             <x-icone-marca nome="whatsapp" class="size-5" /> Seguir pelo WhatsApp
@@ -66,7 +68,7 @@
         <div x-cloak x-show="falha" role="alert" class="rounded-lg border-2 border-erro bg-erro/5 p-4 text-sm"
              @if ($falha) x-init="falha = @js($falha)" @endif>
             <p class="font-bold text-erro" x-text="falha"></p>
-            <a href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="formulario-falha"
+            <a href="{{ $linkWhatsapp }}" target="_blank" rel="noopener noreferrer" data-whatsapp="formulario-falha"
                class="mt-3 inline-flex items-center gap-2 rounded bg-whatsapp px-4 py-2 font-semibold text-white">
                 <x-icone-marca nome="whatsapp" class="size-4" /> Falar no WhatsApp
                 <span class="sr-only">(abre o WhatsApp em nova aba)</span>

@@ -21,10 +21,15 @@
 
         <nav aria-label="Principal" class="hidden items-center gap-1 text-sm font-semibold lg:flex">
             @foreach ($itens as $id => $rotulo)
-                <a href="{{ $ancora($id) }}"
-                   class="rounded px-3 py-2 text-texto transition-colors hover:bg-gelo"
-                   :class="ativa === @js($id) && 'bg-gelo text-preto'"
-                   :aria-current="ativa === @js($id) ? 'true' : null">{{ $rotulo }}</a>
+                @if ($id === 'maquininha' && request()->routeIs('maquininha'))
+                    {{-- Na própria página da Maquininha, o item aponta para ela e fica marcado como página atual --}}
+                    <a href="{{ route('maquininha') }}" aria-current="page" class="rounded bg-gelo px-3 py-2 text-preto">{{ $rotulo }}</a>
+                @else
+                    <a href="{{ $ancora($id) }}"
+                       class="rounded px-3 py-2 text-texto transition-colors hover:bg-gelo"
+                       :class="ativa === @js($id) && 'bg-gelo text-preto'"
+                       :aria-current="ativa === @js($id) ? 'true' : null">{{ $rotulo }}</a>
+                @endif
             @endforeach
             <a href="{{ $ancora('contato') }}" class="ml-3 rounded bg-preto px-4 py-2 text-white transition-colors hover:bg-preto-hover">Fale conosco</a>
         </nav>

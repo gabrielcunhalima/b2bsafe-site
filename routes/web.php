@@ -14,6 +14,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 // Páginas públicas: guardam o primeiro toque do visitante para a atribuição de origem (RN-008, RN-009)
 Route::middleware(RegistrarPrimeiroToque::class)->group(function () {
     Route::view('/', 'paginas.inicio')->name('inicio');
+    Route::view('/maquininha', 'paginas.maquininha')->name('maquininha');
 });
 
 // Formulário de lead (RF-006); o limite de 5 envios por hora fica no controller (RN-016)

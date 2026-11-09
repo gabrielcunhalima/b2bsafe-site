@@ -19,10 +19,10 @@ export function registrarCliquesWhatsapp() {
     });
 }
 
-// Links para o "Fale conosco" com data-servico já escolhem o serviço no formulário (wireframe T-01)
+// Links internos com data-servico (para o Fale conosco ou o "Peça sua C6 Pay") já escolhem o serviço no formulário
 export function preSelecionarServico() {
     document.addEventListener('click', (evento) => {
-        const link = evento.target.closest('a[href*="#contato"][data-servico]');
+        const link = evento.target.closest('a[data-servico]:not([data-whatsapp])');
         if (link) window.dispatchEvent(new CustomEvent('selecionar-servico', { detail: link.dataset.servico }));
     });
 }
