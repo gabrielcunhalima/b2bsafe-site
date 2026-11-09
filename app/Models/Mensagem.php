@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Enums\PapelMensagem;
+use Database\Factories\MensagemFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -15,6 +17,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Fillable(['conversa_id', 'papel', 'conteudo', 'topico', 'sem_resposta', 'resolvida_em', 'diagnostico'])]
 class Mensagem extends Model
 {
+    /** @use HasFactory<MensagemFactory> */
+    use HasFactory;
+
     public const UPDATED_AT = null;
 
     protected function casts(): array

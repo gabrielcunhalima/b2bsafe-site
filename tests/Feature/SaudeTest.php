@@ -21,3 +21,13 @@ it('mostra a página 404 amigável', function () {
         ->assertNotFound()
         ->assertSee('Não encontramos esta página.');
 });
+
+it('não abre sessão no health check, para continuar respondendo com o banco fora do ar', function () {
+    $this->getJson(route('saude'))
+        ->assertOk()
+        ->assertCookieMissing(config('session.cookie'));
+});
+
+it('mostra as mensagens de validação em português', function () {
+    expect(__('validation.required', ['attribute' => 'nome']))->toContain('obrigat');
+});

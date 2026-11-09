@@ -3,6 +3,7 @@
     "exclude": [
         "docs",
         "conteudo",
-        "chatbot"
+        "chatbot",
+        "lang"
     ]
 }

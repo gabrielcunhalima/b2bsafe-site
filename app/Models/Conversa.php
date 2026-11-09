@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Database\Factories\ConversaFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,7 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Fillable(['lead_id', 'origem_id', 'consentimento_id', 'pagina_inicial', 'transbordo', 'ultima_mensagem_em', 'anonimizado_em'])]
 class Conversa extends Model
 {
-    use HasUuids;
+    /** @use HasFactory<ConversaFactory> */
+    use HasFactory, HasUuids;
 
     protected function casts(): array
     {

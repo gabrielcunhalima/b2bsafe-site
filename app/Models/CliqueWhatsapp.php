@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Database\Factories\CliqueWhatsappFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -14,6 +16,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Fillable(['numero', 'pagina', 'servico', 'origem_id', 'conversa_id', 'lead_id'])]
 class CliqueWhatsapp extends Model
 {
+    /** @use HasFactory<CliqueWhatsappFactory> */
+    use HasFactory;
+
     public const UPDATED_AT = null;
 
     /** @return BelongsTo<Origem, $this> */

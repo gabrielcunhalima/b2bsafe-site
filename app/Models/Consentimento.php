@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Enums\TipoConsentimento;
+use Database\Factories\ConsentimentoFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['visitante_id', 'tipo', 'versao_documento', 'categorias'])]
 class Consentimento extends Model
 {
+    /** @use HasFactory<ConsentimentoFactory> */
+    use HasFactory;
+
     public const UPDATED_AT = null;
 
     protected function casts(): array

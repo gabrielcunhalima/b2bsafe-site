@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Enums\StatusLead;
+use Database\Factories\HistoricoStatusFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -15,6 +17,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Fillable(['lead_id', 'usuario_id', 'status_anterior', 'status_novo'])]
 class HistoricoStatus extends Model
 {
+    /** @use HasFactory<HistoricoStatusFactory> */
+    use HasFactory;
+
     public const UPDATED_AT = null;
 
     protected function casts(): array

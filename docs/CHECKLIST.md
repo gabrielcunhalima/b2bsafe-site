@@ -39,7 +39,7 @@ Marque os itens à medida que as skills forem executadas. Cada skill da família
 - [x] Health check, layout base, logs estruturados
 - [x] Modelos, migrations, factories e seeders
 - [x] `.claude/settings.json` do projeto
-- [ ] PR do scaffold aberto
+- [x] PR do scaffold aberto (#34)
 
 ## CI — /configurar-ci
 - [x] `ci.yml` (lint, análise, testes, build, cobertura, auditoria de dependências)

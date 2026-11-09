@@ -46,14 +46,14 @@ Os mesmos comandos rodam localmente e no CI. Neste Windows, o Composer está em 
 | Comando | O que faz |
 | --- | --- |
 | `composer setup` | Prepara tudo do zero: dependências, `.env`, chave do n8n, Docker (MariaDB e Mailpit), migrations com seed, build dos assets e hooks do git |
-| `composer dev` | Servidor, Vite e fila para desenvolvimento |
+| `composer dev` | Servidor em http://127.0.0.1:8000, Vite (recarrega o navegador a cada alteração) e fila; exige o Docker Desktop aberto |
 | `composer lint` / `composer format` | Confere / aplica a formatação (Pint) |
 | `composer analyse` | Análise estática (Larastan nível 6) |
 | `composer test` | Testes unitários e de feature (Pest, MariaDB na base `b2bsafe_testes`) |
 | `composer test:e2e` | Testes no navegador (Pest Browser + Playwright); exige `npm run build` e `npx playwright install chromium` |
 | `composer check` | lint + analyse + test (o que o CI exige) |
 | `docker compose up -d` | MariaDB (3314), Mailpit (8026), n8n (5679) e Qdrant (6335), só em 127.0.0.1 |
-| `docker compose --profile app up -d` | Também a aplicação em container (http://localhost:8014) |
+| `docker compose --profile app up -d` | Também a aplicação em container (http://localhost:8014), alternativa ao `composer dev` |
 | `docker compose --profile tunel up -d` | Túnel trycloudflare do n8n para a demonstração |
 
 Usuários locais do seed: `admin@b2bsafe.test` e `atendente@b2bsafe.test` (senha `senha-local-123`, só para desenvolvimento). Painel em `/painel`, health check em `/saude`.
