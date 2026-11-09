@@ -161,6 +161,12 @@ describe('formulário de lead', function () {
     });
 });
 
+it('sem JavaScript, nunca redireciona para fora do site', function () {
+    $this->from('https://site-malicioso.example/pagina')
+        ->post(route('leads.store'), dadosFormulario())
+        ->assertRedirect(route('inicio').'#contato');
+});
+
 describe('lead duplicado', function () {
     it('vira nova interação no lead aberto de até 30 dias, pelo mesmo WhatsApp (RN-003)', function () {
         $existente = Lead::factory()->comStatus(StatusLead::EmContato)->create([

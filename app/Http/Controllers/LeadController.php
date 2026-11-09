@@ -29,7 +29,7 @@ class LeadController extends Controller
 
             return $request->expectsJson()
                 ? response()->json(['message' => $mensagem], 429)
-                : redirect()->to(url()->previous().'#contato')->withInput()->with('lead_falha', $mensagem);
+                : redirect()->to($this->paginaDeVolta().'#contato')->withInput()->with('lead_falha', $mensagem);
         }
 
         RateLimiter::hit($chave, 3600);
@@ -54,6 +54,14 @@ class LeadController extends Controller
 
         return $request->expectsJson()
             ? response()->json($resposta, 201)
-            : redirect()->to(url()->previous().'#contato')->with('lead_enviado', $resposta);
+            : redirect()->to($this->paginaDeVolta().'#contato')->with('lead_enviado', $resposta);
+    }
+
+    /** Volta para a página do formulário, só se for do próprio site (evita redirecionamento aberto). */
+    private function paginaDeVolta(): string
+    {
+        $anterior = strtok(url()->previous(), '#');
+
+        return is_string($anterior) && str_starts_with($anterior, url('/')) ? $anterior : route('inicio');
     }
 }
