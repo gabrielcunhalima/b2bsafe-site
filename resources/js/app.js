@@ -1,10 +1,10 @@
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
-import { createIcons, ArrowRight, ChevronRight, Lock, Mail, MapPin, Menu, MessageCircle, X } from 'lucide';
+import { createIcons, ArrowRight, ChevronRight, ExternalLink, Lock, Mail, MapPin, Menu, MessageCircle, X } from 'lucide';
 
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
-createIcons({ icons: { ArrowRight, ChevronRight, Lock, Mail, MapPin, Menu, MessageCircle, X } });
+createIcons({ icons: { ArrowRight, ChevronRight, ExternalLink, Lock, Mail, MapPin, Menu, MessageCircle, X } });
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
 Alpine.data('menuSite', () => ({
@@ -12,13 +12,14 @@ Alpine.data('menuSite', () => ({
     ativa: null,
 
     init() {
-        const secoes = document.querySelectorAll('main section[id]');
+        // Todas as seções, com ou sem id: numa seção sem id (ex.: o topo da Home) nenhum item fica marcado.
+        const secoes = document.querySelectorAll('main section');
 
         if (secoes.length && 'IntersectionObserver' in window) {
             // A seção que cruza o meio da tela é a "visível".
             const observador = new IntersectionObserver(
                 (entradas) => entradas.forEach((entrada) => {
-                    if (entrada.isIntersecting) this.ativa = entrada.target.id;
+                    if (entrada.isIntersecting) this.ativa = entrada.target.id || null;
                 }),
                 { rootMargin: '-45% 0px -50% 0px' },
             );

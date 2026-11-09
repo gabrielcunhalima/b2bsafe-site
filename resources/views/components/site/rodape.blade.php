@@ -1,8 +1,7 @@
 {{-- Rodapé com dados legais, contato, redes e aviso de parceiro C6 (T-10, RF-001, RN-015) --}}
 @php
     $whatsapp = config('b2bsafe.whatsapp.geral');
-    $local = substr($whatsapp, 2);
-    $whatsappExibicao = '('.substr($local, 0, 2).') '.substr($local, 2, 5).'-'.substr($local, 7);
+    $whatsappExibicao = \App\Support\Telefone::formatar($whatsapp);
     $email = config('b2bsafe.email_contato');
 @endphp
 
@@ -56,20 +55,22 @@
     <div class="mx-auto max-w-6xl px-4 pb-10">
         <div class="h-px bg-white/15" aria-hidden="true"></div>
 
-        <nav aria-label="Links legais" class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+        <nav aria-label="Links legais" class="mt-6 flex flex-wrap gap-x-6 gap-y-1">
             {{-- Os links legais aparecem quando as páginas existirem: /privacidade (#4) e /policy (#5). --}}
             @if (Route::has('privacidade'))
-                <a href="{{ route('privacidade') }}" class="rounded underline hover:text-white">Política de Privacidade</a>
+                <a href="{{ route('privacidade') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Política de Privacidade</a>
             @endif
             @if (Route::has('policy'))
-                <a href="{{ route('policy') }}" class="rounded underline hover:text-white">Termos do B2BSafe Connect</a>
+                <a href="{{ route('policy') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Termos do B2BSafe Connect</a>
             @endif
             {{-- O banner de cookies (RF-009, #12) escuta este evento para reabrir as preferências. --}}
-            <button type="button" x-data @click="$dispatch('abrir-preferencias-cookies')" class="rounded underline hover:text-white">
+            <button type="button" x-data @click="$dispatch('abrir-preferencias-cookies')" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">
                 Preferências de cookies
             </button>
-            <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="rounded underline hover:text-white">
+            <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">
                 Verificar credenciamento no C6 Bank
+                <i data-lucide="external-link" class="size-3.5" aria-hidden="true"></i>
+                <span class="sr-only">(abre em nova aba)</span>
             </a>
         </nav>
 

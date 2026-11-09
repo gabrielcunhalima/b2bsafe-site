@@ -29,7 +29,7 @@
             <a href="{{ $ancora('contato') }}" class="ml-3 rounded bg-preto px-4 py-2 text-white transition-colors hover:bg-preto-hover">Fale conosco</a>
         </nav>
 
-        <button type="button" @click="abrir()" x-ref="botaoMenu"
+        <button type="button" @click="abrir()"
                 class="inline-flex items-center gap-2 rounded border border-borda px-3 py-2 text-sm font-semibold lg:hidden"
                 aria-controls="menu-movel" :aria-expanded="aberto.toString()" aria-expanded="false">
             <i data-lucide="menu" class="size-4" aria-hidden="true"></i> Menu
@@ -49,7 +49,8 @@
             <ul class="divide-y divide-borda">
                 @foreach ($itens as $id => $rotulo)
                     <li>
-                        <a href="{{ $ancora($id) }}" @click="fechar()" class="flex items-center justify-between py-4"
+                        <a href="{{ $ancora($id) }}" @click="fechar()" class="-mx-2 flex items-center justify-between rounded px-2 py-4"
+                           :class="ativa === @js($id) && 'bg-gelo'"
                            :aria-current="ativa === @js($id) ? 'true' : null">
                             {{ $rotulo }} <i data-lucide="chevron-right" class="size-5 text-texto-terciario" aria-hidden="true"></i>
                         </a>
