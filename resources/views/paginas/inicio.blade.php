@@ -162,13 +162,13 @@
                 <p class="mt-6 text-xl font-extrabold text-preto">B2BSAFE, Be Safe!</p>
             </div>
 
-            <figure class="rounded-2xl bg-fundo p-8 text-center shadow-sm">
-                <span class="mx-auto flex size-24 items-center justify-center rounded-full bg-preto text-amarelo">
-                    <i data-lucide="award" class="size-12" aria-hidden="true"></i>
-                </span>
-                <figcaption class="mt-6">
-                    <span class="block text-2xl font-extrabold text-preto">Escritório destaque 2025</span>
-                    <span class="mt-2 block text-texto-suave">Conexão Awards C6 Empresas</span>
+            <figure class="mx-auto w-full max-w-sm">
+                <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="487" height="487" loading="lazy"
+                     alt="Selo Conexão Awards 2025 do C6 Empresas: B2BSAFE, destaque de 2025, reconhecimento por transformar consistência em resultados de alto nível"
+                     class="w-full rounded-2xl shadow-xl">
+                <figcaption class="mt-4 text-center text-texto-suave">
+                    <span class="block text-lg font-bold text-preto">Escritório destaque 2025</span>
+                    Conexão Awards C6 Empresas
                 </figcaption>
             </figure>
         </div>

@@ -8,13 +8,13 @@
 
 ## Pendências
 - Incluir o check "Título no padrão Conventional Commits" como obrigatório no ruleset da `main`.
-- Fornecer o logo da B2BSAFE em SVG (o cabeçalho e o rodapé usam o nome em texto até lá).
+- Logo da B2BSAFE aplicado (PNG de 191 × 41 px, em `docs/marca/`). Pedir o SVG ou um PNG com pelo menos 3x esse tamanho, porque em telas retina o logo fica levemente desfocado.
 - Baixar os SVGs oficiais de LinkedIn, Instagram, Facebook e WhatsApp nos kits de marca (exigem aceitar os termos) para trocar os desenhos provisórios em `resources/views/components/icone-marca.blade.php` (revisão do PR #35, D-001, #36).
 - Rodar `gh auth refresh -s project` para eu criar o GitHub Project (quadro Backlog → Concluído) e adicionar as 32 issues.
 - Repositório público temporariamente (decisão do responsável): ruleset da `main`, secret scanning, push protection e revisor em `producao` ativos. Ao voltar a privado, esses recursos param no plano Free.
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
-- Imagens da Home: foto do hero, imagem oficial da C6 Pay e selo do Conexão Awards estão como composições com ícones até a licença ou permissão de uso (a ilustração da maquininha é genérica, sem marca).
+- Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. Foto do hero e imagem oficial da C6 Pay seguem como composições com ícones até a licença ou permissão de uso (a ilustração da maquininha é genérica, sem marca).
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).
 - Fornecer os materiais do C6/B2BSAFE para a base do chatbot e confirmar se podem ser usados.

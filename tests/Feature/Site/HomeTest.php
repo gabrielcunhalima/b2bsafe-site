@@ -81,3 +81,20 @@ it('não promete prazo de resposta', function () {
         ->assertDontSee('em até 24')
         ->assertDontSee('minutos');
 });
+
+it('mostra o logo da B2BSAFE no cabeçalho e a versão clara no rodapé', function () {
+    $this->get(route('inicio'))
+        ->assertSee('img/b2bsafe-logo.webp', escape: false)
+        ->assertSee('img/b2bsafe-logo-branco.webp', escape: false)
+        ->assertSee('alt="B2BSAFE, página inicial"', escape: false);
+});
+
+it('mostra a imagem do selo Conexão Awards 2025 com texto alternativo', function () {
+    $this->get(route('inicio'))
+        ->assertSee('img/conexao-awards-2025.webp', escape: false)
+        ->assertSee('alt="Selo Conexão Awards 2025 do C6 Empresas', escape: false);
+});
+
+it('serve as imagens da marca', function (string $arquivo) {
+    expect(public_path("img/{$arquivo}"))->toBeFile();
+})->with(['b2bsafe-logo.webp', 'b2bsafe-logo-branco.webp', 'conexao-awards-2025.webp']);

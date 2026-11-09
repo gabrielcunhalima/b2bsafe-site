@@ -14,8 +14,8 @@
 
 <header x-data="menuSite" @keydown.escape.window="fechar()" class="sticky top-0 z-30 bg-fundo shadow-sm">
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <a href="{{ route('inicio') }}" class="flex items-center gap-3 rounded">
-            <span class="text-lg font-extrabold tracking-widest text-preto">B2BSAFE</span>
+        <a href="{{ route('inicio') }}" class="flex items-center gap-4 rounded">
+            <img src="{{ asset('img/b2bsafe-logo.webp') }}" alt="B2BSAFE, página inicial" width="191" height="41" class="h-8 w-auto">
             <span class="hidden text-xs leading-tight text-texto-suave sm:inline">Escritório parceiro<br>C6 Empresas</span>
         </a>
 
@@ -40,7 +40,7 @@
          role="dialog" aria-modal="true" aria-label="Menu"
          class="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-fundo lg:hidden">
         <div class="flex h-16 shrink-0 items-center justify-between px-4 shadow-sm">
-            <span class="text-lg font-extrabold tracking-widest text-preto">B2BSAFE</span>
+            <img src="{{ asset('img/b2bsafe-logo.webp') }}" alt="B2BSAFE" width="191" height="41" class="h-8 w-auto">
             <button type="button" @click="fechar()" class="inline-flex items-center gap-2 rounded border border-borda px-3 py-2 text-sm font-semibold">
                 <i data-lucide="x" class="size-4" aria-hidden="true"></i> Fechar
             </button>
