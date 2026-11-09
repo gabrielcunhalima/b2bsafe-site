@@ -2,6 +2,17 @@
 
 O MVP é a **versão de demonstração** para a B2BSAFE, em `b2bsafe.gabrielcunhalima.dev`, até **2026-12-06**. Ela tem que mostrar o ciclo completo: o visitante chega por uma campanha, conversa com o assistente ou preenche o formulário, o lead aparece no painel com a origem e a equipe trata o lead no funil.
 
+## Entregas (decisão de 2026-11-09)
+
+O MVP foi dividido em duas entregas. O foco agora é 100% na **Entrega 1**.
+
+| Entrega | Escopo | Issues |
+| --- | --- | --- |
+| **1 — Landing page** | Site público completo: layout e Home, Maquininha, `/privacidade`, `/policy`, 404, atribuição de origem, formulário de lead com deduplicação e e-mail, WhatsApp com registro de clique, banner de cookies, GA4 com Consent Mode v2, SEO técnico (RF-011, antecipado da v1.0) e deploy na Hostinger | #1–#13, #36, #39 (SEO), #40 (deploy) |
+| **2 — Assistente e painel** | Assistente virtual (n8n, Mistral, Qdrant), área restrita `/painel`, sino de notificações (RF-031), LGPD automatizada e backup | #14–#32, #38 (sino) |
+
+Na Entrega 1, os leads do formulário ficam gravados no banco e chegam por e-mail. O painel para tratá-los chega na Entrega 2.
+
 ## Incluídos no MVP (26 RF, todos "must")
 
 | Bloco | RF |
@@ -21,7 +32,6 @@ Entregas fora do Laravel que também fazem parte do MVP:
 
 | RF | Por quê | Quando |
 | --- | --- | --- |
-| RF-011 SEO técnico | A demonstração fica com `noindex`; SEO só faz sentido no domínio definitivo | Antes da produção (v1.0) |
 | RF-012 Redirecionamentos das URLs antigas | Só se aplicam quando o domínio atual migrar do Wix | Antes da produção (v1.0) |
 | RF-022 Métricas do GA4 no painel | Exige conta de serviço e dados acumulados; na demonstração o GA4 ainda não tem histórico | Logo após a demonstração (v1.0); entra no MVP se sobrar prazo |
 | RF-027 Resumo semanal | Depende de dados de semanas inteiras | v1.0 |
@@ -67,3 +77,4 @@ Entregas fora do Laravel que também fazem parte do MVP:
 | --- | --- | --- | --- |
 | 2026-11-06 | — | Criação do documento | /iniciar-projeto |
 | 2026-11-07 | RF-031 | Notificação de novo lead no painel entra no MVP | /desenhar-telas |
+| 2026-11-09 | RF-011, RF-007, RF-031 | MVP dividido em Entrega 1 (landing page) e Entrega 2 (assistente e painel); SEO técnico antecipado para a Entrega 1; e-mail de lead (RF-007) na Entrega 1 e sino (RF-031) na Entrega 2 | Pedido do responsável |

@@ -2,6 +2,8 @@
 
 Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-repositorio` transformar em issues. Ordem sugerida de implementação: épicos 1 → 7, respeitando as dependências.
 
+**Entregas (2026-11-09):** a Entrega 1 (landing page) reúne US-001 a US-013, US-033 (SEO, #39) e US-034 (deploy, #40). A Entrega 2 (assistente e painel) reúne US-014 a US-032 e US-035 (sino, #38). Ver [08-mvp.md](08-mvp.md#entregas-decisão-de-2026-11-09).
+
 ## Épico: Site público (area:site)
 
 ### US-001 — Layout base: cabeçalho, rodapé e navegação
@@ -428,6 +430,23 @@ Histórias do MVP (demonstração até 2026-12-06), prontas para a `/configurar-
 - **Tamanho:** P
 - **Dependências:** nenhuma
 - **Telas:** —
+
+## Histórias adicionadas na divisão das entregas
+
+### US-033 — SEO técnico
+- **Issue:** #39 · Entrega 1
+- **Como** proprietário, **quero** que o site seja bem encontrado e bem apresentado no Google e nas redes, **para** atrair empresas sem depender só de anúncios.
+- **RF:** RF-011 · **Prioridade:** must · **Tamanho:** M · **Dependências:** US-002 a US-005
+
+### US-034 — Deploy da landing page na Hostinger
+- **Issue:** #40 · Entrega 1
+- **Como** responsável pelo projeto, **quero** a landing page publicada em `b2bsafe.gabrielcunhalima.dev`, **para** apresentar à B2BSAFE.
+- **RNF:** disponibilidade, segurança, backup · **Prioridade:** must · **Tamanho:** M · **Dependências:** US-008, US-010
+
+### US-035 — Notificação de novo lead no sino do painel
+- **Issue:** #38 · Entrega 2 (separada da US-010, que ficou só com o e-mail)
+- **Como** equipe comercial, **quero** ver no painel um aviso a cada lead novo, **para** responder rápido.
+- **RF:** RF-031 · **RN:** RN-003 · **Prioridade:** must · **Tamanho:** P · **Dependências:** US-010, US-022, US-025
 
 ## Resumo
 
