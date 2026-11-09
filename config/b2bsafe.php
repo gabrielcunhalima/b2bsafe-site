@@ -99,6 +99,15 @@ return [
         'cookies' => env('VERSAO_COOKIES', '1'),
     ],
 
+    // Datas da última atualização exibidas nas páginas legais (RF-003, RF-004).
+    'documentos' => [
+        'privacidade_atualizada_em' => env('PRIVACIDADE_ATUALIZADA_EM', '2026-11-09'),
+        'policy_atualizada_em' => env('POLICY_ATUALIZADA_EM', '2026-11-09'),
+    ],
+
+    // Encarregado de Proteção de Dados (DPO), citado na Política de Privacidade (RF-003).
+    'email_encarregado' => env('EMAIL_ENCARREGADO', 'ti@b2bsafe.com.br'),
+
     // Destinatário dos avisos de novo lead (RF-007).
     'email_leads' => env('EMAIL_LEADS'),
 
