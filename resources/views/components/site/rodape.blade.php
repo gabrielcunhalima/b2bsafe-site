@@ -70,7 +70,7 @@
             <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">
                 Verificar credenciamento no C6 Bank
                 <i data-lucide="external-link" class="size-3.5" aria-hidden="true"></i>
-                <span class="sr-only">(abre em nova aba)</span>
+                <span class="sr-only">(PDF da lista oficial de parceiros, abre em nova aba)</span>
             </a>
         </nav>
 

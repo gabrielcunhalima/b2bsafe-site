@@ -37,10 +37,27 @@
                 </p>
             </div>
 
-            {{-- Arte da conta PJ do C6 (fornecida pelo responsável; original em docs/marca/) --}}
-            <img src="{{ asset('img/conta-pj-c6.webp') }}" width="900" height="901" fetchpriority="high"
-                 alt="Abra sua conta PJ no C6 Bank em poucos toques e aproveite: conta completa e sem tarifa, 100 boletos de cobrança grátis e Pix ilimitado todo mês, acompanhamento e gestão da conta pelo app ou web banking. Parceiros C6 Empresas."
-                 class="mx-auto w-full max-w-md rounded-2xl shadow-xl lg:max-w-none">
+            {{--
+                Foto do topo: uma pessoa pagando outra com a maquininha C6 Pay. Basta salvar a foto (licenciada ou
+                autorizada) em public/img/hero-pagamento-c6.webp; até lá, fica o cartão de escritório parceiro.
+            --}}
+            @if (file_exists(public_path('img/hero-pagamento-c6.webp')))
+                <img src="{{ asset('img/hero-pagamento-c6.webp') }}" fetchpriority="high"
+                     alt="Cliente pagando com cartão na maquininha C6 Pay de um comerciante"
+                     class="mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-xl lg:max-w-none">
+            @else
+                <div class="fundo-escuro rounded-2xl bg-preto p-8 text-white shadow-xl md:p-10">
+                    <span class="flex size-14 items-center justify-center rounded-full bg-amarelo text-preto">
+                        <i data-lucide="lock" class="size-7" aria-hidden="true"></i>
+                    </span>
+                    <p class="mt-6 text-2xl leading-snug font-bold">Escritório parceiro C6 Empresas</p>
+                    <ul class="mt-6 space-y-4 text-white/80">
+                        <li class="flex gap-3"><i data-lucide="user-round-check" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Atendimento próximo para pequenas e médias empresas</li>
+                        <li class="flex gap-3"><i data-lucide="layers" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Conta PJ, crédito, maquininha e investimentos num só lugar</li>
+                        <li class="flex gap-3"><i data-lucide="award" class="mt-0.5 size-5 shrink-0 text-amarelo" aria-hidden="true"></i> Escritório destaque 2025 no Conexão Awards</li>
+                    </ul>
+                </div>
+            @endif
         </div>
     </section>
 
@@ -85,6 +102,29 @@
                     </a>
                 </li>
             </ul>
+        </div>
+    </section>
+
+    {{-- Conta PJ: arte do C6 fornecida pelo responsável (original em docs/marca/) --}}
+    <section id="conta-pj" aria-labelledby="titulo-conta-pj" class="bg-gelo">
+        <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:py-24 lg:grid-cols-2">
+            <img src="{{ asset('img/conta-pj-c6.webp') }}" width="900" height="901" loading="lazy"
+                 alt="Abra sua conta PJ no C6 Bank em poucos toques e aproveite: conta completa e sem tarifa, 100 boletos de cobrança grátis e Pix ilimitado todo mês, acompanhamento e gestão da conta pelo app ou web banking. Parceiros C6 Empresas."
+                 class="mx-auto w-full max-w-md rounded-2xl shadow-xl lg:max-w-none">
+            <div>
+                <h2 id="titulo-conta-pj" class="text-3xl leading-tight font-extrabold text-preto md:text-4xl">Abra a conta PJ da sua empresa com quem entende do C6.</h2>
+                <p class="mt-5 text-lg leading-relaxed text-texto-suave">
+                    Conta completa e sem tarifa, com Pix ilimitado, boletos de cobrança grátis todo mês e gestão pelo app ou pelo web banking.
+                    A B2BSAFE acompanha a abertura com você, do primeiro contato à conta funcionando.
+                </p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a href="#contato" data-servico="conta_corrente"
+                       class="inline-flex items-center justify-center gap-2 rounded bg-preto px-6 py-3 font-semibold text-white transition-colors hover:bg-preto-hover">
+                        Quero abrir minha conta <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+                    </a>
+                    <x-botao-whatsapp :href="WhatsApp::linkDoServico('conta_corrente')" servico="conta_corrente">Falar no WhatsApp</x-botao-whatsapp>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -241,7 +281,7 @@
                     <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer"
                        class="mt-6 inline-flex items-center gap-2 rounded bg-amarelo px-6 py-3 font-semibold text-preto transition-colors hover:bg-amarelo-hover">
                         Verificar no C6 Bank <i data-lucide="external-link" class="size-4" aria-hidden="true"></i>
-                        <span class="sr-only">(abre em nova aba)</span>
+                        <span class="sr-only">(PDF da lista oficial de parceiros, abre em nova aba)</span>
                     </a>
                 </div>
                 <dl class="divide-y divide-borda">

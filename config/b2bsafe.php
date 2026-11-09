@@ -89,8 +89,8 @@ return [
         'E-mail' => 'faleconosco@c6bank.com.br',
     ],
 
-    // Página oficial de parceiros do C6, para o visitante conferir o credenciamento (RF-001).
-    'verificacao_c6' => 'https://www.c6bank.com.br/parceiro-c6-empresas/',
+    // Lista oficial (PDF) de escritórios parceiros do C6 Empresas, para o visitante conferir o credenciamento (RF-001).
+    'verificacao_c6' => 'https://cms-assets-p.c6bank.com.br/uploads/escritorios-parceiros-c6-empresas.pdf',
 
     // Versões dos documentos aceitos; mudar a versão reabre o banner de cookies (RN-011).
     'versoes' => [

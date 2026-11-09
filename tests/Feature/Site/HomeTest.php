@@ -107,8 +107,14 @@ it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
 });
 
-it('mostra no topo a arte da conta PJ do C6 com o texto dela no alt', function () {
+it('mostra a arte da conta PJ do C6 numa seção abaixo dos serviços, com o texto dela no alt', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['Sua empresa em boas mãos.', 'img/conta-pj-c6.webp', 'id="servicos"'], escape: false)
+        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/conta-pj-c6.webp', 'id="maquininha"'], escape: false)
         ->assertSee('alt="Abra sua conta PJ no C6 Bank', escape: false);
+});
+
+it('leva o botão da seção Conta PJ ao formulário com Conta Corrente e o WhatsApp citando o serviço', function () {
+    $this->get(route('inicio'))
+        ->assertSee('href="#contato" data-servico="conta_corrente"', escape: false)
+        ->assertSee(rawurlencode('Olá! Vim pelo site e quero saber sobre Conta Corrente.'), escape: false);
 });
