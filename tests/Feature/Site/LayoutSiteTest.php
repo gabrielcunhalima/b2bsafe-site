@@ -34,7 +34,7 @@ it('mostra no rodapé o contato e só as redes sociais atuais, sem Connect Partn
         ->assertSee('https://wa.me/5511984205023', escape: false)
         ->assertSee('(11) 98420-5023')
         ->assertSee('https://www.linkedin.com/company/b2bsafe-consulting/', escape: false)
-        ->assertSee('https://www.instagram.com/b2b_bancos/', escape: false)
+        ->assertSee('https://www.instagram.com/b2bsafefloripa/', escape: false)
         ->assertSee('https://www.facebook.com/b2bsafe/', escape: false)
         ->assertDontSee('Connect Partners')
         ->assertDontSee('connect-partners', escape: false);
@@ -48,7 +48,7 @@ it('mostra o aviso de parceiro do C6 com os canais oficiais em todas as páginas
         ->assertSee('3003 6116')
         ->assertSee('0800 660 6060')
         ->assertSee('faleconosco@c6bank.com.br')
-        ->assertSee('https://www.c6bank.com.br/parceiro-c6-empresas/', escape: false);
+        ->assertSee('https://cms-assets-p.c6bank.com.br/uploads/escritorios-parceiros-c6-empresas.pdf', escape: false);
 });
 
 it('mostra no rodapé o botão de preferências de cookies', function () {
