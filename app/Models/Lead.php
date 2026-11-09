@@ -15,6 +15,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Contato captado pelo formulário ou pelo assistente virtual (RF-006, RF-015).
  * As regras (deduplicação, transições de status) ficam em Actions, não aqui.
+ *
+ * @property StatusLead $status
+ * @property CanalCaptacao $canal_captacao
+ * @property MotivoPerda|null $motivo_perda
  */
 #[Fillable([
     'nome', 'whatsapp', 'email', 'servico', 'mensagem', 'canal_captacao', 'status',

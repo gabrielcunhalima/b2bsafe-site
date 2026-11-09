@@ -1,5 +1,7 @@
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
+import formularioLead from './formulario-lead';
+import { preSelecionarServico, registrarCliquesWhatsapp } from './whatsapp';
 import {
     createIcons,
     ArrowLeftRight,
@@ -15,6 +17,7 @@ import {
     KeyRound,
     Landmark,
     Layers,
+    LoaderCircle,
     Lock,
     Mail,
     MapPin,
@@ -23,6 +26,7 @@ import {
     MessageCircleQuestion,
     ShieldCheck,
     TrendingUp,
+    TriangleAlert,
     UserRoundCheck,
     UsersRound,
     Wifi,
@@ -32,7 +36,7 @@ import {
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
 createIcons({
-    icons: { ArrowLeftRight, ArrowRight, Award, Check, ChevronRight, CircleCheck, CreditCard, ExternalLink, HandCoins, Handshake, KeyRound, Landmark, Layers, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, ShieldCheck, TrendingUp, UserRoundCheck, UsersRound, Wifi, X },
+    icons: { ArrowLeftRight, ArrowRight, Award, Check, ChevronRight, CircleCheck, CreditCard, ExternalLink, HandCoins, Handshake, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, ShieldCheck, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wifi, X },
 });
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
@@ -70,6 +74,11 @@ Alpine.data('menuSite', () => ({
         this.aberto = false;
     },
 }));
+
+Alpine.data('formularioLead', formularioLead);
+
+registrarCliquesWhatsapp();
+preSelecionarServico();
 
 Alpine.plugin(focus);
 window.Alpine = Alpine;

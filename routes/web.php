@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CliqueWhatsappController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SaudeController;
+use App\Http\Middleware\RegistrarPrimeiroToque;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -8,7 +11,18 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-Route::view('/', 'paginas.inicio')->name('inicio');
+// Páginas públicas: guardam o primeiro toque do visitante para a atribuição de origem (RN-008, RN-009)
+Route::middleware(RegistrarPrimeiroToque::class)->group(function () {
+    Route::view('/', 'paginas.inicio')->name('inicio');
+});
+
+// Formulário de lead (RF-006); o limite de 5 envios por hora fica no controller (RN-016)
+Route::post('/contato', [LeadController::class, 'store'])->name('leads.store');
+
+// Clique no WhatsApp (RF-005, RN-010), enviado por sendBeacon
+Route::post('/whatsapp/clique', CliqueWhatsappController::class)
+    ->middleware('throttle:cliques-whatsapp')
+    ->name('whatsapp.clique');
 
 // Sem sessão nem cookies: a sessão fica no banco, e o health check precisa responder 503 (não 500) quando o banco cai.
 Route::get('/saude', SaudeController::class)

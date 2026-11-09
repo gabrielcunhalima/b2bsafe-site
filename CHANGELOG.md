@@ -20,4 +20,10 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Ajustes da revisão do layout: formatação de telefones testada, aviso de link em nova aba, área de toque mínima nos links legais e item ativo também no menu do celular.
 - Home institucional (#2): apresentação, 7 cards de serviço que abrem o WhatsApp citando o serviço, seção própria da Maquininha C6 Pay com o WhatsApp da maquininha, Sobre com o selo Conexão Awards 2025, Parcerias, Fale conosco, Credenciamento e Canais oficiais C6. Links de WhatsApp montados por `App\Support\WhatsApp` (RN-021) e marcados para o registro de clique (#11).
 - Logo da B2BSAFE no cabeçalho e no menu do celular, versão clara no rodapé, imagem do selo Conexão Awards 2025 na seção Sobre e imagem da C6 Pay na seção Maquininha (originais em `docs/marca/`).
+- Captação de leads (#7, #8, #9, #10, #11):
+  - origem do visitante pelo primeiro toque (UTM, gclid, fbclid, referrer), classificada pela RN-008 e guardada conforme o consentimento (RN-009);
+  - formulário de lead no Fale conosco, com validação no navegador e no servidor, máscara de WhatsApp, estados de erro, envio, falha e sucesso, armadilha para robôs e limite de 5 envios por hora (RN-001, RN-002, RN-011, RN-016);
+  - deduplicação de 30 dias pelo WhatsApp ou e-mail (RN-003);
+  - e-mail de novo lead e de "voltou a entrar em contato" pela fila;
+  - registro dos cliques no WhatsApp por sendBeacon e botão flutuante (RN-010).
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.
