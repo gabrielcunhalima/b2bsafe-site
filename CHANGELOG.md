@@ -29,4 +29,6 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 - Página Maquininha C6 Pay (#3): vantagens, tabela de taxas em configuração com data de referência e aviso do C6, condições, bandeiras e o formulário com o serviço Maquininha; todo o conteúdo usa o WhatsApp da maquininha (RN-021).
 - Página 404 amigável (#6) com links para a Home, a Maquininha, o formulário e o WhatsApp.
 - Política de Privacidade do site em `/privacidade` (#4), com versão e data em configuração, e `/policy` do B2BSafe Connect (#5) com as numerações corrigidas e 301 de `/policy.`; layout comum das páginas legais com índice.
+- Banner e preferências de cookies (#12): faixa no rodapé com "Recusar" e "Aceitar todos" de mesmo peso, diálogo "Personalizar", registro da escolha com versão e categorias (RN-011), cookie de 12 meses e reabertura pelo rodapé.
+- GA4 com Consent Mode v2 no modo básico (#13): o script do Google só carrega depois do aceite estatístico; eventos `generate_lead` e `click_whatsapp`; desligado nos ambientes local e de teste.
 - Qualidade: Pint, Larastan (nível 6), Pest 5 com testes no navegador, Lefthook (formatação e Conventional Commits) e hook de formatação do Claude Code.

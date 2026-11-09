@@ -64,7 +64,7 @@
                 <a href="{{ route('policy') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Termos do B2BSafe Connect</a>
             @endif
             {{-- O banner de cookies (RF-009, #12) escuta este evento para reabrir as preferências. --}}
-            <button type="button" x-data @click="$dispatch('abrir-preferencias-cookies')" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">
+            <button id="rodape-preferencias-cookies" type="button" x-data @click="$dispatch('abrir-preferencias-cookies')" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">
                 Preferências de cookies
             </button>
             <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">

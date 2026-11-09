@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @if ($ga4 = \App\Support\Analytics::idAtivo())
+        {{-- GA4 só carrega depois do consentimento estatístico (RF-010) --}}
+        <meta name="ga4-id" content="{{ $ga4 }}">
+    @endif
     <title>{{ $titulo ? $titulo.' | B2BSAFE' : 'B2BSAFE | Escritório parceiro C6 Empresas' }}</title>
     <meta name="description" content="{{ $descricao }}">
     @unless (app()->isProduction())
@@ -30,9 +34,12 @@
     {{-- Botão flutuante de WhatsApp (RF-005, RN-021); o assistente virtual entra ao lado na Entrega 2 --}}
     <a href="{{ \App\Support\WhatsApp::link($whatsapp, $whatsapp === 'maquininha' ? 'Olá! Vim pelo site e quero saber sobre a maquininha C6 Pay.' : null) }}"
        target="_blank" rel="noopener noreferrer" data-whatsapp="flutuante" @if ($whatsapp === 'maquininha') data-servico="maquininha" @endif
-       class="fixed right-4 bottom-4 z-20 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105"
+       style="bottom: calc(1rem + var(--altura-faixa-cookies, 0px))"
+       class="fixed right-4 z-20 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105"
        aria-label="Falar no WhatsApp (abre em nova aba)">
         <x-icone-marca nome="whatsapp" class="size-7" />
     </a>
+
+    <x-site.banner-cookies />
 </body>
 </html>

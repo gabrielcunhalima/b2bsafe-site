@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CliqueWhatsappController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\PreferenciasCookiesController;
 use App\Http\Controllers\SaudeController;
 use App\Http\Middleware\RegistrarPrimeiroToque;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -29,6 +30,11 @@ Route::post('/contato', [LeadController::class, 'store'])->name('leads.store');
 Route::post('/whatsapp/clique', CliqueWhatsappController::class)
     ->middleware('throttle:cliques-whatsapp')
     ->name('whatsapp.clique');
+
+// Escolha do banner de cookies (RF-009, RN-011)
+Route::post('/cookies/preferencias', PreferenciasCookiesController::class)
+    ->middleware('throttle:cliques-whatsapp')
+    ->name('cookies.preferencias');
 
 // Sem sessão nem cookies: a sessão fica no banco, e o health check precisa responder 503 (não 500) quando o banco cai.
 Route::get('/saude', SaudeController::class)
