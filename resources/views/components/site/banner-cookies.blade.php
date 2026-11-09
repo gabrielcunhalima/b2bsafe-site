@@ -32,7 +32,7 @@
     </section>
 
     {{-- 2. Personalizar --}}
-    <div x-cloak x-show="dialogoAberto" @keydown.escape.prevent.stop="fecharDialogo()"
+    <div x-cloak x-show="dialogoAberto" @keydown.escape.window="dialogoAberto && fecharDialogo()"
          class="fixed inset-0 z-50 flex items-end justify-center bg-preto/60 p-4 sm:items-center">
         <div role="dialog" aria-modal="true" aria-labelledby="cookies-dialogo-titulo" x-trap.noscroll="dialogoAberto"
              @click.outside="fecharDialogo()" class="w-full max-w-lg rounded-2xl bg-fundo p-6 shadow-2xl md:p-8">
