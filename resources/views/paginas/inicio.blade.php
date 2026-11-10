@@ -106,16 +106,16 @@
     </section>
 
     {{-- Conta PJ: arte do C6 fornecida pelo responsável (original em docs/marca/) --}}
-    {{-- A arte ocupa metade da seção, de ponta a ponta e sem moldura; o fundo #f6f6f6 é o mesmo da arte, sem emenda --}}
+    {{-- A arte ocupa 40% da seção, inteira, de ponta a ponta e sem moldura; o fundo #f6f6f6 é o mesmo da arte, sem emenda --}}
     <section id="conta-pj" aria-labelledby="titulo-conta-pj" class="bg-[#f6f6f6]">
-        <div class="grid items-center lg:grid-cols-2">
+        <div class="grid items-center lg:grid-cols-[2fr_3fr]">
             <img src="{{ asset('img/conta-pj-c6.webp') }}" width="900" height="901" loading="lazy"
                  alt="Abra sua conta PJ no C6 Bank em poucos toques e aproveite: conta completa e sem tarifa, 100 boletos de cobrança grátis e Pix ilimitado todo mês, acompanhamento e gestão da conta pelo app ou web banking. Parceiros C6 Empresas."
-                 class="block aspect-square w-full object-cover lg:max-h-[52rem] lg:object-[center_70%]">
+                 class="block aspect-square w-full object-cover">
             {{-- Texto alinhado à grade do site (max-w-6xl) pelo lado direito --}}
             <div class="max-w-xl px-4 py-14 lg:max-w-none lg:py-20 lg:pr-[max(1rem,calc((100vw-72rem)/2+1rem))] lg:pl-16">
                 <h2 id="titulo-conta-pj" class="text-3xl leading-tight font-extrabold text-preto md:text-4xl">Abra a conta PJ da sua empresa com quem entende do C6.</h2>
-                <p class="mt-5 text-lg leading-relaxed text-texto-suave">
+                <p class="mt-5 max-w-xl text-lg leading-relaxed text-texto-suave">
                     Conta completa e sem tarifa, com Pix ilimitado, boletos de cobrança grátis todo mês e gestão pelo app ou pelo web banking.
                     A B2BSAFE acompanha a abertura com você, do primeiro contato à conta funcionando.
                 </p>
