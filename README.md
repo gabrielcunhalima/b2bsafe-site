@@ -4,7 +4,7 @@
 [![E2E](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/e2e.yml/badge.svg)](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/e2e.yml)
 [![CodeQL](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/gabrielcunhalima/b2bsafe-site/actions/workflows/codeql.yml)
 
-Novo site da **B2BSAFE Floripa**, escritório parceiro oficial do C6 Empresas. Substitui o site atual em Wix e tem três partes:
+Novo site da **B2BSAFE Floripa**, escritório parceiro C6 Empresas. Substitui o site atual em Wix e tem três partes:
 
 - **Site público:** Home, Maquininha C6 Pay, políticas, formulário de lead, WhatsApp, banner de cookies e Google Analytics 4 com Consent Mode v2.
 - **Assistente virtual:** chatbot com IA (n8n + Mistral + base de conhecimento no Qdrant), acessado por um proxy no Laravel.

@@ -19,7 +19,7 @@
 @endphp
 
 <div x-data="formularioLead(@js(['servico' => $servicoInicial]))" @selecionar-servico.window="selecionarServico($event.detail)"
-     class="rounded-2xl bg-fundo p-6 shadow-sm md:p-8">
+     class="fundo-claro rounded-3xl bg-fundo p-6 text-texto shadow-xl md:p-8">
 
     {{-- Sucesso (substitui o formulário) --}}
     <div x-cloak x-show="sucesso" x-ref="sucesso" tabindex="-1" role="status" class="py-6 text-center"

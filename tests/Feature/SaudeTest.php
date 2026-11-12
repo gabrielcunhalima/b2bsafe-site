@@ -12,7 +12,7 @@ it('responde ok quando aplicação, banco e fila estão saudáveis', function ()
 it('mostra a página inicial fora dos buscadores fora da produção', function () {
     $this->get(route('inicio'))
         ->assertOk()
-        ->assertSee('Sua empresa em boas mãos.')
+        ->assertSeeText('Sua empresa em boas mãos.')
         ->assertSee('noindex', escape: false);
 });
 

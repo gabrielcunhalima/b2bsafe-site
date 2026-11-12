@@ -39,7 +39,7 @@ final class Seo
             '@context' => 'https://schema.org',
             '@type' => 'FinancialService',
             'name' => 'B2BSAFE',
-            'description' => 'Escritório parceiro oficial do C6 Empresas: conta PJ, crédito, maquininha C6 Pay, câmbio, investimentos, consórcio e seguros.',
+            'description' => 'Escritório parceiro C6 Empresas: conta PJ, crédito, maquininha C6 Pay, câmbio, investimentos, consórcio e seguros.',
             'url' => route('inicio'),
             'logo' => asset('img/b2bsafe-logo.webp'),
             'image' => asset('img/og-b2bsafe.jpg'),
