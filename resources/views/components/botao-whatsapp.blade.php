@@ -6,7 +6,7 @@
 
 <a href="{{ $href }}" target="_blank" rel="noopener noreferrer"
    data-whatsapp="{{ $pagina }}" @if ($servico) data-servico="{{ $servico }}" @endif
-   {{ $attributes->merge(['class' => 'inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#054a42] hover:shadow-lg']) }}>
+   {{ $attributes->merge(['class' => 'inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[#054a42]']) }}>
     <x-icone-marca nome="whatsapp" class="size-5" />
     {{ $slot }}
     <span class="sr-only">(abre o WhatsApp em nova aba)</span>

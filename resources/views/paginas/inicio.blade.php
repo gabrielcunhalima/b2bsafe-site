@@ -16,7 +16,8 @@
         : ['arquivo' => 'img/foto-empreendedora.webp', 'alt' => 'Empreendedora sorrindo enquanto trabalha no notebook do escritório'];
 
     $titulo = 'text-3xl leading-tight font-extrabold tracking-tight text-preto md:text-5xl';
-    $botaoPreto = 'inline-flex items-center justify-center gap-2 rounded-full bg-preto px-7 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-preto-hover hover:shadow-lg';
+    // Hover sem zoom nem deslocamento: só a cor muda
+    $botaoPreto = 'inline-flex items-center justify-center gap-2 rounded-full bg-preto px-7 py-3.5 font-semibold text-white transition-colors hover:bg-preto-hover';
 @endphp
 
 <x-layouts.site>
@@ -31,7 +32,7 @@
         <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pt-14 pb-20 md:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-28">
             <div data-revelar>
                 <h1 class="text-5xl leading-[1.05] font-extrabold tracking-tight text-preto md:text-7xl">
-                    Sua empresa em <span class="destaque-amarelo">boas mãos.</span>
+                    Sua empresa em boas mãos.
                 </h1>
                 <p class="mt-6 max-w-xl text-lg leading-relaxed text-texto-suave md:text-xl">
                     Solução financeira com parceria, orientação e segurança para impulsionar o crescimento da sua empresa.
@@ -49,19 +50,13 @@
                 </p>
             </div>
 
-            <div class="relative mx-auto w-full max-w-md lg:max-w-none" data-revelar>
-                <div class="absolute -top-10 -right-16 size-72 rounded-full bg-amarelo md:size-96" aria-hidden="true"></div>
+            {{-- Foto como corpo de um cadeado: a alça amarela vem do "A" do logo B2BSAFE (o cadeado é o símbolo da empresa) --}}
+            <div class="relative mx-auto w-full max-w-md pt-[30%] lg:max-w-none" data-revelar>
+                <svg class="absolute top-0 left-1/2 w-[62%] -translate-x-1/2 text-amarelo" viewBox="0 0 200 140" fill="none" aria-hidden="true">
+                    <path d="M28 140V86a72 72 0 0 1 144 0v54" stroke="currentColor" stroke-width="28" />
+                </svg>
                 <img src="{{ asset($fotoTopo['arquivo']) }}" width="800" height="1000" fetchpriority="high" alt="{{ $fotoTopo['alt'] }}"
                      class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl">
-
-                {{-- Cartões flutuantes --}}
-                <div class="flutuar absolute top-6 -left-4 flex items-center gap-2 rounded-full bg-preto px-4 py-2.5 text-sm font-semibold text-white shadow-xl sm:-left-8">
-                    <i data-lucide="shield-check" class="size-4 text-amarelo" aria-hidden="true"></i> Parceiro C6 Empresas
-                </div>
-                <div class="flutuar-lento absolute -bottom-6 -left-4 flex max-w-[16rem] items-center gap-3 rounded-2xl bg-fundo p-3 pr-5 shadow-xl sm:-left-10">
-                    <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="56" height="56" alt="" class="size-14 rounded-xl">
-                    <p class="text-sm leading-snug"><strong class="block text-preto">Destaque 2025</strong><span class="text-texto-suave">Conexão Awards C6 Empresas</span></p>
-                </div>
             </div>
         </div>
     </section>
@@ -103,10 +98,10 @@
                     <li class="{{ $destaque ? 'sm:col-span-2 lg:row-span-2' : '' }}" data-revelar>
                         <a href="{{ WhatsApp::linkDoServico($chave) }}" target="_blank" rel="noopener noreferrer"
                            data-whatsapp="home" data-servico="{{ $chave }}"
-                           class="group relative flex h-full flex-col overflow-hidden rounded-3xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:shadow-2xl {{ $destaque ? 'fundo-escuro min-h-[26rem] bg-preto text-white' : 'border border-borda bg-fundo' }}">
+                           class="group relative flex h-full flex-col overflow-hidden rounded-3xl transition-colors duration-300 {{ $destaque ? 'fundo-escuro min-h-[26rem] bg-preto text-white' : 'border border-borda bg-fundo hover:border-preto hover:bg-gelo focus-visible:border-preto focus-visible:bg-gelo' }}">
                             @if ($destaque)
                                 <img src="{{ asset('img/foto-credito.webp') }}" width="1200" height="800" loading="lazy" alt=""
-                                     class="absolute inset-0 size-full object-cover opacity-70 transition duration-500 group-hover:scale-105">
+                                     class="absolute inset-0 size-full object-cover opacity-70 transition-opacity duration-300 group-hover:opacity-45 group-focus-visible:opacity-45">
                                 <span class="absolute inset-0 bg-gradient-to-t from-preto via-preto/70 to-transparent" aria-hidden="true"></span>
                             @endif
                             <div class="relative flex flex-1 flex-col p-7 {{ $destaque ? 'justify-end' : '' }}">
@@ -115,7 +110,7 @@
                                         <i data-lucide="{{ $card['icone'] }}" class="size-6" aria-hidden="true"></i>
                                     </span>
                                     @unless ($destaque)
-                                        <i data-lucide="arrow-up-right" class="size-5 text-texto-terciario transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-preto" aria-hidden="true"></i>
+                                        <i data-lucide="arrow-up-right" class="size-5 text-texto-terciario transition-colors duration-300 group-hover:text-preto group-focus-visible:text-preto" aria-hidden="true"></i>
                                     @endunless
                                 </div>
                                 <h3 class="mt-6 font-bold {{ $destaque ? 'text-3xl' : 'text-lg text-preto' }}">{{ $servicos[$chave] }}</h3>
@@ -137,7 +132,7 @@
                         <p class="mt-5 text-2xl font-extrabold">Não sabe por onde começar?</p>
                         <p class="mt-2 max-w-md text-preto/80">Conte o que sua empresa precisa e indicamos a melhor solução do C6 Empresas para o seu momento.</p>
                     </div>
-                    <a href="#contato" class="relative mt-6 inline-flex items-center gap-2 self-start rounded-full bg-preto px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5">
+                    <a href="#contato" class="relative mt-6 inline-flex items-center gap-2 self-start rounded-full bg-preto px-6 py-3 font-semibold text-white transition-colors hover:bg-preto-hover">
                         Fale conosco <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
                     </a>
                 </li>
@@ -145,12 +140,11 @@
         </div>
     </section>
 
-    {{-- Conta PJ: arte do C6 fornecida pelo responsável (original em docs/marca/) --}}
-    {{-- A arte ocupa 40% da seção, inteira, de ponta a ponta e sem moldura; o fundo #f6f6f6 é o mesmo da arte, sem emenda --}}
-    <section id="conta-pj" aria-labelledby="titulo-conta-pj" class="bg-[#f6f6f6]">
+    {{-- Conta PJ: a foto ocupa 40% da seção, de ponta a ponta e sem moldura, como fundo do lado esquerdo --}}
+    <section id="conta-pj" aria-labelledby="titulo-conta-pj" class="bg-gelo">
         <div class="grid items-center lg:grid-cols-[2fr_3fr]">
-            <img src="{{ asset('img/conta-pj-c6.webp') }}" width="900" height="901" loading="lazy"
-                 alt="Abra sua conta PJ no C6 Bank em poucos toques e aproveite: conta completa e sem tarifa, 100 boletos de cobrança grátis e Pix ilimitado todo mês, acompanhamento e gestão da conta pelo app ou web banking. Parceiros C6 Empresas."
+            <img src="{{ asset('img/foto-conta-pj.webp') }}" width="1000" height="1000" loading="lazy"
+                 alt="Empreendedora no próprio estabelecimento acompanhando a conta da empresa pelo celular"
                  class="block aspect-square w-full object-cover">
             {{-- Texto alinhado à grade do site (max-w-6xl) pelo lado direito --}}
             <div class="max-w-xl px-4 py-14 lg:max-w-none lg:py-20 lg:pr-[max(1rem,calc((100vw-72rem)/2+1rem))] lg:pl-16" data-revelar>
@@ -188,12 +182,12 @@
                 <div class="mt-10 flex flex-col gap-3 sm:flex-row">
                     <a href="{{ WhatsApp::linkDoServico('maquininha') }}" target="_blank" rel="noopener noreferrer"
                        data-whatsapp="home" data-servico="maquininha"
-                       class="inline-flex items-center justify-center gap-2 rounded-full bg-amarelo px-7 py-3.5 font-semibold text-preto transition hover:-translate-y-0.5 hover:bg-amarelo-hover">
+                       class="inline-flex items-center justify-center gap-2 rounded-full bg-amarelo px-7 py-3.5 font-semibold text-preto transition-colors hover:bg-amarelo-hover">
                         <x-icone-marca nome="whatsapp" class="size-5" /> Quero minha C6 Pay
                         <span class="sr-only">(abre o WhatsApp em nova aba)</span>
                     </a>
                     @if (Route::has('maquininha'))
-                        <a href="{{ route('maquininha') }}" class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-white ring-1 ring-white/40 transition hover:bg-white/10">
+                        <a href="{{ route('maquininha') }}" class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-white ring-1 ring-white/40 transition-colors hover:bg-white/10">
                             Ver taxas e condições <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
                         </a>
                     @endif
@@ -207,7 +201,7 @@
                 <div class="absolute inset-[2%] rounded-full ring-1 ring-amarelo/30" aria-hidden="true"></div>
                 <img src="{{ asset('img/maquininha-c6-pay.webp') }}" width="900" height="843" loading="lazy"
                      alt="Maquininha C6 Pay com tela de pagamento e teclado, aceitando Elo, Mastercard, Hipercard e Visa"
-                     class="flutuar-lento relative w-full drop-shadow-2xl">
+                     class="relative w-full drop-shadow-2xl">
             </div>
         </div>
     </section>
@@ -236,19 +230,15 @@
     </section>
 
     {{-- Sobre --}}
-    <section id="sobre" class="overflow-hidden bg-fundo">
-        <div class="mx-auto grid max-w-6xl items-center gap-16 px-4 py-20 md:py-28 lg:grid-cols-2">
-            <div class="relative" data-revelar>
-                <img src="{{ asset('img/foto-reuniao.webp') }}" width="1200" height="675" loading="lazy"
-                     alt="Dois empresários revisando e assinando um contrato numa mesa com notebook e gráficos"
-                     class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-xl">
-                <figure class="absolute -right-3 -bottom-10 w-40 sm:-right-6 sm:w-48">
-                    <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="487" height="487" loading="lazy"
-                         alt="Selo Conexão Awards 2025 do C6 Empresas: B2BSAFE, destaque de 2025, reconhecimento por transformar consistência em resultados de alto nível"
-                         class="w-full rounded-2xl shadow-2xl ring-8 ring-fundo">
-                    <figcaption class="sr-only">Escritório destaque 2025 · Conexão Awards C6 Empresas</figcaption>
-                </figure>
-            </div>
+    {{-- Sobre: o selo Conexão Awards 2025 é a única imagem, em destaque --}}
+    <section id="sobre" class="bg-fundo">
+        <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
+            <figure class="mx-auto w-full max-w-lg lg:max-w-none" data-revelar>
+                <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="487" height="487" loading="lazy"
+                     alt="Selo Conexão Awards 2025 do C6 Empresas: B2BSAFE, destaque de 2025, reconhecimento por transformar consistência em resultados de alto nível"
+                     class="w-full rounded-[2rem] shadow-2xl">
+                <figcaption class="sr-only">Escritório destaque 2025 · Conexão Awards C6 Empresas</figcaption>
+            </figure>
 
             <div data-revelar>
                 <h2 class="{{ $titulo }}">Sua empresa e seus investimentos em total segurança.</h2>
@@ -262,13 +252,7 @@
                         negócios, transferências e pagamentos.
                     </p>
                 </div>
-                <div class="mt-8 flex items-center gap-4 rounded-2xl bg-gelo p-5">
-                    <span class="flex size-12 shrink-0 items-center justify-center rounded-full bg-amarelo text-preto">
-                        <i data-lucide="award" class="size-6" aria-hidden="true"></i>
-                    </span>
-                    <p><strong class="block text-lg text-preto">Escritório destaque 2025</strong><span class="text-texto-suave">Conexão Awards C6 Empresas</span></p>
-                </div>
-                <p class="mt-8 text-2xl font-extrabold text-preto">B2BSAFE, <span class="destaque-amarelo">Be Safe!</span></p>
+                <p class="mt-8 text-2xl font-extrabold text-preto">B2BSAFE, Be Safe!</p>
             </div>
         </div>
     </section>
@@ -284,10 +268,10 @@
                     ['foto-parceria', 'Mãos sobre a mesa com caderno, tablet e café numa conversa de negócios', 'handshake', 'Seja parceiro de negócios', 'Seja remunerado por indicar empresas que você conhece. Atendemos pequenas e médias empresas com faturamento de R$ 1 a R$ 50 milhões.', 'Quero ser parceiro'],
                     ['foto-equipe', 'Duas profissionais trabalhando juntas no notebook num escritório', 'users-round', 'Seja parte da equipe', 'Buscamos profissionais com perfil comercial, iniciativa e interesse em uma parceria de longo prazo, com remuneração por resultados.', 'Quero trabalhar na B2BSAFE'],
                 ] as [$foto, $alt, $icone, $tituloCard, $texto, $botao])
-                    <article class="group flex flex-col overflow-hidden rounded-3xl bg-fundo shadow-sm transition hover:-translate-y-1 hover:shadow-xl" data-revelar>
+                    <article class="flex flex-col overflow-hidden rounded-3xl bg-fundo text-preto shadow-sm" data-revelar>
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/'.$foto.'.webp') }}" loading="lazy" alt="{{ $alt }}"
-                                 class="size-full object-cover transition duration-500 group-hover:scale-105">
+                                 class="size-full object-cover">
                             <span class="absolute top-4 left-4 flex size-12 items-center justify-center rounded-2xl bg-amarelo text-preto shadow-lg">
                                 <i data-lucide="{{ $icone }}" class="size-6" aria-hidden="true"></i>
                             </span>
@@ -317,7 +301,7 @@
                 <ul class="mt-10 space-y-4">
                     <li>
                         <a href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="contato"
-                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition hover:bg-white/10">
+                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-colors hover:bg-white/10">
                             <span class="flex size-12 items-center justify-center rounded-full bg-whatsapp text-white">
                                 <x-icone-marca nome="whatsapp" class="size-5" />
                             </span>
@@ -330,7 +314,7 @@
                     </li>
                     <li>
                         <a href="mailto:{{ $email }}?subject={{ rawurlencode('Contato pelo site da B2BSAFE') }}"
-                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition hover:bg-white/10">
+                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-colors hover:bg-white/10">
                             <span class="flex size-12 items-center justify-center rounded-full bg-amarelo text-preto">
                                 <i data-lucide="mail" class="size-5" aria-hidden="true"></i>
                             </span>

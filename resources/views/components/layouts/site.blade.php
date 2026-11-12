@@ -58,7 +58,7 @@
     <a href="{{ \App\Support\WhatsApp::link($whatsapp, $whatsapp === 'maquininha' ? 'Olá! Vim pelo site e quero saber sobre a maquininha C6 Pay.' : null) }}"
        target="_blank" rel="noopener noreferrer" data-whatsapp="flutuante" @if ($whatsapp === 'maquininha') data-servico="maquininha" @endif
        style="bottom: calc(1rem + var(--altura-faixa-cookies, 0px))"
-       class="fixed right-4 z-20 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105"
+       class="fixed right-4 z-20 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-colors hover:bg-[#054a42]"
        aria-label="Falar no WhatsApp (abre em nova aba)">
         <x-icone-marca nome="whatsapp" class="size-7" />
     </a>

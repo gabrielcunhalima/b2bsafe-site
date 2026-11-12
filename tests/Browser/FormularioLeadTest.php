@@ -17,6 +17,16 @@ it('mostra o resumo de erros e foca nele ao enviar vazio', function () {
     expect(Lead::count())->toBe(0);
 });
 
+it('não acusa erro ao sair de um campo antes de clicar em Enviar', function () {
+    visit('/#contato')
+        ->type('#lead-whatsapp', '123')
+        ->click('#lead-email')
+        ->click('#lead-nome')
+        ->assertDontSee('Corrija')
+        ->assertScript('document.querySelector("#lead-whatsapp").getAttribute("aria-invalid")', null)
+        ->assertScript('document.getElementById("erro-whatsapp").offsetParent === null', true);
+});
+
 it('envia sem recarregar e troca o formulário pela mensagem de sucesso', function () {
     visit('/#contato')
         ->type('#lead-nome', 'Ana Souza')

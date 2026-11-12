@@ -111,7 +111,7 @@
             <label for="lead-servico" class="mb-1 block font-semibold text-preto">Serviço de interesse <span aria-hidden="true">*</span></label>
             <select id="lead-servico" name="servico" required x-model="servico" data-erro="Escolha o serviço de interesse."
                     class="{{ $campo }} {{ $erroCampo('servico') }}" :class="erros.servico && 'border-2 border-erro'"
-                    :aria-invalid="erros.servico ? 'true' : null" aria-describedby="erro-servico" @change="validarCampo($event.target)">
+                    :aria-invalid="erros.servico ? 'true' : null" aria-describedby="erro-servico" @change="limparSeValido($event.target); avisarSeInvalido($event.target)">
                 <option value="">Selecione</option>
                 @foreach (config('b2bsafe.servicos') as $chave => $nome)
                     <option value="{{ $chave }}" @selected($servicoInicial === $chave)>{{ $nome }}</option>
@@ -138,7 +138,7 @@
                 {{-- RN-011: o aceite nunca vem marcado --}}
                 <input id="lead-aceite" name="aceite" type="checkbox" value="1" required data-erro="Para enviar, aceite a Política de Privacidade."
                        class="mt-1 size-5 shrink-0 accent-preto" :aria-invalid="erros.aceite ? 'true' : null" aria-describedby="erro-aceite"
-                       @change="validarCampo($event.target)">
+                       @change="limparSeValido($event.target); avisarSeInvalido($event.target)">
                 <label for="lead-aceite" class="text-sm text-texto-suave">
                     Li e aceito a
                     @if (Route::has('privacidade'))

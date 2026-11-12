@@ -97,7 +97,7 @@ it('mostra a imagem do selo Conexão Awards 2025 com texto alternativo', functio
 
 it('serve as imagens da marca', function (string $arquivo) {
     expect(public_path("img/{$arquivo}"))->toBeFile();
-})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp', 'conta-pj-c6.webp']);
+})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp', 'foto-conta-pj.webp']);
 
 it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     $this->get(route('inicio'))
@@ -107,10 +107,28 @@ it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
 });
 
-it('mostra a arte da conta PJ do C6 numa seção abaixo dos serviços, com o texto dela no alt', function () {
+it('mostra uma foto de empreendedora na seção Conta PJ, abaixo dos serviços', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/conta-pj-c6.webp', 'id="maquininha"'], escape: false)
-        ->assertSee('alt="Abra sua conta PJ no C6 Bank', escape: false);
+        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/foto-conta-pj.webp', 'id="maquininha"'], escape: false)
+        ->assertSee('alt="Empreendedora no próprio estabelecimento', escape: false)
+        ->assertDontSee('conta-pj-c6.webp', escape: false);
+});
+
+it('deixa só o selo Conexão Awards 2025 como imagem da seção Sobre', function () {
+    $html = $this->get(route('inicio'))->getContent();
+    $sobre = str($html)->after('id="sobre"')->before('id="parcerias"');
+
+    expect(substr_count((string) $sobre, '<img'))->toBe(1)
+        ->and((string) $sobre)->toContain('img/conexao-awards-2025.webp');
+});
+
+it('não usa badges flutuantes, marca-texto amarelo nem zoom no hover', function () {
+    $this->get(route('inicio'))
+        ->assertDontSee('flutuar', escape: false)
+        ->assertDontSee('destaque-amarelo', escape: false)
+        ->assertDontSee('hover:scale', escape: false)
+        ->assertDontSee('hover:-translate', escape: false)
+        ->assertDontSee('moldura', escape: false);
 });
 
 it('leva o botão da seção Conta PJ ao formulário com Conta Corrente e o WhatsApp citando o serviço', function () {

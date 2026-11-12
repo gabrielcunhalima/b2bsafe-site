@@ -23,6 +23,8 @@ export default (opcoes = {}) => ({
     servico: opcoes.servico ?? '',
     erros: {},
     tocado: {},
+    // Os erros só aparecem depois do primeiro clique em "Enviar"; antes disso, nada é acusado
+    tentouEnviar: false,
     enviando: false,
     falha: null,
     sucesso: null,
@@ -59,9 +61,10 @@ export default (opcoes = {}) => ({
         this.erros[campo.name] = this.mensagemDe(campo);
     },
 
-    // Ao sair do campo só acrescenta o erro: tirar a mensagem nesse momento mexe no layout
-    // e faz o clique seguinte (ex.: na caixa de aceite) cair fora do alvo.
+    // Depois de uma tentativa de envio, ao sair do campo só acrescenta o erro: tirar a mensagem nesse
+    // momento mexe no layout e faz o clique seguinte (ex.: na caixa de aceite) cair fora do alvo.
     avisarSeInvalido(campo) {
+        if (!this.tentouEnviar) return;
         const mensagem = this.mensagemDe(campo);
         if (mensagem) this.validarCampo(campo);
     },
@@ -78,6 +81,7 @@ export default (opcoes = {}) => ({
     async enviar() {
         const formulario = this.$refs.formulario;
         this.falha = null;
+        this.tentouEnviar = true;
 
         ORDEM.forEach((nome) => this.validarCampo(formulario.elements[nome]));
         if (this.listaErros.length) {
