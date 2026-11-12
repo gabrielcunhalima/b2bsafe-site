@@ -8,8 +8,8 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
         ->assertSeeInOrder([
             'boas mãos.',
             'id="servicos"',
-            'id="maquininha"',
             'id="sobre"',
+            'id="maquininha"',
             'id="parcerias"',
             'id="contato"',
             'id="credenciamento"',
@@ -17,16 +17,19 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
         ], escape: false);
 });
 
-it('mostra os 7 cards de serviço, cada um abrindo o WhatsApp com o serviço na mensagem (RN-021)', function () {
+it('mostra os 8 serviços em cards pequenos logo abaixo do topo, cada um abrindo o WhatsApp com o serviço na mensagem (RN-021)', function () {
     $resposta = $this->get(route('inicio'));
 
     foreach (['credito' => 'Crédito', 'conta_corrente' => 'Conta Corrente', 'cambio' => 'Câmbio', 'investimentos' => 'Investimentos',
         'cartao' => 'Cartão C6 Business', 'consorcio' => 'Consórcio', 'seguros_previdencia' => 'Seguros e Previdência'] as $chave => $nome) {
-        $resposta->assertSee('data-servico="'.$chave.'"', escape: false)
+        $resposta->assertSee('data-whatsapp="home" data-servico="'.$chave.'"', escape: false)
             ->assertSee('https://wa.me/5511984205023?text='.rawurlencode("Olá! Vim pelo site e quero saber sobre {$nome}."), escape: false);
     }
 
-    expect(substr_count($resposta->getContent(), 'Fale com um atendente'))->toBe(7);
+    $resposta->assertSee('data-whatsapp="home" data-servico="maquininha"', escape: false)
+        ->assertSeeInOrder(['boas mãos.', 'id="servicos"', 'id="sobre"'], escape: false);
+
+    expect(substr_count($resposta->getContent(), 'fale com um atendente no WhatsApp'))->toBe(8);
 });
 
 it('marca os links de WhatsApp para o registro do clique (RN-010)', function () {
@@ -97,29 +100,35 @@ it('mostra a imagem do selo Conexão Awards 2025 com texto alternativo', functio
 
 it('serve as imagens da marca', function (string $arquivo) {
     expect(public_path("img/{$arquivo}"))->toBeFile();
-})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp', 'foto-conta-pj.webp']);
+})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp', 'foto-caixa-compra.webp']);
 
 it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="maquininha"', 'img/maquininha-c6-pay.webp', 'id="sobre"'], escape: false)
+        ->assertSeeInOrder(['id="maquininha"', 'img/maquininha-c6-pay.webp', 'id="titulo-como"'], escape: false)
         ->assertSee('alt="Maquininha C6 Pay', escape: false);
 
     expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
 });
 
-it('mostra uma foto de empreendedora na seção Conta PJ, abaixo dos serviços', function () {
+it('mostra uma foto de compra no caixa na seção Conta PJ, abaixo dos serviços', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/foto-conta-pj.webp', 'id="maquininha"'], escape: false)
-        ->assertSee('alt="Empreendedora no próprio estabelecimento', escape: false)
+        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/foto-caixa-compra.webp', 'id="maquininha"'], escape: false)
+        ->assertSee('alt="Cliente sorridente recebendo a sacola', escape: false)
         ->assertDontSee('conta-pj-c6.webp', escape: false);
 });
 
 it('deixa só o selo Conexão Awards 2025 como imagem da seção Sobre', function () {
     $html = $this->get(route('inicio'))->getContent();
-    $sobre = str($html)->after('id="sobre"')->before('id="parcerias"');
+    $sobre = str($html)->after('id="sobre"')->before('id="conta-pj"');
 
     expect(substr_count((string) $sobre, '<img'))->toBe(1)
         ->and((string) $sobre)->toContain('img/conexao-awards-2025.webp');
+});
+
+it('tira a faixa de confiança e mostra o Sobre em fundo escuro logo depois do topo', function () {
+    $this->get(route('inicio'))
+        ->assertDontSee('Por que a B2BSAFE')
+        ->assertSee('<section id="sobre" class="fundo-escuro bg-preto', escape: false);
 });
 
 it('não usa badges flutuantes, marca-texto amarelo nem zoom no hover', function () {

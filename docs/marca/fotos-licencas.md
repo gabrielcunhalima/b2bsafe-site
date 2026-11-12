@@ -5,9 +5,8 @@
 | `b2bsafe-logo.webp`, `b2bsafe-c6-empresas.webp` | Logo da B2BSAFE fornecido pelo responsável (originais nesta pasta) | Da B2BSAFE |
 | `conexao-awards-2025.webp` | Selo Conexão Awards 2025 fornecido pelo responsável | Uso pela B2BSAFE (prêmio do C6 Empresas) |
 | `maquininha-c6-pay.webp` | Imagem da C6 Pay fornecida pelo responsável | Do C6 Bank: **confirmar permissão de uso** |
-| `foto-empreendedora.webp` | https://unsplash.com/photos/NPJc6EymrtQ | [Unsplash License](https://unsplash.com/license): uso comercial gratuito, sem atribuição |
-| `foto-credito.webp` | https://unsplash.com/photos/MhqUBTxQ3Hw | Unsplash License |
-| `foto-conta-pj.webp` | https://unsplash.com/photos/iuBoZIZQkKM (recorte quadrado) | Unsplash License |
+| `foto-aperto-de-maos.webp` | https://unsplash.com/photos/lZXX-QVdyXY (recorte 5:4, foto do topo) | [Unsplash License](https://unsplash.com/license): uso comercial gratuito, sem atribuição |
+| `foto-caixa-compra.webp` | https://unsplash.com/photos/q5d3J5e3CNE (recorte quadrado) | Unsplash License |
 | `foto-equipe.webp` | https://unsplash.com/photos/irfWcn-sF48 | Unsplash License |
 | `foto-parceria.webp` | https://unsplash.com/photos/BbQLHCpVUqA | Unsplash License |
 | `og-b2bsafe.jpg` | Gerada para o projeto com o logo e a fonte Urbanist | Do projeto |

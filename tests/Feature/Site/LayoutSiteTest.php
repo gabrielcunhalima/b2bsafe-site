@@ -9,7 +9,7 @@ it('mostra o menu com âncoras para as seções da Home e o botão Fale conosco'
         $resposta->assertSee('href="#'.$secao.'"', escape: false);
     }
 
-    $resposta->assertSeeInOrder(['Serviços', 'Maquininha', 'Sobre', 'Parcerias', 'Credenciamento', 'Fale conosco'])
+    $resposta->assertSeeInOrder(['Serviços', 'Sobre', 'Maquininha', 'Parcerias', 'Credenciamento', 'Fale conosco'])
         ->assertSee('aria-controls="menu-movel"', escape: false);
 });
 
