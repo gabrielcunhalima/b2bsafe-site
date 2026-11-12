@@ -6,6 +6,13 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Unreleased]
 
+### Alterado
+
+- Home com identidade própria: a foto do topo vira o corpo de um cadeado com a alça amarela do logo; saem os cartões flutuantes e o marca-texto amarelo.
+- Conta PJ com foto de empreendedora usando o celular no próprio negócio, no lugar da arte do C6; Sobre só com o selo Conexão Awards 2025, maior.
+- Nada no site sobe, desce, cresce ou dá zoom (hover, imagens e aparição ao rolar); o hover dos cards e botões muda só a cor.
+- Formulário de lead só acusa erros depois do clique em Enviar.
+
 ### Adicionado
 
 - Documentação da descoberta: visão, atores, 31 requisitos funcionais, 21 regras de negócio, 33 requisitos não funcionais, modelo de dados, stack, ADRs, MVP e backlog com 32 histórias.

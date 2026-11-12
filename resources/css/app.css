@@ -1,4 +1,5 @@
 /* Site público: tokens de docs/ux/design-system.md */
+/* Hover e foco do site: nada cresce, sobe, flutua ou dá zoom; a resposta é só de cor (fundo, borda, ícone) */
 @import 'tailwindcss';
 @import '@fontsource-variable/urbanist';
 
@@ -72,45 +73,14 @@
         background-size: 22px 22px;
     }
 
-    /* Marca-texto amarelo atrás de uma palavra do título (texto preto sobre amarelo: contraste 13,4:1) */
-    .destaque-amarelo {
-        background-image: linear-gradient(transparent 62%, var(--color-amarelo) 62%, var(--color-amarelo) 92%, transparent 92%);
-        box-decoration-break: clone;
-        padding-inline: 0.08em;
-    }
-
-    /* Cartões que flutuam devagar */
-    .flutuar {
-        animation: flutuar 6s ease-in-out infinite;
-    }
-
-    .flutuar-lento {
-        animation: flutuar 8s ease-in-out infinite;
-        animation-delay: -2s;
-    }
-
-    @keyframes flutuar {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    /* Blocos que aparecem ao rolar (só com JavaScript; ver resources/js/revelar.js) */
+    /* Blocos que aparecem ao rolar, só com esmaecimento, sem deslocamento (só com JavaScript; ver resources/js/revelar.js) */
     .js [data-revelar] {
         opacity: 0;
-        transform: translateY(24px);
-        transition:
-            opacity 0.7s ease,
-            transform 0.7s ease;
+        transition: opacity 0.8s ease;
     }
 
     .js [data-revelar].revelado {
         opacity: 1;
-        transform: none;
     }
 
     /* Elementos do Alpine escondidos até ele iniciar (menu móvel) */
@@ -143,10 +113,6 @@
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
-        }
-
-        .js [data-revelar] {
-            transform: none;
         }
     }
 }
