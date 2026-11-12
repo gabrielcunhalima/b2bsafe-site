@@ -1,4 +1,4 @@
-@props(['titulo' => null, 'whatsapp' => 'geral', 'descricao' => 'Escritório parceiro oficial do C6 Empresas em Florianópolis: conta PJ, crédito, maquininha e mais.'])
+@props(['titulo' => null, 'whatsapp' => 'geral', 'descricao' => 'Escritório parceiro C6 Empresas em Florianópolis: conta PJ, crédito, maquininha e mais.'])
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,7 +24,7 @@
     <meta property="og:image" content="{{ asset('img/og-b2bsafe.jpg') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="B2BSAFE, escritório parceiro oficial do C6 Empresas">
+    <meta property="og:image:alt" content="B2BSAFE, escritório parceiro C6 Empresas">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#060606">
     @stack('head')
@@ -37,6 +37,8 @@
         {{-- Demonstração e homologação fora dos buscadores (RF-011) --}}
         <meta name="robots" content="noindex, nofollow">
     @endunless
+    {{-- Com JavaScript, os blocos aparecem ao rolar; sem ele, tudo fica visível --}}
+    <script>document.documentElement.classList.add('js')</script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="flex min-h-screen flex-col">

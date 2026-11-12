@@ -2,7 +2,7 @@
 
 ## Problema
 
-A B2BSAFE Floripa (B2BSAFE FLORIPA LTDA, CNPJ 58.358.780/0001-26) é escritório parceiro oficial do C6 Empresas. O site atual (b2bsafe.com.br, feito no Wix) apresenta os serviços, mas:
+A B2BSAFE Floripa (B2BSAFE FLORIPA LTDA, CNPJ 58.358.780/0001-26) é escritório parceiro C6 Empresas. O site atual (b2bsafe.com.br, feito no Wix) apresenta os serviços, mas:
 
 - não registra os contatos recebidos: os interessados caem direto no WhatsApp ou no e-mail, sem histórico nem acompanhamento;
 - tem links quebrados (botões da Maquininha levam a uma página 404, links de WhatsApp malformados, menu com âncoras que só voltam para a home);

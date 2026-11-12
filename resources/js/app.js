@@ -3,11 +3,13 @@ import focus from '@alpinejs/focus';
 import { iniciarAnalytics } from './analytics';
 import preferenciasCookies from './cookies';
 import formularioLead from './formulario-lead';
+import { revelarAoRolar } from './revelar';
 import { preSelecionarServico, registrarCliquesWhatsapp } from './whatsapp';
 import {
     createIcons,
     ArrowLeftRight,
     ArrowRight,
+    ArrowUpRight,
     Award,
     BadgePercent,
     CalendarClock,
@@ -15,6 +17,7 @@ import {
     Check,
     ChevronRight,
     CircleCheck,
+    ClipboardList,
     CreditCard,
     ExternalLink,
     HandCoins,
@@ -30,6 +33,8 @@ import {
     Menu,
     MessageCircle,
     MessageCircleQuestion,
+    MessageSquareText,
+    Rocket,
     ShieldCheck,
     Shuffle,
     TrendingUp,
@@ -43,7 +48,7 @@ import {
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
 createIcons({
-    icons: { ArrowLeftRight, ArrowRight, Award, BadgePercent, CalendarClock, ChartNoAxesCombined, Check, ChevronRight, CircleCheck, CreditCard, ExternalLink, HandCoins, Handshake, House, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, ShieldCheck, Shuffle, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wifi, X },
+    icons: { ArrowLeftRight, ArrowRight, ArrowUpRight, Award, BadgePercent, CalendarClock, ChartNoAxesCombined, Check, ChevronRight, CircleCheck, ClipboardList, CreditCard, ExternalLink, HandCoins, Handshake, House, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, MessageSquareText, Rocket, ShieldCheck, Shuffle, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wifi, X },
 });
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
@@ -89,6 +94,7 @@ Alpine.data('preferenciasCookies', preferenciasCookies);
 iniciarAnalytics();
 
 registrarCliquesWhatsapp();
+revelarAoRolar();
 preSelecionarServico();
 
 Alpine.plugin(focus);

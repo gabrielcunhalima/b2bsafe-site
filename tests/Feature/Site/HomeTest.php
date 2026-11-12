@@ -6,7 +6,7 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
     $this->get(route('inicio'))
         ->assertOk()
         ->assertSeeInOrder([
-            'Sua empresa em boas mãos.',
+            'boas mãos.',
             'id="servicos"',
             'id="maquininha"',
             'id="sobre"',

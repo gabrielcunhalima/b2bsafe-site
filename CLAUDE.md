@@ -1,6 +1,6 @@
 # B2BSAFE — site institucional, captação de leads e assistente virtual
 
-Novo site da **B2BSAFE Floripa** (escritório parceiro oficial do C6 Empresas), que substitui o site Wix atual (b2bsafe.com.br). Ele tem três partes:
+Novo site da **B2BSAFE Floripa** (escritório parceiro C6 Empresas), que substitui o site Wix atual (b2bsafe.com.br). Ele tem três partes:
 
 - **Site público:** Home, Maquininha, políticas, formulário de lead, WhatsApp, banner de cookies e GA4 com Consent Mode v2.
 - **Assistente virtual:** chatbot com IA (n8n + Mistral + RAG no Qdrant), acessado por um proxy no Laravel.
