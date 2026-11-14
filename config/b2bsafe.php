@@ -92,6 +92,9 @@ return [
     // Lista oficial (PDF) de escritórios parceiros do C6 Empresas, para o visitante conferir o credenciamento (RF-001).
     'verificacao_c6' => 'https://cms-assets-p.c6bank.com.br/uploads/escritorios-parceiros-c6-empresas.pdf',
 
+    // Página "Parceiro C6 Empresas" do site do C6 Bank, com a área de consulta de escritórios autorizados (link do site antigo).
+    'verificacao_c6_pagina' => 'https://www.c6bank.com.br/parceiro-c6-empresas/',
+
     // Versões dos documentos aceitos; mudar a versão reabre o banner de cookies (RN-011).
     'versoes' => [
         'politica_privacidade' => env('VERSAO_POLITICA_PRIVACIDADE', '1'),
