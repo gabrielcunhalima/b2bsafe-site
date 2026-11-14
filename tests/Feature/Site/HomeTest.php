@@ -11,8 +11,8 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
             'id="sobre"',
             'id="maquininha"',
             'id="parcerias"',
-            'id="contato"',
             'id="credenciamento"',
+            'id="contato"',
             'Canais oficiais C6 Bank',
         ], escape: false);
 });
@@ -68,14 +68,19 @@ it('leva os botões de parceria ao Fale conosco com o serviço parceria', functi
     expect(substr_count($html, 'href="#contato" data-servico="parceria"'))->toBe(2);
 });
 
-it('mostra o credenciamento com os três CNPJs e o link oficial do C6', function () {
-    $this->get(route('inicio'))
-        ->assertSee('Verifique nosso credenciamento')
+it('mostra o credenciamento numa seção própria antes do Fale conosco, com os dois jeitos de conferir no C6 (RN-015)', function () {
+    $html = $this->get(route('inicio'))
+        ->assertSeeInOrder(['id="credenciamento"', 'Pela lista oficial de parceiros', 'Pelo site do C6 Bank', 'Nossas empresas credenciadas', 'id="contato"'], escape: false)
+        ->assertSee('href="'.config('b2bsafe.verificacao_c6').'"', escape: false)
+        ->assertSee('href="'.config('b2bsafe.verificacao_c6_pagina').'"', escape: false)
+        ->assertSee('Tem uma empresa e quer consultar nossos escritórios autorizados')
         ->assertSee('58.358.780/0001-26')
         ->assertSee('41.708.313/0001-86')
         ->assertSee('Rosiane Mazzorana Ltda')
         ->assertSee('54.192.797/0001-03')
-        ->assertSee('Verificar no C6 Bank');
+        ->getContent();
+
+    expect(substr_count((string) str($html)->after('id="credenciamento"')->before('</section>'), 'Copiar CNPJ</span>'))->toBe(3);
 });
 
 it('não promete prazo de resposta', function () {
@@ -124,13 +129,11 @@ it('junta Sobre e Conta PJ numa seção de largura total no fundo da hero, sem f
         ->and(str($html)->contains('<section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">'))->toBeTrue();
 });
 
-it('junta Fale conosco e Credenciamento numa seção só, com o formulário', function () {
+it('deixa o Fale conosco com o formulário numa seção separada do credenciamento', function () {
     $html = $this->get(route('inicio'))->getContent();
     $secao = (string) str($html)->after('<section id="contato"')->before('</section>');
 
-    expect($secao)->toContain('id="credenciamento"')
-        ->toContain('Verifique nosso credenciamento')
-        ->toContain('<form');
+    expect($secao)->toContain('<form')->not->toContain('id="credenciamento"');
 });
 
 it('tira a faixa de confiança', function () {
