@@ -129,6 +129,12 @@ it('junta Sobre e Conta PJ numa seção de largura total no fundo da hero, sem f
         ->and(str($html)->contains('<section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">'))->toBeTrue();
 });
 
+it('mostra os canais oficiais do C6 depois do formulário no Fale conosco, e no topo o título antes da foto (ordem do celular)', function () {
+    $this->get(route('inicio'))
+        ->assertSeeInOrder(['boas mãos.', 'img/foto-aperto-de-maos.webp', 'Conta PJ sem tarifa', 'Quero abrir minha conta'], escape: false)
+        ->assertSeeInOrder(['id="contato"', '<form', 'id="canais-c6"'], escape: false);
+});
+
 it('deixa o Fale conosco com o formulário numa seção separada do credenciamento', function () {
     $html = $this->get(route('inicio'))->getContent();
     $secao = (string) str($html)->after('<section id="contato"')->before('</section>');
