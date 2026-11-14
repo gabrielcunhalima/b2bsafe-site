@@ -8,6 +8,7 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- No celular, a hero mostra a foto logo depois do título e o Fale conosco mostra os canais oficiais do C6 depois do formulário.
 - Cursor de mãozinha em todos os elementos clicáveis (botões, preferências de cookies, seletores e caixas de marcar).
 - Maquininha com fundo preto em largura total e círculo amarelo sólido; serviços em cards amarelos numa linha só; "Como trabalhamos" em trilha de 3 passos.
 - Credenciamento em seção própria, antes do Fale conosco, com os dois jeitos de conferir no C6 (lista oficial em PDF e página Parceiro C6 Empresas) e botão para copiar o CNPJ; canais oficiais do C6 dentro do Fale conosco.

@@ -21,18 +21,32 @@
         <script type="application/ld+json">{!! json_encode(\App\Support\Seo::dadosEstruturados(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>
     @endpush
 
-    {{-- Apresentação: ocupa toda a largura da página, como as seções Sobre e Fale conosco --}}
+    {{-- Apresentação: ocupa toda a largura da página. No celular: título, foto e depois lista e botões;
+         no computador: textos à esquerda e a foto na coluna da direita --}}
     <section class="relative overflow-hidden bg-gelo">
         <div class="pontilhado pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
-        <div class="relative grid w-full items-center gap-14 px-4 pt-12 pb-10 md:px-10 md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:pb-14 xl:px-16">
-            <div data-revelar>
+        <div class="relative grid w-full items-center gap-8 px-4 pt-10 pb-10 md:px-10 md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:gap-x-14 lg:gap-y-0 lg:pb-14 xl:px-16">
+            <div class="lg:col-start-1 lg:row-start-1 lg:self-end" data-revelar>
                 <h1 class="text-5xl leading-[1.05] font-extrabold tracking-tight text-preto md:text-7xl">
                     Sua empresa em boas mãos.
                 </h1>
-                <p class="mt-6 max-w-xl text-lg leading-relaxed text-texto-suave md:text-xl">
+                <p class="mt-5 max-w-xl text-lg leading-relaxed text-texto-suave md:mt-6 md:text-xl">
                     Solução financeira com parceria, orientação e segurança para impulsionar o crescimento da sua empresa.
                 </p>
-                <ul class="mt-7 space-y-3 text-texto">
+            </div>
+
+            {{-- Porta aberta para novos negócios: a foto em arco e, atrás dela, um arco amarelo deslocado para cima e para a esquerda,
+                 com um arco cinza do lado oposto. No celular a foto fica mais baixa (4:3) para os botões aparecerem logo --}}
+            <div class="relative mx-auto w-full max-w-md p-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-2xl lg:p-6" data-revelar>
+                <div class="absolute top-0 right-8 bottom-8 left-0 rounded-t-[9rem] rounded-b-[1.5rem] bg-amarelo lg:right-12 lg:bottom-12 lg:rounded-t-[14rem] lg:rounded-b-[2rem]" aria-hidden="true"></div>
+                <div class="absolute top-8 right-0 bottom-0 left-8 rounded-t-[9rem] rounded-b-[1.5rem] bg-[#dcdfe4] lg:top-12 lg:left-12 lg:rounded-t-[14rem] lg:rounded-b-[2rem]" aria-hidden="true"></div>
+                <img src="{{ asset('img/foto-aperto-de-maos.webp') }}" width="1125" height="900" fetchpriority="high"
+                     alt="Dois empresários de terno sorrindo e apertando as mãos numa mesa de reunião"
+                     class="relative aspect-[4/3] w-full rounded-t-[9rem] rounded-b-[1.5rem] object-cover object-[60%_center] shadow-2xl lg:aspect-square lg:rounded-t-[14rem] lg:rounded-b-[2rem]">
+            </div>
+
+            <div class="lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-7" data-revelar>
+                <ul class="space-y-3 text-texto">
                     @foreach ([
                         'Conta PJ sem tarifa, com Pix ilimitado e boletos grátis',
                         'Crédito, câmbio, investimentos e maquininha C6 Pay',
@@ -46,27 +60,17 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row md:mt-9">
                     <a href="#contato" class="{{ $botaoPreto }}">
                         Quero abrir minha conta <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
                     </a>
                     <x-botao-whatsapp :href="WhatsApp::link()">Falar no WhatsApp</x-botao-whatsapp>
                 </div>
-                <p class="mt-7 flex items-center gap-2 text-sm text-texto-suave">
+                <p class="mt-6 flex items-center gap-2 text-sm text-texto-suave md:mt-7">
                     <i data-lucide="lock" class="size-4 text-preto" aria-hidden="true"></i>
                     Escritório credenciado C6 Empresas ·
                     <a href="#credenciamento" class="rounded font-semibold text-preto underline">verifique</a>
                 </p>
-            </div>
-
-            {{-- Porta aberta para novos negócios: a foto em arco e, atrás dela, um arco amarelo deslocado para cima e para a esquerda,
-                 com um arco cinza do lado oposto (duas portas, a B2BSAFE e a empresa do cliente) --}}
-            <div class="relative mx-auto w-full max-w-md px-6 py-6 lg:max-w-2xl" data-revelar>
-                <div class="absolute top-0 right-12 bottom-12 left-0 rounded-t-[14rem] rounded-b-[2rem] bg-amarelo" aria-hidden="true"></div>
-                <div class="absolute top-12 right-0 bottom-0 left-12 rounded-t-[14rem] rounded-b-[2rem] bg-[#dcdfe4]" aria-hidden="true"></div>
-                <img src="{{ asset('img/foto-aperto-de-maos.webp') }}" width="1125" height="900" fetchpriority="high"
-                     alt="Dois empresários de terno sorrindo e apertando as mãos numa mesa de reunião"
-                     class="relative aspect-[1/1] w-full rounded-t-[14rem] rounded-b-[2rem] object-cover object-[60%_center] shadow-2xl">
             </div>
         </div>
     </section>
@@ -336,8 +340,8 @@
 
     {{-- Fale conosco: ocupa toda a largura da página (sem o container), no mesmo fundo da hero (RF-006, T-03) --}}
     <section id="contato" aria-labelledby="titulo-contato" class="bg-gelo">
-        <div class="grid w-full gap-12 px-4 py-14 md:px-10 md:py-20 lg:grid-cols-[1fr_1.2fr] lg:gap-16 xl:px-16">
-            <div data-revelar>
+        <div class="grid w-full gap-10 px-4 py-14 md:px-10 md:py-20 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:gap-y-10 xl:px-16">
+            <div class="lg:col-start-1 lg:row-start-1" data-revelar>
                 <h2 id="titulo-contato" class="{{ $titulo }}">Fale conosco</h2>
                 <p class="mt-4 max-w-lg text-lg text-texto-suave">
                     Deixe seus dados e um especialista da B2BSAFE entra em contato. Se preferir, chame no WhatsApp ou mande um e-mail.
@@ -370,25 +374,25 @@
                     </li>
                 </ul>
 
-                {{-- Canais oficiais do C6 (RN-015), logo abaixo dos contatos da B2BSAFE --}}
-                <div class="mt-10">
-                    <h3 id="canais-c6" class="text-xl font-extrabold text-preto">Canais oficiais C6 Bank</h3>
-                    <p class="mt-1 text-texto-suave">Para assuntos da sua conta, fale direto com o C6 Bank.</p>
-                    <ul class="mt-4 grid gap-3 sm:grid-cols-2">
-                        @foreach (config('b2bsafe.canais_c6') as $canal => $contato)
-                            <li class="rounded-2xl bg-fundo px-4 py-3 shadow-sm">
-                                <span class="block text-sm text-texto-suave">{{ $canal }}</span>
-                                <span class="mt-0.5 block font-bold break-all text-preto">{{ $contato }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
             </div>
 
-            <div data-revelar>
+            <div class="lg:col-start-2 lg:row-span-2 lg:row-start-1" data-revelar>
                 <x-formulario-lead />
+            </div>
+
+            {{-- Canais oficiais do C6 (RN-015): no celular depois do formulário; no computador embaixo dos contatos --}}
+            <div class="lg:col-start-1 lg:row-start-2 lg:self-start" data-revelar>
+                <h3 id="canais-c6" class="text-xl font-extrabold text-preto">Canais oficiais C6 Bank</h3>
+                <p class="mt-1 text-texto-suave">Para assuntos da sua conta, fale direto com o C6 Bank.</p>
+                <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                    @foreach (config('b2bsafe.canais_c6') as $canal => $contato)
+                        <li class="rounded-2xl bg-fundo px-4 py-3 shadow-sm">
+                            <span class="block text-sm text-texto-suave">{{ $canal }}</span>
+                            <span class="mt-0.5 block font-bold break-all text-preto">{{ $contato }}</span>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </section>
-
 </x-layouts.site>
