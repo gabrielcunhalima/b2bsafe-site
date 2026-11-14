@@ -13,6 +13,8 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
+        // IPv4 explícito: com o padrão (localhost → [::1]) a recarga automática pode não chegar ao navegador no Windows
+        host: '127.0.0.1',
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },

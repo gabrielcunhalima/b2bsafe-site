@@ -15,7 +15,6 @@
 - Confirmar a versão do MariaDB da Hostinger (local usa 11.8.9).
 - Revisar e aprovar os wireframes (`docs/ux/wireframes/index.html`) e as 4 propostas marcadas em `docs/10-ux.md`.
 - Imagens da Home: o selo Conexão Awards 2025 já é a imagem oficial fornecida. A imagem da C6 Pay fornecida pelo responsável está na seção Maquininha; falta só confirmar com a B2BSAFE a permissão de uso da imagem do C6. A foto do hero segue como composição com ícones até haver foto licenciada.
-- Foto do topo da Home: uma pessoa pagando outra com a maquininha C6 Pay. O site do C6 bloqueia acesso automatizado e as fotos dele têm direitos autorais; o responsável escolhe e salva a foto (licenciada ou autorizada) em `public/img/hero-pagamento-c6.webp`, e ela aparece sozinha no lugar do cartão preto.
 - Revisão jurídica da Política de Privacidade do site (`/privacidade`, texto novo) pela B2BSAFE antes da produção.
 - Confirmar com a B2BSAFE a tabela de taxas da C6 Pay (valores de referência do site do C6, consultados em 2026-11-07) e a permissão de uso da imagem da C6 Pay e dos logos de adquirentes.
 - Confirmar o domínio definitivo (informado como "b2b.com.br"; pode ser `b2bsafe.com.br`).

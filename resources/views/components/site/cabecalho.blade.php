@@ -5,8 +5,8 @@
     $ancora = fn (string $id): string => ($naHome ? '' : route('inicio')).'#'.$id;
     $itens = [
         'servicos' => 'Serviços',
-        'maquininha' => 'Maquininha',
         'sobre' => 'Sobre',
+        'maquininha' => 'Maquininha',
         'parcerias' => 'Parcerias',
         'credenciamento' => 'Credenciamento',
     ];

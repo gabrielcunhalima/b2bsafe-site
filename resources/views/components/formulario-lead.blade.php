@@ -12,7 +12,7 @@
     $falha = session('lead_falha');
     $servicoInicial = old('servico', request()->query('servico', $servico));
     $servicoInicial = array_key_exists((string) $servicoInicial, config('b2bsafe.servicos')) ? $servicoInicial : '';
-    $campo = 'w-full rounded-lg border bg-fundo px-4 py-3 text-texto transition-colors placeholder:text-texto-terciario focus:border-preto';
+    $campo = 'w-full rounded-lg border bg-fundo px-4 py-3 text-texto transition-[border-color,box-shadow] duration-200 placeholder:text-texto-terciario focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgb(6_6_6/0.12)]';
     // Links de WhatsApp do formulário seguem o contexto da página: na Maquininha, o número da maquininha (RN-021)
     $linkWhatsapp = $servicoInicial ? WhatsApp::linkDoServico($servicoInicial) : WhatsApp::link();
     $erroCampo = fn (string $nome) => $errors->has($nome) ? 'border-2 border-erro' : 'border-borda';
