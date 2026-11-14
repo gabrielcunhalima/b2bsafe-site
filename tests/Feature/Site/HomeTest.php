@@ -100,7 +100,7 @@ it('mostra a imagem do selo Conexão Awards 2025 com texto alternativo', functio
 
 it('serve as imagens da marca', function (string $arquivo) {
     expect(public_path("img/{$arquivo}"))->toBeFile();
-})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp', 'foto-caixa-compra.webp']);
+})->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp']);
 
 it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     $this->get(route('inicio'))
@@ -110,25 +110,31 @@ it('mostra a imagem da C6 Pay na seção Maquininha', function () {
     expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
 });
 
-it('mostra uma foto de compra no caixa na seção Conta PJ, abaixo dos serviços', function () {
-    $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="servicos"', 'id="conta-pj"', 'img/foto-caixa-compra.webp', 'id="maquininha"'], escape: false)
-        ->assertSee('alt="Cliente sorridente recebendo a sacola', escape: false)
-        ->assertDontSee('conta-pj-c6.webp', escape: false);
+it('junta Sobre e Conta PJ numa seção de largura total no fundo da hero, sem foto da conta PJ', function () {
+    $html = $this->get(route('inicio'))
+        ->assertSeeInOrder(['id="servicos"', 'id="sobre"', 'Sua empresa e seus investimentos', 'id="conta-pj"', 'Abra a conta PJ', 'id="maquininha"'], escape: false)
+        ->assertDontSee('foto-caixa-compra', escape: false)
+        ->assertDontSee('conta-pj-c6.webp', escape: false)
+        ->getContent();
+
+    $secao = (string) str($html)->after('<section id="sobre"')->before('</section>');
+
+    expect(substr_count($secao, '<img'))->toBe(1)
+        ->and($secao)->toContain('img/conexao-awards-2025.webp')
+        ->and(str($html)->contains('<section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">'))->toBeTrue();
 });
 
-it('deixa só o selo Conexão Awards 2025 como imagem da seção Sobre', function () {
+it('junta Fale conosco e Credenciamento numa seção só, com o formulário', function () {
     $html = $this->get(route('inicio'))->getContent();
-    $sobre = str($html)->after('id="sobre"')->before('id="conta-pj"');
+    $secao = (string) str($html)->after('<section id="contato"')->before('</section>');
 
-    expect(substr_count((string) $sobre, '<img'))->toBe(1)
-        ->and((string) $sobre)->toContain('img/conexao-awards-2025.webp');
+    expect($secao)->toContain('id="credenciamento"')
+        ->toContain('Verifique nosso credenciamento')
+        ->toContain('<form');
 });
 
-it('tira a faixa de confiança e mostra o Sobre em fundo escuro logo depois do topo', function () {
-    $this->get(route('inicio'))
-        ->assertDontSee('Por que a B2BSAFE')
-        ->assertSee('<section id="sobre" class="fundo-escuro bg-preto', escape: false);
+it('tira a faixa de confiança', function () {
+    $this->get(route('inicio'))->assertDontSee('Por que a B2BSAFE');
 });
 
 it('não usa badges flutuantes, marca-texto amarelo nem zoom no hover', function () {

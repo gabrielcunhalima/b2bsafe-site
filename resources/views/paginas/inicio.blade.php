@@ -21,10 +21,10 @@
         <script type="application/ld+json">{!! json_encode(\App\Support\Seo::dadosEstruturados(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>
     @endpush
 
-    {{-- Apresentação --}}
+    {{-- Apresentação: ocupa toda a largura da página, como as seções Sobre e Fale conosco --}}
     <section class="relative overflow-hidden bg-gelo">
         <div class="pontilhado pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
-        <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pt-12 pb-20 md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:pb-24">
+        <div class="relative grid w-full items-center gap-14 px-4 pt-12 pb-10 md:px-10 md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:pb-14 xl:px-16">
             <div data-revelar>
                 <h1 class="text-5xl leading-[1.05] font-extrabold tracking-tight text-preto md:text-7xl">
                     Sua empresa em boas mãos.
@@ -61,7 +61,7 @@
 
             {{-- Porta aberta para novos negócios: a foto em arco e, atrás dela, um arco amarelo deslocado para cima e para a esquerda,
                  com um arco cinza do lado oposto (duas portas, a B2BSAFE e a empresa do cliente) --}}
-            <div class="relative mx-auto w-full max-w-md px-6 py-6 lg:max-w-none" data-revelar>
+            <div class="relative mx-auto w-full max-w-md px-6 py-6 lg:max-w-2xl" data-revelar>
                 <div class="absolute top-0 right-12 bottom-12 left-0 rounded-t-[14rem] rounded-b-[2rem] bg-amarelo" aria-hidden="true"></div>
                 <div class="absolute top-12 right-0 bottom-0 left-12 rounded-t-[14rem] rounded-b-[2rem] bg-[#dcdfe4]" aria-hidden="true"></div>
                 <img src="{{ asset('img/foto-aperto-de-maos.webp') }}" width="1125" height="900" fetchpriority="high"
@@ -75,8 +75,9 @@
     @php
         $descricoes = [...array_map(fn ($card) => $card, $vitrine), 'maquininha' => ['descricao' => 'Parcele em até 12x e receba em até 2 dias úteis.', 'icone' => 'store']];
     @endphp
-    <section id="servicos" aria-labelledby="titulo-servicos" class="bg-amarelo">
-        <div class="mx-auto max-w-6xl px-4 py-12 md:py-14">
+    <section id="servicos" aria-labelledby="titulo-servicos" class="bg-gelo">
+        <div class="mx-auto max-w-6xl px-4 py-4 md:py-6">
+            <div class="rounded-[2rem] bg-amarelo p-6 md:p-10">
             <h2 id="titulo-servicos" class="text-2xl font-extrabold text-preto">Soluções para sua empresa</h2>
             <ul class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
                 @foreach (array_keys($servicos) as $chave)
@@ -98,22 +99,23 @@
                     </li>
                 @endforeach
             </ul>
+            </div>
         </div>
     </section>
 
-    {{-- Sobre, logo depois do topo e em fundo escuro: o selo Conexão Awards 2025 é a única imagem, em destaque --}}
-    <section id="sobre" class="fundo-escuro bg-preto text-white">
-        <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
-            <figure class="mx-auto w-full max-w-lg lg:max-w-none" data-revelar>
+    {{-- Sobre e Conta PJ numa seção só, ocupando toda a largura da página (sem o container) e no mesmo fundo da hero: o selo Conexão Awards 2025 é a única imagem --}}
+    <section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">
+        <div class="grid w-full items-center gap-12 px-4 py-14 md:px-10 md:py-20 lg:grid-cols-[5fr_6fr] lg:gap-16 xl:px-16">
+            <figure class="mx-auto w-full max-w-md lg:max-w-xl" data-revelar>
                 <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="487" height="487" loading="lazy"
                      alt="Selo Conexão Awards 2025 do C6 Empresas: B2BSAFE, destaque de 2025, reconhecimento por transformar consistência em resultados de alto nível"
-                     class="w-full rounded-[2rem] shadow-2xl ring-1 ring-white/15">
+                     class="w-full rounded-[2rem] shadow-2xl">
                 <figcaption class="sr-only">Escritório destaque 2025 · Conexão Awards C6 Empresas</figcaption>
             </figure>
 
             <div data-revelar>
-                <h2 class="text-3xl leading-tight font-extrabold tracking-tight md:text-5xl">Sua empresa e seus investimentos em total segurança.</h2>
-                <div class="mt-6 space-y-4 text-lg leading-relaxed text-white/75">
+                <h2 id="titulo-sobre" class="{{ $titulo }}">Sua empresa e seus investimentos em total segurança.</h2>
+                <div class="mt-6 space-y-4 text-lg leading-relaxed text-texto-suave">
                     <p>
                         B2B é negócio para negócio. Atendemos pequenas e médias empresas com a oferta exclusiva do C6 Empresas,
                         moldando nossa atuação ao modelo e às necessidades de cada cliente.
@@ -123,40 +125,33 @@
                         negócios, transferências e pagamentos.
                     </p>
                 </div>
-                <p class="mt-8 text-2xl font-extrabold">B2BSAFE, <span class="text-amarelo">Be Safe!</span></p>
-            </div>
-        </div>
-    </section>
 
-    {{-- Conta PJ: a foto ocupa 40% da seção, de ponta a ponta e sem moldura, como fundo do lado esquerdo --}}
-    <section id="conta-pj" aria-labelledby="titulo-conta-pj" class="bg-gelo">
-        <div class="grid items-center lg:grid-cols-[2fr_3fr]">
-            <img src="{{ asset('img/foto-caixa-compra.webp') }}" width="900" height="900" loading="lazy"
-                 alt="Cliente sorridente recebendo a sacola da compra da atendente no caixa de uma loja"
-                 class="block aspect-square w-full object-cover">
-            {{-- Texto alinhado à grade do site (max-w-6xl) pelo lado direito --}}
-            <div class="max-w-xl px-4 py-14 lg:max-w-none lg:py-20 lg:pr-[max(1rem,calc((100vw-72rem)/2+1rem))] lg:pl-16" data-revelar>
-                <h2 id="titulo-conta-pj" class="{{ $titulo }}">Abra a conta PJ da sua empresa com quem entende do C6.</h2>
-                <p class="mt-5 max-w-xl text-lg leading-relaxed text-texto-suave">
-                    Conta completa e sem tarifa, com Pix ilimitado, boletos de cobrança grátis todo mês e gestão pelo app ou pelo web banking.
-                    A B2BSAFE acompanha a abertura com você, do primeiro contato à conta funcionando.
-                </p>
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="#contato" data-servico="conta_corrente" class="{{ $botaoPreto }}">
-                        Quero abrir minha conta <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
-                    </a>
-                    <x-botao-whatsapp :href="WhatsApp::linkDoServico('conta_corrente')" servico="conta_corrente">Falar no WhatsApp</x-botao-whatsapp>
+                <div id="conta-pj" class="mt-10 rounded-3xl bg-fundo p-6 shadow-sm md:p-8">
+                    <h3 class="text-2xl leading-snug font-extrabold text-preto">Abra a conta PJ da sua empresa com quem entende do C6.</h3>
+                    <p class="mt-3 leading-relaxed text-texto-suave">
+                        Conta completa e sem tarifa, com Pix ilimitado, boletos de cobrança grátis todo mês e gestão pelo app ou pelo web banking.
+                        A B2BSAFE acompanha a abertura com você, do primeiro contato à conta funcionando.
+                    </p>
+                    <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                        <a href="#contato" data-servico="conta_corrente" class="{{ $botaoPreto }}">
+                            Quero abrir minha conta <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+                        </a>
+                        <x-botao-whatsapp :href="WhatsApp::linkDoServico('conta_corrente')" servico="conta_corrente">Falar no WhatsApp</x-botao-whatsapp>
+                    </div>
                 </div>
+
+                <p class="mt-8 text-2xl font-extrabold text-preto">B2BSAFE, Be Safe!</p>
             </div>
         </div>
     </section>
 
     {{-- Maquininha C6 Pay: seção própria, com o WhatsApp da maquininha (RN-021) --}}
-    <section id="maquininha" class="fundo-escuro relative overflow-hidden bg-preto text-white">
-        <div class="pontilhado-claro pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
-        <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:py-28 lg:grid-cols-2">
-            <div data-revelar>
-                <h2 class="text-4xl leading-tight font-extrabold tracking-tight md:text-6xl">
+    <section id="maquininha" class="bg-gelo">
+        <div class="mx-auto max-w-6xl px-4 py-4 md:py-6">
+        <div class="fundo-escuro relative grid items-center gap-10 overflow-hidden rounded-[2rem] bg-preto p-6 text-white md:p-12 lg:grid-cols-2">
+            <div class="pontilhado-claro pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
+            <div class="relative" data-revelar>
+                <h2 class="text-3xl leading-tight font-extrabold tracking-tight md:text-5xl">
                     Maquininha C6 Pay: <span class="text-amarelo">venda mais, pague menos.</span>
                 </h2>
                 <ul class="mt-10 grid gap-4 sm:grid-cols-3">
@@ -192,13 +187,14 @@
                      class="relative w-full drop-shadow-2xl">
             </div>
         </div>
+        </div>
     </section>
 
     {{-- Como trabalhamos --}}
     <section aria-labelledby="titulo-como" class="bg-gelo">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl px-4 pt-12 pb-4 md:pt-16 md:pb-6">
             <h2 id="titulo-como" class="{{ $titulo }} max-w-2xl" data-revelar>Como a B2BSAFE trabalha com você</h2>
-            <ol class="mt-12 grid gap-5 md:grid-cols-3">
+            <ol class="mt-8 grid gap-5 md:grid-cols-3">
                 @foreach ([
                     ['message-square-text', 'Você conta o que precisa', 'Pelo WhatsApp ou pelo formulário, sem compromisso e sem burocracia.'],
                     ['clipboard-list', 'Um especialista monta a solução', 'Entendemos o momento da sua empresa e indicamos os produtos do C6 Empresas que fazem sentido.'],
@@ -218,17 +214,17 @@
     </section>
 
     {{-- Parcerias / Trabalhe conosco: os botões levam ao Fale conosco com o serviço "parceria" --}}
-    <section id="parcerias" class="bg-fundo">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
+    <section id="parcerias" class="bg-gelo">
+        <div class="mx-auto max-w-6xl px-4 pt-12 pb-4 md:pt-16 md:pb-6">
             <h2 class="{{ $titulo }}" data-revelar>Parcerias</h2>
             <p class="mt-4 text-lg text-texto-suave" data-revelar>Trabalhe conosco ou seja parceiro, você escolhe.</p>
 
-            <div class="mt-12 grid gap-6 md:grid-cols-2">
+            <div class="mt-8 grid gap-6 md:grid-cols-2">
                 @foreach ([
                     ['foto-parceria', 'Mãos sobre a mesa com caderno, tablet e café numa conversa de negócios', 'handshake', 'Seja parceiro de negócios', 'Seja remunerado por indicar empresas que você conhece. Atendemos pequenas e médias empresas com faturamento de R$ 1 a R$ 50 milhões.', 'Quero ser parceiro'],
                     ['foto-equipe', 'Duas profissionais trabalhando juntas no notebook num escritório', 'users-round', 'Seja parte da equipe', 'Buscamos profissionais com perfil comercial, iniciativa e interesse em uma parceria de longo prazo, com remuneração por resultados.', 'Quero trabalhar na B2BSAFE'],
                 ] as [$foto, $alt, $icone, $tituloCard, $texto, $botao])
-                    <article class="flex flex-col overflow-hidden rounded-3xl bg-gelo text-preto" data-revelar>
+                    <article class="flex flex-col overflow-hidden rounded-3xl bg-fundo text-preto shadow-sm" data-revelar>
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/'.$foto.'.webp') }}" loading="lazy" alt="{{ $alt }}"
                                  class="size-full object-cover">
@@ -249,42 +245,61 @@
         </div>
     </section>
 
-    {{-- Fale conosco: formulário de lead (RF-006, T-03) e os canais diretos --}}
-    <section id="contato" class="fundo-escuro relative overflow-hidden bg-preto text-white">
-        <div class="absolute -top-32 -left-32 size-96 rounded-full bg-amarelo/10 blur-3xl" aria-hidden="true"></div>
-        <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 md:py-28 lg:grid-cols-[1fr_1.3fr]">
+    {{-- Fale conosco e Credenciamento numa seção só, ocupando toda a largura da página (sem o container) e no mesmo fundo da hero (RF-006, T-03) --}}
+    <section id="contato" aria-labelledby="titulo-contato" class="bg-gelo">
+        <div class="grid w-full gap-12 px-4 py-14 md:px-10 md:py-20 lg:grid-cols-[1fr_1.2fr] lg:gap-16 xl:px-16">
             <div data-revelar>
-                <h2 class="text-3xl leading-tight font-extrabold tracking-tight md:text-5xl">Fale <span class="text-amarelo">conosco</span></h2>
-                <p class="mt-4 max-w-lg text-lg text-white/75">
+                <h2 id="titulo-contato" class="{{ $titulo }}">Fale conosco</h2>
+                <p class="mt-4 max-w-lg text-lg text-texto-suave">
                     Deixe seus dados e um especialista da B2BSAFE entra em contato. Se preferir, chame no WhatsApp ou mande um e-mail.
                 </p>
-                <ul class="mt-10 space-y-4">
+                <ul class="mt-8 space-y-3">
                     <li>
                         <a href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="contato"
-                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-colors hover:bg-white/10">
+                           class="flex items-center gap-4 rounded-2xl border border-borda bg-fundo p-4 transition-colors hover:border-preto">
                             <span class="flex size-12 items-center justify-center rounded-full bg-whatsapp text-white">
                                 <x-icone-marca nome="whatsapp" class="size-5" />
                             </span>
                             <span>
-                                <span class="block font-bold">WhatsApp</span>
-                                <span class="block text-white/70">{{ Telefone::formatar($whatsappGeral) }}</span>
+                                <span class="block font-bold text-preto">WhatsApp</span>
+                                <span class="block text-texto-suave">{{ Telefone::formatar($whatsappGeral) }}</span>
                             </span>
                             <span class="sr-only">(abre o WhatsApp em nova aba)</span>
                         </a>
                     </li>
                     <li>
                         <a href="mailto:{{ $email }}?subject={{ rawurlencode('Contato pelo site da B2BSAFE') }}"
-                           class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-colors hover:bg-white/10">
+                           class="flex items-center gap-4 rounded-2xl border border-borda bg-fundo p-4 transition-colors hover:border-preto">
                             <span class="flex size-12 items-center justify-center rounded-full bg-amarelo text-preto">
                                 <i data-lucide="mail" class="size-5" aria-hidden="true"></i>
                             </span>
                             <span>
-                                <span class="block font-bold">E-mail</span>
-                                <span class="block break-all text-white/70">{{ $email }}</span>
+                                <span class="block font-bold text-preto">E-mail</span>
+                                <span class="block break-all text-texto-suave">{{ $email }}</span>
                             </span>
                         </a>
                     </li>
                 </ul>
+
+                {{-- Credenciamento --}}
+                <div id="credenciamento" class="mt-12">
+                    <h3 class="flex items-center gap-3 text-2xl font-extrabold text-preto">
+                        <i data-lucide="shield-check" class="size-7" aria-hidden="true"></i> Verifique nosso credenciamento
+                    </h3>
+                    <p class="mt-3 text-texto-suave">Consulte no site oficial do C6 Bank e confirme nosso cadastro como escritório parceiro.</p>
+                    <dl class="mt-5 divide-y divide-borda">
+                        @foreach ($credenciadas as $empresa)
+                            <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3">
+                                <dt class="font-bold text-preto">{{ $empresa['nome'] }}</dt>
+                                <dd class="text-texto-suave">CNPJ {{ $empresa['cnpj'] }}</dd>
+                            </div>
+                        @endforeach
+                    </dl>
+                    <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="{{ $botaoPreto }} mt-6">
+                        Verificar no C6 Bank <i data-lucide="external-link" class="size-4" aria-hidden="true"></i>
+                        <span class="sr-only">(PDF da lista oficial de parceiros, abre em nova aba)</span>
+                    </a>
+                </div>
             </div>
 
             <div data-revelar>
@@ -293,36 +308,9 @@
         </div>
     </section>
 
-    {{-- Credenciamento --}}
-    <section id="credenciamento" class="bg-gelo">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:py-24">
-            <div class="grid gap-10 rounded-[2rem] bg-fundo p-8 shadow-sm md:p-12 lg:grid-cols-2" data-revelar>
-                <div>
-                    <span class="flex size-14 items-center justify-center rounded-2xl bg-amarelo text-preto">
-                        <i data-lucide="shield-check" class="size-7" aria-hidden="true"></i>
-                    </span>
-                    <h2 class="mt-6 text-3xl font-extrabold tracking-tight text-preto">Verifique nosso credenciamento</h2>
-                    <p class="mt-3 text-lg text-texto-suave">Consulte no site oficial do C6 Bank e confirme nosso cadastro como escritório parceiro.</p>
-                    <a href="{{ config('b2bsafe.verificacao_c6') }}" target="_blank" rel="noopener noreferrer" class="{{ $botaoPreto }} mt-7">
-                        Verificar no C6 Bank <i data-lucide="external-link" class="size-4" aria-hidden="true"></i>
-                        <span class="sr-only">(PDF da lista oficial de parceiros, abre em nova aba)</span>
-                    </a>
-                </div>
-                <dl class="divide-y divide-borda self-center">
-                    @foreach ($credenciadas as $empresa)
-                        <div class="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0">
-                            <dt class="font-bold text-preto">{{ $empresa['nome'] }}</dt>
-                            <dd class="shrink-0 text-texto-suave">CNPJ {{ $empresa['cnpj'] }}</dd>
-                        </div>
-                    @endforeach
-                </dl>
-            </div>
-        </div>
-    </section>
-
     {{-- Canais oficiais do C6 (RN-015) --}}
     <section aria-labelledby="canais-c6" class="bg-gelo">
-        <div class="mx-auto max-w-6xl px-4 pb-20">
+        <div class="mx-auto max-w-6xl px-4 pt-12 pb-20 md:pt-16">
             <h2 id="canais-c6" class="text-2xl font-extrabold text-preto">Canais oficiais C6 Bank</h2>
             <p class="mt-2 text-texto-suave">Para assuntos da sua conta, fale direto com o C6 Bank.</p>
             <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
