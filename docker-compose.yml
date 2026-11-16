@@ -8,7 +8,7 @@ name: b2bsafe
 
 services:
   mariadb:
-    image: mariadb:11.8.9
+    image: mariadb:13.0.2
     restart: unless-stopped
     environment:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-raiz-local}
