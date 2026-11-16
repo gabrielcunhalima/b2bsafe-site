@@ -28,7 +28,7 @@ services:
       retries: 20
 
   mailpit:
-    image: axllent/mailpit:v1.33.0
+    image: axllent/mailpit:v1.33.1
     restart: unless-stopped
     ports:
       - "127.0.0.1:${PORTA_MAILPIT_WEB:-8026}:8025"
