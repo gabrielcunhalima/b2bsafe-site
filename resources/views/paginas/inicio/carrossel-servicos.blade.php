@@ -18,7 +18,6 @@
 
 <section id="servicos" aria-roledescription="carrossel" aria-label="Serviços da B2BSAFE"
          x-data="carrosselServicos({{ count($slides) }})"
-         @mouseenter="pausado = true" @mouseleave="pausado = false" @focusin="pausado = true" @focusout="pausado = false"
          class="relative flex h-[calc(100svh-4rem)] min-h-[34rem] flex-col bg-preto">
     <h1 class="sr-only">B2BSAFE, escritório parceiro C6 Empresas: crédito, maquininha, conta PJ, câmbio, investimentos, cartão, consórcio e seguros</h1>
 
@@ -48,7 +47,7 @@
                                     <div class="self-end lg:self-center">
                                         <x-slide.titulo :texto="$slide['titulo']" />
                                         <p class="{{ $paragrafo }} text-white/80">{{ $slide['texto'] }}</p>
-                                        <ul class="mt-4 flex flex-wrap gap-2 md:mt-6 lg:grid lg:grid-cols-3 lg:gap-3">
+                                        <ul class="mt-4 flex flex-wrap gap-2 md:mt-6 lg:grid lg:max-w-xl lg:grid-cols-2 lg:gap-3">
                                             @foreach ($slide['destaques'] as [$icone, $texto])
                                                 <li class="{{ $chipEscuro }} lg:bg-white/5 lg:p-4 lg:text-base">
                                                     <i data-lucide="{{ $icone }}" class="size-4 shrink-0 text-amarelo lg:size-6" aria-hidden="true"></i> {{ $texto }}
@@ -256,7 +255,7 @@
                                                  class="relative size-full rounded-full object-cover shadow-2xl">
                                             <ul class="hidden lg:block">
                                                 @foreach ($slide['destaques'] as [$icone, $texto])
-                                                    <li @class(['absolute flex items-center gap-3 rounded bg-fundo p-4 font-semibold shadow-sm', '-top-2 -left-16' => $loop->index === 0, 'top-1/2 -right-6 -translate-y-1/2' => $loop->index === 1, '-bottom-2 -left-10' => $loop->index === 2])>
+                                                    <li @class(['absolute flex items-center gap-3 rounded bg-fundo p-4 font-semibold shadow-sm', '-top-2 -left-16' => $loop->index === 0, 'top-1/2 right-2 -translate-y-1/2' => $loop->index === 1, '-bottom-2 -left-10' => $loop->index === 2])>
                                                         <i data-lucide="{{ $icone }}" class="size-5 shrink-0" aria-hidden="true"></i> {{ $texto }}
                                                     </li>
                                                 @endforeach
@@ -280,15 +279,22 @@
                 </article>
             @endforeach
         </div>
+
+        {{-- Setas no meio da altura, coladas nas bordas (dentro da margem lateral do slide, sem cobrir o texto).
+             No celular não há margem livre: lá ficam o arrasto e a barra de nomes. --}}
+        @php($seta = 'absolute top-1/2 z-10 hidden size-8 -translate-y-1/2 items-center justify-center rounded bg-preto/70 text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-preto md:flex')
+        <button type="button" @click="anterior()" class="{{ $seta }} left-1 xl:left-3">
+            <i data-lucide="chevron-left" class="size-5" aria-hidden="true"></i><span class="sr-only">Serviço anterior</span>
+        </button>
+        <button type="button" @click="proximo()" class="{{ $seta }} right-1 xl:right-3">
+            <i data-lucide="chevron-right" class="size-5" aria-hidden="true"></i><span class="sr-only">Próximo serviço</span>
+        </button>
     </div>
 
     {{-- Barra com os nomes dos serviços: leva ao slide e trava o carrossel; a barrinha mostra o tempo até o próximo.
          No celular fica em cima dos slides, no computador embaixo. --}}
     <nav aria-label="Escolha o serviço" class="order-first shrink-0 bg-amarelo text-preto lg:order-none">
-        <div class="flex items-center gap-2 px-2 py-2 md:px-6 xl:px-14">
-            <button type="button" @click="anterior()" class="flex size-9 shrink-0 items-center justify-center rounded bg-preto text-amarelo transition-colors hover:bg-preto-hover">
-                <i data-lucide="chevron-left" class="size-5" aria-hidden="true"></i><span class="sr-only">Serviço anterior</span>
-            </button>
+        <div class="px-2 py-2 md:px-6 xl:px-14">
             <ul x-ref="nomes" class="flex flex-1 gap-1 overflow-x-auto [scrollbar-width:none] lg:justify-between">
                 @foreach ($chaves as $indice => $chave)
                     <li class="shrink-0">
@@ -298,15 +304,11 @@
                            class="relative block overflow-hidden rounded px-4 py-2 text-sm font-bold whitespace-nowrap transition-colors">
                             {{ $servicos[$chave] }}
                             <span x-show="atual === {{ $indice }} && ! travado" x-cloak aria-hidden="true"
-                                  class="progresso-carrossel absolute bottom-0 left-0 h-0.5 bg-amarelo"
-                                  :style="pausado && 'animation-play-state: paused'"></span>
+                                  class="progresso-carrossel absolute bottom-0 left-0 h-0.5 bg-amarelo"></span>
                         </a>
                     </li>
                 @endforeach
             </ul>
-            <button type="button" @click="proximo()" class="flex size-9 shrink-0 items-center justify-center rounded bg-preto text-amarelo transition-colors hover:bg-preto-hover">
-                <i data-lucide="chevron-right" class="size-5" aria-hidden="true"></i><span class="sr-only">Próximo serviço</span>
-            </button>
         </div>
     </nav>
 </section>

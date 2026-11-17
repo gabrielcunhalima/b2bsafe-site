@@ -131,7 +131,8 @@
                 {{-- Logos oficiais das bandeiras (public/img/bandeiras, origem em docs/marca/fotos-licencas.md) --}}
                 <ul class="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6" aria-label="Bandeiras aceitas">
                     @foreach ($config['bandeiras'] as $bandeira)
-                        <li class="flex h-16 items-center justify-center rounded bg-fundo p-3 shadow-sm">
+                        {{-- Única exceção ao "nada se mexe": as bandeiras sobem um pouco no hover (pedido do cliente) --}}
+                        <li class="flex h-16 items-center justify-center rounded bg-fundo p-3 shadow-sm transition-[translate,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                             <img src="{{ asset('img/bandeiras/'.\Illuminate\Support\Str::slug($bandeira).'.svg') }}" alt="{{ $bandeira }}" loading="lazy"
                                  class="max-h-9 w-auto max-w-full object-contain">
                         </li>

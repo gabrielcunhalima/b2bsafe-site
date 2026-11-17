@@ -136,7 +136,7 @@ return [
         'credito' => [
             'titulo' => 'Crédito: **menores taxas, sem burocracia.**',
             'texto' => 'Para o equilíbrio financeiro da sua empresa, com o crédito do C6 Empresas e o acompanhamento da B2BSAFE.',
-            'destaques' => [['percent', 'Menores taxas'], ['file-check', 'Sem burocracia'], ['calendar-range', 'Excelentes prazos de pagamento']],
+            'destaques' => [['percent', 'Menores taxas'], ['file-check', 'Sem burocracia']],
             'imagem' => 'img/servicos/credito.webp',
             'alt' => 'Dois empresários conversando sobre números num notebook, numa mesa de reunião',
         ],

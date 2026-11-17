@@ -1,4 +1,5 @@
-// Carrossel de serviços da Home (nova hero). Passa sozinho a cada 7 s até a pessoa interagir;
+// Carrossel de serviços da Home (nova hero). Passa sozinho a cada 7 s (mesmo com o mouse em cima)
+// até a pessoa trocar de slide;
 // depois de qualquer interação (setas, bolinhas, arrasto, nomes dos serviços) fica travado e só muda com ela.
 // Com "reduzir movimento" no aparelho, já começa travado.
 
@@ -8,7 +9,6 @@ export default (total) => ({
     atual: 0,
     total,
     travado: false,
-    pausado: false,
     inicioArrasto: null,
     timer: null,
 
@@ -35,7 +35,7 @@ export default (total) => ({
     agendar() {
         clearInterval(this.timer);
         this.timer = setInterval(() => {
-            if (!this.travado && !this.pausado && !document.hidden) this.ir(this.atual + 1);
+            if (!this.travado && !document.hidden) this.ir(this.atual + 1);
         }, INTERVALO);
     },
 
