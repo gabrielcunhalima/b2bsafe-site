@@ -3,7 +3,7 @@
 // US-033 (#39): SEO técnico (RF-011).
 
 it('dá a cada página pública título e descrição próprios', function () {
-    $titulos = collect(['inicio', 'maquininha', 'privacidade', 'policy'])->map(function (string $rota) {
+    $titulos = collect(['inicio', 'maquininha', 'policy'])->map(function (string $rota) {
         $html = $this->get(route($rota))->assertOk()->getContent();
         preg_match('/<title>(.*?)<\/title>/', $html, $titulo);
         preg_match('/<meta name="description" content="(.*?)">/', $html, $descricao);
@@ -11,8 +11,8 @@ it('dá a cada página pública título e descrição próprios', function () {
         return [$titulo[1], $descricao[1]];
     });
 
-    expect($titulos->pluck(0)->unique())->toHaveCount(4)
-        ->and($titulos->pluck(1)->unique())->toHaveCount(4);
+    expect($titulos->pluck(0)->unique())->toHaveCount(3)
+        ->and($titulos->pluck(1)->unique())->toHaveCount(3);
 });
 
 it('usa URL canônica sem os parâmetros de campanha', function () {
@@ -50,7 +50,7 @@ it('lista no sitemap só as páginas públicas', function () {
     $urls = simplexml_load_string($xml)->url;
     $locs = array_map(fn ($url) => (string) $url->loc, iterator_to_array($urls, false));
 
-    expect($locs)->toBe([route('inicio'), route('maquininha'), route('privacidade'), route('policy')])
+    expect($locs)->toBe([route('inicio'), route('maquininha'), route('policy')])
         ->and($xml)->not->toContain('/painel');
 });
 

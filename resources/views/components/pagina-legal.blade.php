@@ -2,18 +2,22 @@
     Layout das páginas legais: título, versão e data visíveis, índice das seções e texto com boa leitura.
     Cada seção é um <x-pagina-legal.secao numero="1" titulo="...">.
 --}}
-@props(['titulo', 'descricao', 'versao' => null, 'atualizadaEm', 'secoes' => []])
+@props(['titulo', 'descricao', 'versao' => null, 'atualizadaEm' => null, 'secoes' => []])
 
 <x-layouts.site :titulo="$titulo" :descricao="$descricao">
     <section class="bg-gelo">
         <div class="mx-auto max-w-6xl px-4 py-14 md:py-20">
             <h1 class="text-4xl leading-tight font-extrabold text-preto md:text-5xl">{{ $titulo }}</h1>
-            <p class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-texto-suave">
-                @if ($versao)
-                    <span>Versão {{ $versao }}</span>
-                @endif
-                <span>Última atualização: <time datetime="{{ $atualizadaEm }}">{{ \Illuminate\Support\Carbon::parse($atualizadaEm)->format('d/m/Y') }}</time></span>
-            </p>
+            @if ($versao || $atualizadaEm)
+                <p class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-texto-suave">
+                    @if ($versao)
+                        <span>Versão {{ $versao }}</span>
+                    @endif
+                    @if ($atualizadaEm)
+                        <span>Última atualização: <time datetime="{{ $atualizadaEm }}">{{ \Illuminate\Support\Carbon::parse($atualizadaEm)->format('d/m/Y') }}</time></span>
+                    @endif
+                </p>
+            @endif
         </div>
     </section>
 

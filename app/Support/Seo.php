@@ -17,7 +17,6 @@ final class Seo
         return [
             ['rota' => 'inicio', 'prioridade' => '1.0', 'frequencia' => 'weekly'],
             ['rota' => 'maquininha', 'prioridade' => '0.8', 'frequencia' => 'monthly'],
-            ['rota' => 'privacidade', 'prioridade' => '0.3', 'frequencia' => 'yearly'],
             ['rota' => 'policy', 'prioridade' => '0.2', 'frequencia' => 'yearly'],
         ];
     }

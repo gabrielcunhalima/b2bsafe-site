@@ -17,9 +17,11 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 Route::middleware(RegistrarPrimeiroToque::class)->group(function () {
     Route::view('/', 'paginas.inicio')->name('inicio');
     Route::view('/maquininha', 'paginas.maquininha')->name('maquininha');
-    Route::view('/privacidade', 'paginas.privacidade')->name('privacidade');
     Route::view('/policy', 'paginas.policy')->name('policy');
 });
+
+// A Política de Privacidade é o texto original de b2bsafe.com.br/policy (pedido do responsável): /privacidade leva para lá
+Route::permanentRedirect('/privacidade', '/policy')->name('privacidade');
 
 // SEO técnico (RF-011): robots.txt por ambiente e sitemap das páginas públicas
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
