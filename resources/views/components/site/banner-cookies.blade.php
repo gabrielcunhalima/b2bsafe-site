@@ -35,7 +35,7 @@
     <div x-cloak x-show="dialogoAberto" @keydown.escape.window="dialogoAberto && fecharDialogo()"
          class="fixed inset-0 z-50 flex items-end justify-center bg-preto/60 p-4 sm:items-center">
         <div role="dialog" aria-modal="true" aria-labelledby="cookies-dialogo-titulo" x-trap.noscroll="dialogoAberto"
-             @click.outside="fecharDialogo()" class="w-full max-w-lg rounded-2xl bg-fundo p-6 shadow-2xl md:p-8">
+             @click.outside="fecharDialogo()" class="w-full max-w-lg rounded bg-fundo p-6 shadow-2xl md:p-8">
             <div class="flex items-start justify-between gap-4">
                 <h2 id="cookies-dialogo-titulo" class="text-2xl font-extrabold text-preto">Preferências de cookies</h2>
                 <button type="button" @click="fecharDialogo()" class="rounded p-1 text-texto-suave hover:bg-gelo" aria-label="Fechar">
@@ -49,7 +49,7 @@
                         <p class="font-bold text-preto">Necessários</p>
                         <p class="mt-1 text-sm text-texto-suave">Sessão, segurança e lembrar sua escolha.</p>
                     </div>
-                    <span class="shrink-0 rounded-full bg-gelo px-3 py-1 text-sm font-semibold text-preto">Sempre ativo</span>
+                    <span class="shrink-0 rounded bg-gelo px-3 py-1 text-sm font-semibold text-preto">Sempre ativo</span>
                 </li>
                 <li class="flex items-start justify-between gap-4 pt-5">
                     <div>
@@ -71,6 +71,6 @@
     {{-- 3. Depois da escolha: aviso lido pelo leitor de tela --}}
     <div role="status" aria-live="polite" class="pointer-events-none fixed bottom-4 left-4 z-40 max-w-sm">
         <p x-cloak x-show="aviso" x-transition.opacity x-text="aviso"
-           class="rounded-lg bg-preto px-4 py-3 text-sm text-white shadow-lg"></p>
+           class="rounded bg-preto px-4 py-3 text-sm text-white shadow-lg"></p>
     </div>
 </div>

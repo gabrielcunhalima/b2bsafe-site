@@ -2,7 +2,7 @@
 
 it('abre a página inicial sem erros de JavaScript', function () {
     visit('/')
-        ->assertSee('Sua empresa em boas mãos.')
+        ->assertSee('Crédito: menores taxas, sem burocracia.')
         ->assertNoSmoke();
 });
 

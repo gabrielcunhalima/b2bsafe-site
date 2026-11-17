@@ -6,10 +6,8 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
     $this->get(route('inicio'))
         ->assertOk()
         ->assertSeeInOrder([
-            'boas mãos.',
-            'id="servicos"',
+            'aria-label="Serviços da B2BSAFE"',
             'id="sobre"',
-            'id="maquininha"',
             'id="parcerias"',
             'id="credenciamento"',
             'id="contato"',
@@ -17,19 +15,47 @@ it('mostra as seções da Home na ordem do wireframe, com as âncoras do menu', 
         ], escape: false);
 });
 
-it('mostra os 8 serviços em cards pequenos logo abaixo do topo, cada um abrindo o WhatsApp com o serviço na mensagem (RN-021)', function () {
-    $resposta = $this->get(route('inicio'));
+it('abre a Home com o carrossel dos 8 serviços como hero, cada um com WhatsApp citando o serviço (RF-001, RN-021)', function () {
+    $resposta = $this->get(route('inicio'))
+        ->assertSee('id="servicos" aria-roledescription="carrossel"', escape: false)
+        ->assertDontSee('boas mãos.');
 
     foreach (['credito' => 'Crédito', 'conta_corrente' => 'Conta Corrente', 'cambio' => 'Câmbio', 'investimentos' => 'Investimentos',
         'cartao' => 'Cartão C6 Business', 'consorcio' => 'Consórcio', 'seguros_previdencia' => 'Seguros e Previdência'] as $chave => $nome) {
-        $resposta->assertSee('data-whatsapp="home" data-servico="'.$chave.'"', escape: false)
+        $resposta->assertSee('data-whatsapp="carrossel" data-servico="'.$chave.'"', escape: false)
             ->assertSee('https://wa.me/5511984205023?text='.rawurlencode("Olá! Vim pelo site e quero saber sobre {$nome}."), escape: false);
     }
 
-    $resposta->assertSee('data-whatsapp="home" data-servico="maquininha"', escape: false)
-        ->assertSeeInOrder(['boas mãos.', 'id="servicos"', 'id="sobre"'], escape: false);
+    expect(substr_count($resposta->getContent(), 'aria-roledescription="slide"'))->toBe(8);
+});
 
-    expect(substr_count($resposta->getContent(), 'fale com um atendente no WhatsApp'))->toBe(8);
+it('mostra embaixo do carrossel os nomes dos 8 serviços, cada um levando ao seu slide', function () {
+    $html = $this->get(route('inicio'))->getContent();
+    $barra = (string) str($html)->after('aria-label="Escolha o serviço"')->before('</nav>');
+
+    foreach (array_keys(config('b2bsafe.carrossel')) as $indice => $chave) {
+        $ancora = 'servico-'.str_replace('_', '-', $chave);
+        expect($barra)->toContain('href="#'.$ancora.'" @click.prevent="escolher('.$indice.')"')
+            ->and($html)->toContain('id="'.$ancora.'"');
+    }
+});
+
+it('guarda a hero antiga no código, desligada, e mostra de volta quando a configuração pede', function () {
+    $this->get(route('inicio'))->assertDontSee('Sua empresa em boas mãos.');
+
+    config(['b2bsafe.home.hero_antiga' => true]);
+
+    $this->get(route('inicio'))->assertSee('Sua empresa em boas mãos.');
+});
+
+it('tem foto em todos os slides do carrossel', function () {
+    $html = $this->get(route('inicio'))->getContent();
+
+    foreach (config('b2bsafe.carrossel') as $chave => $slide) {
+        $artigo = (string) str($html)->after('data-slide="'.str_replace('_', '-', $chave).'"')->before('</article>');
+        expect($artigo)->toContain($slide['imagem'])
+            ->and(public_path($slide['imagem']))->toBeFile();
+    }
 });
 
 it('marca os links de WhatsApp para o registro do clique (RN-010)', function () {
@@ -43,14 +69,15 @@ it('marca os links de WhatsApp para o registro do clique (RN-010)', function () 
     }
 });
 
-it('usa o WhatsApp da maquininha na seção da C6 Pay (RN-021)', function () {
-    $this->get(route('inicio'))
-        ->assertSee('https://wa.me/5511924600991?text='.rawurlencode('Olá! Vim pelo site e quero saber sobre a maquininha C6 Pay.'), escape: false)
-        ->assertSee('Quero minha C6 Pay')
-        ->assertSee('(11) 92460-0991');
+it('usa o WhatsApp da maquininha no slide da C6 Pay (RN-021)', function () {
+    $html = $this->get(route('inicio'))->getContent();
+    $slide = (string) str($html)->after('data-slide="maquininha"')->before('</article>');
+
+    expect($slide)->toContain('https://wa.me/5511924600991?text='.rawurlencode('Olá! Vim pelo site e quero saber sobre a maquininha C6 Pay.'))
+        ->toContain('Falar sobre a C6 Pay');
 });
 
-it('leva da seção Maquininha à página de taxas e condições (RF-001)', function () {
+it('leva do slide da Maquininha à página de taxas e condições (RF-001)', function () {
     $this->get(route('inicio'))
         ->assertSee('Ver taxas e condições')
         ->assertSee('href="'.route('maquininha').'"', escape: false);
@@ -107,9 +134,9 @@ it('serve as imagens da marca', function (string $arquivo) {
     expect(public_path("img/{$arquivo}"))->toBeFile();
 })->with(['b2bsafe-logo.webp', 'b2bsafe-c6-empresas.webp', 'conexao-awards-2025.webp']);
 
-it('mostra a imagem da C6 Pay na seção Maquininha', function () {
+it('mostra a imagem da C6 Pay no slide da Maquininha', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="maquininha"', 'img/maquininha-c6-pay.webp', 'id="titulo-como"'], escape: false)
+        ->assertSeeInOrder(['data-slide="maquininha"', 'img/maquininha-c6-pay.webp', 'data-slide="conta-corrente"'], escape: false)
         ->assertSee('alt="Maquininha C6 Pay', escape: false);
 
     expect(public_path('img/maquininha-c6-pay.webp'))->toBeFile();
@@ -117,7 +144,7 @@ it('mostra a imagem da C6 Pay na seção Maquininha', function () {
 
 it('junta Sobre e Conta PJ numa seção de largura total no fundo da hero, sem foto da conta PJ', function () {
     $html = $this->get(route('inicio'))
-        ->assertSeeInOrder(['id="servicos"', 'id="sobre"', 'Sua empresa e seus investimentos', 'id="conta-pj"', 'Abra a conta PJ', 'id="maquininha"'], escape: false)
+        ->assertSeeInOrder(['id="servicos"', 'id="sobre"', 'Sua empresa e seus investimentos', 'id="conta-pj"', 'Abra a conta PJ', 'id="titulo-como"'], escape: false)
         ->assertDontSee('foto-caixa-compra', escape: false)
         ->assertDontSee('conta-pj-c6.webp', escape: false)
         ->getContent();
@@ -129,9 +156,8 @@ it('junta Sobre e Conta PJ numa seção de largura total no fundo da hero, sem f
         ->and(str($html)->contains('<section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">'))->toBeTrue();
 });
 
-it('mostra os canais oficiais do C6 depois do formulário no Fale conosco, e no topo o título antes da foto (ordem do celular)', function () {
+it('mostra os canais oficiais do C6 depois do formulário no Fale conosco (ordem do celular)', function () {
     $this->get(route('inicio'))
-        ->assertSeeInOrder(['boas mãos.', 'img/foto-aperto-de-maos.webp', 'Conta PJ sem tarifa', 'Quero abrir minha conta'], escape: false)
         ->assertSeeInOrder(['id="contato"', '<form', 'id="canais-c6"'], escape: false);
 });
 

@@ -12,14 +12,14 @@
     $falha = session('lead_falha');
     $servicoInicial = old('servico', request()->query('servico', $servico));
     $servicoInicial = array_key_exists((string) $servicoInicial, config('b2bsafe.servicos')) ? $servicoInicial : '';
-    $campo = 'w-full rounded-lg border bg-fundo px-4 py-3 text-texto transition-[border-color,box-shadow] duration-200 placeholder:text-texto-terciario focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgb(6_6_6/0.12)]';
+    $campo = 'w-full rounded border bg-fundo px-4 py-3 text-texto transition-[border-color,box-shadow] duration-200 placeholder:text-texto-terciario focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgb(6_6_6/0.12)]';
     // Links de WhatsApp do formulário seguem o contexto da página: na Maquininha, o número da maquininha (RN-021)
     $linkWhatsapp = $servicoInicial ? WhatsApp::linkDoServico($servicoInicial) : WhatsApp::link();
     $erroCampo = fn (string $nome) => $errors->has($nome) ? 'border-2 border-erro' : 'border-borda';
 @endphp
 
 <div x-data="formularioLead(@js(['servico' => $servicoInicial]))" @selecionar-servico.window="selecionarServico($event.detail)"
-     class="fundo-claro rounded-3xl bg-fundo p-6 text-texto shadow-xl md:p-8">
+     class="fundo-claro rounded bg-fundo p-6 text-texto shadow-xl md:p-8">
 
     {{-- Sucesso (substitui o formulário) --}}
     <div x-cloak x-show="sucesso" x-ref="sucesso" tabindex="-1" role="status" class="py-6 text-center"
@@ -46,7 +46,7 @@
 
         {{-- Resumo de erros: o foco vai para cá no envio com erro --}}
         <div x-cloak x-show="listaErros.length" x-ref="resumo" tabindex="-1" role="alert"
-             class="rounded-lg border-2 border-erro bg-erro/5 p-4 text-sm">
+             class="rounded border-2 border-erro bg-erro/5 p-4 text-sm">
             <p class="flex items-center gap-2 font-bold text-erro">
                 <i data-lucide="triangle-alert" class="size-4" aria-hidden="true"></i>
                 <span x-text="listaErros.length === 1 ? 'Corrija 1 campo para enviar:' : 'Corrija ' + listaErros.length + ' campos para enviar:'"></span>
@@ -59,13 +59,13 @@
         </div>
 
         @if ($errors->any())
-            <div x-data x-show="false" role="alert" class="rounded-lg border-2 border-erro bg-erro/5 p-4 text-sm">
+            <div x-data x-show="false" role="alert" class="rounded border-2 border-erro bg-erro/5 p-4 text-sm">
                 <p class="font-bold text-erro">Corrija os campos destacados para enviar.</p>
             </div>
         @endif
 
         {{-- Falha ou limite de envios (RN-016) --}}
-        <div x-cloak x-show="falha" role="alert" class="rounded-lg border-2 border-erro bg-erro/5 p-4 text-sm"
+        <div x-cloak x-show="falha" role="alert" class="rounded border-2 border-erro bg-erro/5 p-4 text-sm"
              @if ($falha) x-init="falha = @js($falha)" @endif>
             <p class="font-bold text-erro" x-text="falha"></p>
             <a href="{{ $linkWhatsapp }}" target="_blank" rel="noopener noreferrer" data-whatsapp="formulario-falha"

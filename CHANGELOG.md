@@ -8,9 +8,11 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- Topo da Home vira um carrossel dos 8 serviços (cada slide com título, foto e composição próprios) que ocupa a primeira tela, com a barra de nomes dos serviços; passa sozinho a cada 7 s (mesmo com o mouse em cima) até a pessoa trocar de slide e então fica travado; setas no meio da altura, nas bordas do slide (a partir do tablet). A hero antiga fica guardada (HOME_HERO_ANTIGA) e a seção Maquininha sai da Home (o menu leva a /maquininha).
+- Cantos padrão do site: botões, chips, cards, campos e fotos usam o mesmo canto do "Fale conosco" do cabeçalho (4 px); só formas redondas de verdade continuam redondas.
 - Preferências de cookies: descrição dos estatísticos passa a ser "Estatísticas para melhorar nosso atendimento".
 - Política de Privacidade e Termos de Uso com o texto original de b2bsafe.com.br/policy, sem alterações; /privacidade redireciona para /policy.
-- Maquininha: logos oficiais das bandeiras aceitas e marca-texto animado nas palavras-chave dos cards de vantagens.
+- Maquininha: logos oficiais das bandeiras aceitas (sobem um pouco no hover) e marca-texto animado nas palavras-chave dos cards de vantagens.
 - No celular, a hero mostra a foto logo depois do título e o Fale conosco mostra os canais oficiais do C6 depois do formulário.
 - Cursor de mãozinha em todos os elementos clicáveis (botões, preferências de cookies, seletores e caixas de marcar).
 - Maquininha com fundo preto em largura total e círculo amarelo sólido; serviços em cards amarelos numa linha só; "Como trabalhamos" em trilha de 3 passos.

@@ -84,7 +84,7 @@ Paleta tirada do logo da B2BSAFE: **branco e cinza gelo no fundo, preto como seg
 - Base de 4 px (escala do Tailwind). Seções com `py-16` (64 px); cartões com `p-4` a `p-6`.
 - Contêiner `max-w-6xl` (1152 px) com `px-4`. Grade de 1 → 2 → 3/4 colunas (`sm`, `md`, `lg`).
 - Pontos de quebra do Tailwind: `sm` 640, `md` 768, `lg` 1024, `xl` 1280. O layout funciona de 320 px a 1920 px, sem rolagem horizontal.
-- Bordas arredondadas: `rounded` (4 px) em botões e campos; `rounded-xl` na janela do chat; `rounded-full` nos botões flutuantes.
+- Bordas arredondadas: `rounded` (4 px, o mesmo do "Fale conosco" do cabeçalho) é o padrão do site em botões, campos, chips, cards, fotos e ícones em bloco; `rounded-xl` na janela do chat; `rounded-full` só em formas redondas de verdade (botões flutuantes, ícones em círculo, a foto redonda de Seguros, os marcadores da linha do tempo).
 
 ## Componentes base
 

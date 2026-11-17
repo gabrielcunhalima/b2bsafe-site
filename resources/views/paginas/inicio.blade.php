@@ -12,7 +12,7 @@
 
     $titulo = 'text-3xl leading-tight font-extrabold tracking-tight text-preto md:text-5xl';
     // Hover sem zoom nem deslocamento: só a cor muda
-    $botaoPreto = 'inline-flex items-center justify-center gap-2 rounded-full bg-preto px-7 py-3.5 font-semibold text-white transition-colors hover:bg-preto-hover';
+    $botaoPreto = 'inline-flex items-center justify-center gap-2 rounded bg-preto px-7 py-3.5 font-semibold text-white transition-colors hover:bg-preto-hover';
 @endphp
 
 <x-layouts.site>
@@ -21,6 +21,8 @@
         <script type="application/ld+json">{!! json_encode(\App\Support\Seo::dadosEstruturados(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>
     @endpush
 
+    {{-- Hero antiga ("Sua empresa em boas mãos.", foto em arco): guardada, aparece só com config('b2bsafe.home.hero_antiga') = true --}}
+    @if (config('b2bsafe.home.hero_antiga'))
     {{-- Apresentação: ocupa toda a largura da página. No celular: título, foto e depois lista e botões;
          no computador: textos à esquerda e a foto na coluna da direita --}}
     <section class="relative overflow-hidden bg-gelo">
@@ -74,37 +76,10 @@
             </div>
         </div>
     </section>
+    @endif
 
-    {{-- Serviços em cards pequenos logo abaixo do topo: cada um abre o WhatsApp citando o serviço (RN-021) --}}
-    @php
-        $descricoes = [...array_map(fn ($card) => $card, $vitrine), 'maquininha' => ['descricao' => 'Parcele em até 12x e receba em até 2 dias úteis.', 'icone' => 'store']];
-    @endphp
-    <section id="servicos" aria-labelledby="titulo-servicos" class="bg-gelo">
-        <div class="w-full px-4 py-8 md:px-10 md:py-10 xl:px-16">
-            <h2 id="titulo-servicos" class="text-2xl font-extrabold text-preto">Soluções para sua empresa</h2>
-            {{-- Cards amarelos (texto preto: contraste 13,4:1), todos numa linha só no computador --}}
-            <ul class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-8">
-                @foreach (array_keys($servicos) as $chave)
-                    @continue(! isset($descricoes[$chave]))
-                    <li>
-                        <a href="{{ WhatsApp::linkDoServico($chave) }}" target="_blank" rel="noopener noreferrer"
-                           data-whatsapp="home" data-servico="{{ $chave }}"
-                           class="group flex h-full flex-col rounded-2xl bg-amarelo p-4 text-preto shadow-sm transition-colors duration-200 hover:bg-amarelo-hover focus-visible:bg-amarelo-hover">
-                            <span class="flex items-start justify-between">
-                                <span class="flex size-10 items-center justify-center rounded-xl bg-preto text-amarelo">
-                                    <i data-lucide="{{ $descricoes[$chave]['icone'] }}" class="size-5" aria-hidden="true"></i>
-                                </span>
-                                <i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i>
-                            </span>
-                            <span class="mt-3 leading-tight font-bold">{{ $servicos[$chave] }}</span>
-                            <span class="mt-1 text-sm leading-snug text-preto/75">{{ $descricoes[$chave]['descricao'] }}</span>
-                            <span class="sr-only">(fale com um atendente no WhatsApp, abre em nova aba)</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
+    {{-- Nova hero: carrossel dos 8 serviços com a barra de nomes embaixo --}}
+    @include('paginas.inicio.carrossel-servicos')
 
     {{-- Sobre e Conta PJ numa seção só, ocupando toda a largura da página (sem o container) e no mesmo fundo da hero: o selo Conexão Awards 2025 é a única imagem --}}
     <section id="sobre" aria-labelledby="titulo-sobre" class="bg-gelo">
@@ -112,7 +87,7 @@
             <figure class="mx-auto w-full max-w-md lg:max-w-xl" data-revelar>
                 <img src="{{ asset('img/conexao-awards-2025.webp') }}" width="487" height="487" loading="lazy"
                      alt="Selo Conexão Awards 2025 do C6 Empresas: B2BSAFE, destaque de 2025, reconhecimento por transformar consistência em resultados de alto nível"
-                     class="w-full rounded-[2rem] shadow-2xl">
+                     class="w-full rounded shadow-2xl">
                 <figcaption class="sr-only">Escritório destaque 2025 · Conexão Awards C6 Empresas</figcaption>
             </figure>
 
@@ -129,7 +104,7 @@
                     </p>
                 </div>
 
-                <div id="conta-pj" class="mt-10 rounded-3xl bg-fundo p-6 shadow-sm md:p-8">
+                <div id="conta-pj" class="mt-10 rounded bg-fundo p-6 shadow-sm md:p-8">
                     <h3 class="text-2xl leading-snug font-extrabold text-preto">Abra a conta PJ da sua empresa com quem entende do C6.</h3>
                     <p class="mt-3 leading-relaxed text-texto-suave">
                         Conta completa e sem tarifa, com Pix ilimitado, boletos de cobrança grátis todo mês e gestão pelo app ou pelo web banking.
@@ -144,48 +119,6 @@
                 </div>
 
                 <p class="mt-8 text-2xl font-extrabold text-preto">B2BSAFE, Be Safe!</p>
-            </div>
-        </div>
-    </section>
-
-    {{-- Maquininha C6 Pay: fundo preto em toda a largura, com o WhatsApp da maquininha (RN-021) --}}
-    <section id="maquininha" class="fundo-escuro relative overflow-hidden bg-preto text-white">
-        <div class="pontilhado-claro pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
-        <div class="relative grid w-full items-center gap-10 px-4 py-14 md:px-10 md:py-20 lg:grid-cols-2 xl:px-16">
-            <div class="relative" data-revelar>
-                <h2 class="text-3xl leading-tight font-extrabold tracking-tight md:text-5xl">
-                    Maquininha C6 Pay: <span class="text-amarelo">venda mais, pague menos.</span>
-                </h2>
-                <ul class="mt-10 grid gap-4 sm:grid-cols-3">
-                    @foreach ([['calendar-clock', 'Parcele em até 12x e receba em até 2 dias úteis'], ['wifi', 'Chip e plano de dados grátis, e funciona também no Wi-Fi'], ['shuffle', 'A máquina escolhe a bandeira com a melhor taxa']] as [$icone, $texto])
-                        <li class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                            <i data-lucide="{{ $icone }}" class="size-6 text-amarelo" aria-hidden="true"></i>
-                            <p class="mt-3 text-white/85">{{ $texto }}</p>
-                        </li>
-                    @endforeach
-                </ul>
-                <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-                    <a href="{{ WhatsApp::linkDoServico('maquininha') }}" target="_blank" rel="noopener noreferrer"
-                       data-whatsapp="home" data-servico="maquininha"
-                       class="inline-flex items-center justify-center gap-2 rounded-full bg-amarelo px-7 py-3.5 font-semibold text-preto transition-colors hover:bg-amarelo-hover">
-                        <x-icone-marca nome="whatsapp" class="size-5" /> Quero minha C6 Pay
-                        <span class="sr-only">(abre o WhatsApp em nova aba)</span>
-                    </a>
-                    @if (Route::has('maquininha'))
-                        <a href="{{ route('maquininha') }}" class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-white ring-1 ring-white/40 transition-colors hover:bg-white/10">
-                            Ver taxas e condições <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
-                        </a>
-                    @endif
-                </div>
-                <!-- <p class="mt-6 text-sm text-white/70">WhatsApp da maquininha: {{ Telefone::formatar($whatsappMaquininha) }}</p> -->
-            </div>
-
-            {{-- Imagem da C6 Pay (fundo transparente) sobre um círculo amarelo, para a máquina preta não sumir no fundo preto --}}
-            <div class="relative mx-auto w-full max-w-md lg:max-w-none" data-revelar>
-                <div class="absolute inset-[2%] rounded-full bg-amarelo" aria-hidden="true"></div>
-                <img src="{{ asset('img/maquininha-c6-pay.webp') }}" width="900" height="843" loading="lazy"
-                     alt="Maquininha C6 Pay com tela de pagamento e teclado, aceitando Elo, Mastercard, Hipercard e Visa"
-                     class="relative w-full drop-shadow-2xl">
             </div>
         </div>
     </section>
@@ -205,8 +138,8 @@
                     ] as $indice => [$icone, $passo, $texto])
                         <li class="flex flex-col items-center text-center" data-revelar>
                             <span class="relative z-10 flex size-14 items-center justify-center rounded-full bg-amarelo text-xl font-extrabold text-preto ring-8 ring-gelo" aria-hidden="true">{{ $indice + 1 }}</span>
-                            <div class="mt-6 flex w-full flex-1 flex-col items-center rounded-3xl bg-fundo px-6 py-8 shadow-sm">
-                                <span class="flex size-12 items-center justify-center rounded-2xl bg-preto text-amarelo">
+                            <div class="mt-6 flex w-full flex-1 flex-col items-center rounded bg-fundo px-6 py-8 shadow-sm">
+                                <span class="flex size-12 items-center justify-center rounded bg-preto text-amarelo">
                                     <i data-lucide="{{ $icone }}" class="size-6" aria-hidden="true"></i>
                                 </span>
                                 <h3 class="mt-5 text-xl font-bold text-preto"><span class="sr-only">Passo {{ $indice + 1 }}: </span>{{ $passo }}</h3>
@@ -230,11 +163,11 @@
                     ['foto-parceria', 'Mãos sobre a mesa com caderno, tablet e café numa conversa de negócios', 'handshake', 'Seja parceiro de negócios', 'Seja remunerado por indicar empresas que você conhece. Atendemos pequenas e médias empresas com faturamento de R$ 1 a R$ 50 milhões.', 'Quero ser parceiro'],
                     ['foto-equipe', 'Duas profissionais trabalhando juntas no notebook num escritório', 'users-round', 'Seja parte da equipe', 'Buscamos profissionais com perfil comercial, iniciativa e interesse em uma parceria de longo prazo, com remuneração por resultados.', 'Quero trabalhar na B2BSAFE'],
                 ] as [$foto, $alt, $icone, $tituloCard, $texto, $botao])
-                    <article class="flex flex-col overflow-hidden rounded-3xl bg-fundo text-preto shadow-sm" data-revelar>
+                    <article class="flex flex-col overflow-hidden rounded bg-fundo text-preto shadow-sm" data-revelar>
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/'.$foto.'.webp') }}" loading="lazy" alt="{{ $alt }}"
                                  class="size-full object-cover">
-                            <span class="absolute top-4 left-4 flex size-12 items-center justify-center rounded-2xl bg-amarelo text-preto shadow-lg">
+                            <span class="absolute top-4 left-4 flex size-12 items-center justify-center rounded bg-amarelo text-preto shadow-lg">
                                 <i data-lucide="{{ $icone }}" class="size-6" aria-hidden="true"></i>
                             </span>
                         </div>
@@ -259,7 +192,7 @@
     <section id="credenciamento" aria-labelledby="titulo-credenciamento" class="bg-gelo">
         <div class="w-full px-4 pt-14 pb-4 md:px-10 md:pt-20 xl:px-16">
             <div class="flex items-start gap-4" data-revelar>
-                <span class="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-preto text-amarelo">
+                <span class="flex size-14 shrink-0 items-center justify-center rounded bg-preto text-amarelo">
                     <i data-lucide="shield-check" class="size-7" aria-hidden="true"></i>
                 </span>
                 <div>
@@ -272,8 +205,8 @@
 
             <div class="mt-10 grid gap-5 lg:grid-cols-3">
                 {{-- Jeito 1: lista oficial em PDF --}}
-                <article class="flex flex-col rounded-3xl bg-fundo p-6 shadow-sm md:p-8" data-revelar>
-                    <span class="flex size-11 items-center justify-center rounded-2xl bg-gelo text-preto">
+                <article class="flex flex-col rounded bg-fundo p-6 shadow-sm md:p-8" data-revelar>
+                    <span class="flex size-11 items-center justify-center rounded bg-gelo text-preto">
                         <i data-lucide="file-text" class="size-5" aria-hidden="true"></i>
                     </span>
                     <h3 class="mt-4 text-xl font-extrabold text-preto">Pela lista oficial de parceiros</h3>
@@ -290,8 +223,8 @@
                 </article>
 
                 {{-- Jeito 2: página Parceiro C6 Empresas no site do C6 Bank --}}
-                <article class="flex flex-col rounded-3xl bg-fundo p-6 shadow-sm md:p-8" data-revelar>
-                    <span class="flex size-11 items-center justify-center rounded-2xl bg-gelo text-preto">
+                <article class="flex flex-col rounded bg-fundo p-6 shadow-sm md:p-8" data-revelar>
+                    <span class="flex size-11 items-center justify-center rounded bg-gelo text-preto">
                         <i data-lucide="globe" class="size-5" aria-hidden="true"></i>
                     </span>
                     <h3 class="mt-4 text-xl font-extrabold text-preto">Pelo site do C6 Bank</h3>
@@ -308,15 +241,15 @@
                 </article>
 
                 {{-- Os CNPJs para conferir, com botão de copiar --}}
-                <article class="flex flex-col rounded-3xl bg-preto p-6 text-white shadow-sm md:p-8 fundo-escuro" data-revelar>
-                    <span class="flex size-11 items-center justify-center rounded-2xl bg-amarelo text-preto">
+                <article class="flex flex-col rounded bg-preto p-6 text-white shadow-sm md:p-8 fundo-escuro" data-revelar>
+                    <span class="flex size-11 items-center justify-center rounded bg-amarelo text-preto">
                         <i data-lucide="building-2" class="size-5" aria-hidden="true"></i>
                     </span>
                     <h3 class="mt-4 text-xl font-extrabold">Nossas empresas credenciadas</h3>
                     <p class="mt-1 text-sm text-white/70">Copie o CNPJ para colar na busca.</p>
                     <ul class="mt-5 space-y-2">
                         @foreach ($credenciadas as $empresa)
-                            <li class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10"
+                            <li class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded bg-white/5 px-4 py-3 ring-1 ring-white/10"
                                 x-data="{ copiado: false }">
                                 <span class="min-w-0">
                                     <span class="block font-bold">{{ $empresa['nome'] }}</span>
@@ -324,7 +257,7 @@
                                 </span>
                                 <button type="button"
                                         @click="navigator.clipboard?.writeText(@js($empresa['cnpj'])).then(() => { copiado = true; setTimeout(() => copiado = false, 2000) })"
-                                        class="inline-flex items-center gap-1.5 rounded-full bg-amarelo px-3 py-1.5 text-sm font-semibold text-preto transition-colors hover:bg-amarelo-hover">
+                                        class="inline-flex items-center gap-1.5 rounded bg-amarelo px-3 py-1.5 text-sm font-semibold text-preto transition-colors hover:bg-amarelo-hover">
                                     <i data-lucide="copy" class="size-4" x-show="! copiado" aria-hidden="true"></i>
                                     <i data-lucide="check" class="size-4" x-show="copiado" x-cloak aria-hidden="true"></i>
                                     <span x-text="copiado ? 'Copiado' : 'Copiar CNPJ'">Copiar CNPJ</span>
@@ -349,7 +282,7 @@
                 <ul class="mt-8 space-y-3">
                     <li>
                         <a href="{{ WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="contato"
-                           class="flex items-center gap-4 rounded-2xl border border-borda bg-fundo p-4 transition-colors hover:border-preto">
+                           class="flex items-center gap-4 rounded border border-borda bg-fundo p-4 transition-colors hover:border-preto">
                             <span class="flex size-12 items-center justify-center rounded-full bg-whatsapp text-white">
                                 <x-icone-marca nome="whatsapp" class="size-5" />
                             </span>
@@ -362,7 +295,7 @@
                     </li>
                     <li>
                         <a href="mailto:{{ $email }}?subject={{ rawurlencode('Contato pelo site da B2BSAFE') }}"
-                           class="flex items-center gap-4 rounded-2xl border border-borda bg-fundo p-4 transition-colors hover:border-preto">
+                           class="flex items-center gap-4 rounded border border-borda bg-fundo p-4 transition-colors hover:border-preto">
                             <span class="flex size-12 items-center justify-center rounded-full bg-amarelo text-preto">
                                 <i data-lucide="mail" class="size-5" aria-hidden="true"></i>
                             </span>
@@ -386,7 +319,7 @@
                 <p class="mt-1 text-texto-suave">Para assuntos da sua conta, fale direto com o C6 Bank.</p>
                 <ul class="mt-4 grid gap-3 sm:grid-cols-2">
                     @foreach (config('b2bsafe.canais_c6') as $canal => $contato)
-                        <li class="rounded-2xl bg-fundo px-4 py-3 shadow-sm">
+                        <li class="rounded bg-fundo px-4 py-3 shadow-sm">
                             <span class="block text-sm text-texto-suave">{{ $canal }}</span>
                             <span class="mt-0.5 block font-bold break-all text-preto">{{ $contato }}</span>
                         </li>

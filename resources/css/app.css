@@ -124,6 +124,18 @@
         background-size: 100% 62%;
     }
 
+    /* Barrinha de tempo do carrossel de serviços: enche em 7 s (o mesmo intervalo de resources/js/carrossel-servicos.js) */
+    .progresso-carrossel {
+        width: 0;
+        animation: progresso-carrossel 7s linear forwards;
+    }
+
+    @keyframes progresso-carrossel {
+        to {
+            width: 100%;
+        }
+    }
+
     /* Elementos do Alpine escondidos até ele iniciar (menu móvel) */
     [x-cloak] {
         display: none !important;

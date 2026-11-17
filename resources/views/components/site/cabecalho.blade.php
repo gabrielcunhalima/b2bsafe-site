@@ -2,7 +2,8 @@
 @php
     $naHome = request()->routeIs('inicio');
     // Na Home as âncoras são locais; nas outras páginas apontam para /#secao.
-    $ancora = fn (string $id): string => ($naHome ? '' : route('inicio')).'#'.$id;
+    // A Maquininha é página própria; as demais são seções da Home.
+    $ancora = fn (string $id): string => $id === 'maquininha' ? route('maquininha') : ($naHome ? '' : route('inicio')).'#'.$id;
     $itens = [
         'servicos' => 'Serviços',
         'sobre' => 'Sobre',
@@ -21,9 +22,10 @@
 
         <nav aria-label="Principal" class="hidden items-center gap-1 text-sm font-semibold lg:flex">
             @foreach ($itens as $id => $rotulo)
-                @if ($id === 'maquininha' && request()->routeIs('maquininha'))
-                    {{-- Na própria página da Maquininha, o item aponta para ela e fica marcado como página atual --}}
-                    <a href="{{ route('maquininha') }}" aria-current="page" class="rounded bg-gelo px-3 py-2 text-preto">{{ $rotulo }}</a>
+                @if ($id === 'maquininha')
+                    {{-- A Maquininha é uma página própria (na Home ela virou um slide do carrossel); marcada quando é a página atual --}}
+                    <a href="{{ route('maquininha') }}"{!! request()->routeIs('maquininha') ? ' aria-current="page"' : '' !!}
+                       class="rounded px-3 py-2 transition-colors {{ request()->routeIs('maquininha') ? 'bg-gelo text-preto' : 'text-texto hover:bg-gelo' }}">{{ $rotulo }}</a>
                 @else
                     <a href="{{ $ancora($id) }}"
                        class="rounded px-3 py-2 text-texto transition-colors hover:bg-gelo"
