@@ -21,9 +21,8 @@
          class="relative flex h-[calc(100svh-4rem)] min-h-[34rem] flex-col bg-preto">
     <h1 class="sr-only">B2BSAFE, escritório parceiro C6 Empresas: crédito, maquininha, conta PJ, câmbio, investimentos, cartão, consórcio e seguros</h1>
 
-    <div x-ref="palco" class="relative min-h-0 flex-1 scroll-mt-16 overflow-hidden touch-pan-y"
-         @scroll="$el.scrollLeft = 0"
-         @pointerdown="comecarArrasto($event)" @pointerup="terminarArrasto($event)" @pointercancel="inicioArrasto = null">
+    <div x-ref="palco" class="relative min-h-0 flex-1 scroll-mt-16 overflow-hidden"
+         @scroll="$el.scrollLeft = 0">
         <div class="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] motion-reduce:transition-none"
              :style="`transform: translateX(-${atual * 100}%)`">
             @foreach ($slides as $chave => $slide)
@@ -47,13 +46,8 @@
                                     <div class="self-end lg:self-center">
                                         <x-slide.titulo :texto="$slide['titulo']" />
                                         <p class="{{ $paragrafo }} text-white/80">{{ $slide['texto'] }}</p>
-                                        <ul class="mt-4 flex flex-wrap gap-2 md:mt-6 lg:grid lg:max-w-xl lg:grid-cols-2 lg:gap-3">
-                                            @foreach ($slide['destaques'] as [$icone, $texto])
-                                                <li class="{{ $chipEscuro }} lg:bg-white/5 lg:p-4 lg:text-base">
-                                                    <i data-lucide="{{ $icone }}" class="size-4 shrink-0 text-amarelo lg:size-6" aria-hidden="true"></i> {{ $texto }}
-                                                </li>
-                                            @endforeach
-                                        </ul>
+                                        {{-- Crédito sem cards de destaque (pedido do cliente); o espaço que eles ocupavam fica vazio --}}
+                                        <div class="mt-4 h-7 md:mt-6 md:h-9 lg:h-[3.625rem]" aria-hidden="true"></div>
                                         <x-slide.botoes :chave="$chave" :nome="$nome" class="mt-5 md:mt-7" />
                                     </div>
                                 </div>
@@ -176,22 +170,13 @@
                             </div>
                             @break
 
-                        {{-- 6. Cartão: foto à direita e um cartão estilizado por cima --}}
+                        {{-- 6. Cartão: só a foto oficial do C6 Business (fornecida pelo cliente) à direita --}}
                         @case('cartao')
                             <div class="fundo-escuro relative h-full bg-preto text-white">
                                 <div class="{{ $area }} grid-rows-[auto_1fr] lg:grid-cols-2 lg:grid-rows-1">
-                                    <div class="relative mx-auto h-40 w-full max-w-sm md:h-56 lg:order-2 lg:h-[min(30rem,calc(100svh-12rem))] lg:max-w-none">
-                                        <img src="{{ asset($slide['imagem']) }}" alt="{{ $slide['alt'] }}" width="1400" height="788" loading="lazy"
-                                             class="ml-auto h-full w-4/5 rounded object-cover object-[60%_center] opacity-85">
-                                        {{-- Cartão desenhado em CSS (sem logo de bandeira nem do banco) --}}
-                                        <div class="absolute bottom-0 left-0 aspect-[1.586] w-1/2 -rotate-6 rounded bg-gradient-to-br from-[#2a2a2a] to-preto p-3 shadow-2xl ring-1 ring-white/15 lg:w-3/5 lg:p-5" aria-hidden="true">
-                                            <span class="block h-4 w-6 rounded bg-amarelo/90 lg:h-7 lg:w-10"></span>
-                                            <span class="mt-2 block text-[0.55rem] tracking-[0.3em] text-white/60 lg:mt-6 lg:text-xs">•••• •••• •••• 2026</span>
-                                            <span class="mt-1 flex items-end justify-between lg:mt-3">
-                                                <span class="text-[0.6rem] font-bold lg:text-sm">Business</span>
-                                                <span class="rounded bg-amarelo px-1.5 py-0.5 text-[0.5rem] font-bold text-preto lg:px-2 lg:text-[0.65rem]">anuidade zero</span>
-                                            </span>
-                                        </div>
+                                    <div class="mx-auto flex h-40 w-full max-w-sm items-center justify-center md:h-56 md:max-w-md lg:order-2 lg:h-[min(30rem,calc(100svh-12rem))] lg:max-w-none">
+                                        <img src="{{ asset($slide['imagem']) }}" alt="{{ $slide['alt'] }}" width="1200" height="675" loading="lazy"
+                                             class="h-auto max-h-full w-auto max-w-full rounded shadow-2xl ring-1 ring-white/10">
                                     </div>
                                     <div class="self-start lg:order-1 lg:self-center">
                                         <x-slide.titulo :texto="$slide['titulo']" />
@@ -212,19 +197,18 @@
                             </div>
                             @break
 
-                        {{-- 7. Consórcio: duas fotos em mosaico e o texto ao lado --}}
+                        {{-- 7. Consórcio: mosaico com a conversa com o especialista (grande; no computador, larga em cima), as chaves e a casa --}}
                         @case('consorcio')
                             <div class="fundo-escuro relative h-full bg-preto text-white">
                                 <div class="{{ $area }} grid-rows-[auto_1fr] lg:grid-cols-2 lg:grid-rows-1">
-                                    <div class="mx-auto grid h-36 w-full max-w-sm grid-cols-5 gap-2 md:h-52 lg:h-[min(30rem,calc(100svh-12rem))] lg:max-w-none lg:gap-4">
-                                        <img src="{{ asset($slide['imagem']) }}" alt="{{ $slide['alt'] }}" width="1400" height="934" loading="lazy"
-                                             class="col-span-3 h-full min-h-0 w-full rounded object-cover">
-                                        <div class="col-span-2 grid h-full min-h-0 grid-rows-2 gap-2 lg:gap-4 lg:pt-12">
-                                            <img src="{{ asset($slide['imagem_2']) }}" alt="{{ $slide['alt_2'] }}" width="933" height="1400" loading="lazy"
-                                                 class="size-full min-h-0 rounded bg-white object-cover">
-                                            <div class="flex items-center justify-center rounded bg-amarelo text-preto" aria-hidden="true">
-                                                <i data-lucide="key-round" class="size-8 lg:size-14"></i>
-                                            </div>
+                                    <div class="mx-auto grid h-36 w-full max-w-sm grid-cols-5 gap-2 md:h-52 lg:h-[min(30rem,calc(100svh-12rem))] lg:max-w-none lg:grid-cols-2 lg:grid-rows-[3fr_2fr] lg:gap-4">
+                                        <img src="{{ asset($slide['imagem']) }}" alt="{{ $slide['alt'] }}" width="1400" height="788" loading="lazy"
+                                             class="col-span-3 h-full min-h-0 w-full rounded object-cover object-[55%_center] lg:col-span-2 lg:object-[center_30%]">
+                                        <div class="col-span-2 grid h-full min-h-0 grid-rows-2 gap-2 lg:grid-cols-2 lg:grid-rows-1 lg:gap-4">
+                                            <img src="{{ asset($slide['imagem_2']) }}" alt="{{ $slide['alt_2'] }}" width="1400" height="934" loading="lazy"
+                                                 class="size-full min-h-0 rounded object-cover object-[45%_center]">
+                                            <img src="{{ asset($slide['imagem_3']) }}" alt="{{ $slide['alt_3'] }}" width="1400" height="787" loading="lazy"
+                                                 class="size-full min-h-0 rounded object-cover object-[35%_center]">
                                         </div>
                                     </div>
                                     <div class="self-start lg:self-center">
@@ -281,7 +265,7 @@
         </div>
 
         {{-- Setas no meio da altura, coladas nas bordas (dentro da margem lateral do slide, sem cobrir o texto).
-             No celular não há margem livre: lá ficam o arrasto e a barra de nomes. --}}
+             No celular não há margem livre: lá as setas ficam nas pontas da barra de nomes. Não há arrasto. --}}
         @php($seta = 'absolute top-1/2 z-10 hidden size-8 -translate-y-1/2 items-center justify-center rounded bg-preto/70 text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-preto md:flex')
         <button type="button" @click="anterior()" class="{{ $seta }} left-1 xl:left-3">
             <i data-lucide="chevron-left" class="size-5" aria-hidden="true"></i><span class="sr-only">Serviço anterior</span>
@@ -294,8 +278,12 @@
     {{-- Barra com os nomes dos serviços: leva ao slide e trava o carrossel; a barrinha mostra o tempo até o próximo.
          No celular fica em cima dos slides, no computador embaixo. --}}
     <nav aria-label="Escolha o serviço" class="order-first shrink-0 bg-amarelo text-preto lg:order-none">
-        <div class="px-2 py-2 md:px-6 xl:px-14">
-            <ul x-ref="nomes" class="flex flex-1 gap-1 overflow-x-auto [scrollbar-width:none] lg:justify-between">
+        @php($setaBarra = 'flex size-9 shrink-0 items-center justify-center rounded bg-preto text-amarelo transition-colors hover:bg-preto-hover md:hidden')
+        <div class="flex items-center gap-2 px-2 py-2 md:px-6 xl:px-14">
+            <button type="button" @click="anterior()" class="{{ $setaBarra }}">
+                <i data-lucide="chevron-left" class="size-5" aria-hidden="true"></i><span class="sr-only">Serviço anterior</span>
+            </button>
+            <ul x-ref="nomes" class="flex min-w-0 flex-1 gap-1 overflow-x-auto [scrollbar-width:none] lg:justify-between">
                 @foreach ($chaves as $indice => $chave)
                     <li class="shrink-0">
                         <a href="#servico-{{ str_replace('_', '-', $chave) }}" @click.prevent="escolher({{ $indice }})"
@@ -309,6 +297,9 @@
                     </li>
                 @endforeach
             </ul>
+            <button type="button" @click="proximo()" class="{{ $setaBarra }}">
+                <i data-lucide="chevron-right" class="size-5" aria-hidden="true"></i><span class="sr-only">Próximo serviço</span>
+            </button>
         </div>
     </nav>
 </section>

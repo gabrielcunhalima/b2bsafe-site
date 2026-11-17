@@ -8,6 +8,7 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- Carrossel da Home: troca de slide só pelas setas e pelos nomes (sem arrasto; no celular as setas ficam na barra de nomes); Cartão C6 Business com a foto oficial do cartão; Consórcio com foto de especialista conversando com cliente, chaves e fachada de casa; Crédito sem os cards de destaque.
 - Topo da Home vira um carrossel dos 8 serviços (cada slide com título, foto e composição próprios) que ocupa a primeira tela, com a barra de nomes dos serviços; passa sozinho a cada 7 s (mesmo com o mouse em cima) até a pessoa trocar de slide e então fica travado; setas no meio da altura, nas bordas do slide (a partir do tablet). A hero antiga fica guardada (HOME_HERO_ANTIGA) e a seção Maquininha sai da Home (o menu leva a /maquininha).
 - Cantos padrão do site: botões, chips, cards, campos e fotos usam o mesmo canto do "Fale conosco" do cabeçalho (4 px); só formas redondas de verdade continuam redondas.
 - Preferências de cookies: descrição dos estatísticos passa a ser "Estatísticas para melhorar nosso atendimento".

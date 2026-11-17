@@ -26,7 +26,6 @@ import {
     CreditCard,
     Droplet,
     ExternalLink,
-    FileCheck,
     FileText,
     Globe,
     HandCoins,
@@ -44,7 +43,6 @@ import {
     MessageCircle,
     MessageCircleQuestion,
     MessageSquareText,
-    Percent,
     PiggyBank,
     Rocket,
     SearchCheck,
@@ -65,7 +63,7 @@ import {
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
 createIcons({
-    icons: { ArrowLeftRight, ArrowRight, ArrowUpRight, Award, BadgePercent, Building2, CalendarClock, CalendarRange, ChartNoAxesCombined, Check, ChevronLeft, ChevronRight, Copy, CircleCheck, ClipboardList, CreditCard, Droplet, ExternalLink, FileCheck, FileText, Globe, HandCoins, Handshake, House, Infinity: Infinito, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, MessageSquareText, Percent, PiggyBank, Rocket, SearchCheck, ShieldCheck, Shuffle, SlidersHorizontal, Store, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wallet, Wifi, X, Zap },
+    icons: { ArrowLeftRight, ArrowRight, ArrowUpRight, Award, BadgePercent, Building2, CalendarClock, CalendarRange, ChartNoAxesCombined, Check, ChevronLeft, ChevronRight, Copy, CircleCheck, ClipboardList, CreditCard, Droplet, ExternalLink, FileText, Globe, HandCoins, Handshake, House, Infinity: Infinito, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, MessageSquareText, PiggyBank, Rocket, SearchCheck, ShieldCheck, Shuffle, SlidersHorizontal, Store, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wallet, Wifi, X, Zap },
 });
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
