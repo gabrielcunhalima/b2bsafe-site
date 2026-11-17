@@ -8,6 +8,7 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- Preferências de cookies: descrição dos estatísticos passa a ser "Estatísticas para melhorar nosso atendimento".
 - Política de Privacidade e Termos de Uso com o texto original de b2bsafe.com.br/policy, sem alterações; /privacidade redireciona para /policy.
 - Maquininha: logos oficiais das bandeiras aceitas e marca-texto animado nas palavras-chave dos cards de vantagens.
 - No celular, a hero mostra a foto logo depois do título e o Fale conosco mostra os canais oficiais do C6 depois do formulário.
