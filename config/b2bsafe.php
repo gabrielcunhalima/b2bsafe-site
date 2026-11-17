@@ -124,6 +124,75 @@ return [
     // Google Analytics 4 (RF-010).
     'ga4_id' => env('GA4_ID_MEDICAO'),
 
+    // Home: a hero antiga ("Sua empresa em boas mãos.", foto em arco) fica guardada no código e só aparece com true.
+    // A hero atual é o carrossel de serviços (resources/views/paginas/inicio/carrossel-servicos.blade.php).
+    'home' => [
+        'hero_antiga' => (bool) env('HOME_HERO_ANTIGA', false),
+    ],
+
+    // Slides do carrossel de serviços da Home: título (a parte entre ** fica amarela), 3 destaques e foto.
+    // Textos só com o que o site antigo e o atual já dizem; fotos e licenças em docs/marca/fotos-licencas.md.
+    'carrossel' => [
+        'credito' => [
+            'titulo' => 'Crédito: **menores taxas, sem burocracia.**',
+            'texto' => 'Para o equilíbrio financeiro da sua empresa, com o crédito do C6 Empresas e o acompanhamento da B2BSAFE.',
+            'destaques' => [['percent', 'Menores taxas'], ['file-check', 'Sem burocracia'], ['calendar-range', 'Excelentes prazos de pagamento']],
+            'imagem' => 'img/servicos/credito.webp',
+            'alt' => 'Dois empresários conversando sobre números num notebook, numa mesa de reunião',
+        ],
+        'maquininha' => [
+            'titulo' => 'Maquininha C6 Pay: **venda mais, pague menos.**',
+            'texto' => 'Receba no débito, no crédito à vista ou parcelado e no Pix, na maquininha ou on-line com o link de pagamento.',
+            'destaques' => [['calendar-clock', 'Parcele em até 12x e receba em até 2 dias úteis'], ['wifi', 'Chip e plano de dados grátis, e funciona também no Wi-Fi'], ['shuffle', 'A máquina escolhe a bandeira com a melhor taxa']],
+            'imagem' => 'img/maquininha-c6-pay.webp',
+            'alt' => 'Maquininha C6 Pay com tela de pagamento e teclado, aceitando Elo, Mastercard, Hipercard e Visa',
+        ],
+        'conta_corrente' => [
+            'titulo' => 'Conta PJ **grátis e completa.**',
+            'texto' => 'Abra a conta da sua empresa no C6 Bank com quem entende do C6: a B2BSAFE acompanha do primeiro contato à conta funcionando.',
+            'destaques' => [['badge-percent', 'Conta grátis'], ['zap', 'Pix e saques ilimitados'], ['arrow-left-right', 'Até 100 TEDs gratuitos']],
+            'imagem' => 'img/servicos/conta-corrente.webp',
+            'alt' => 'Empreendedora sorrindo enquanto usa o celular na mesa do escritório',
+        ],
+        'cambio' => [
+            'titulo' => 'Câmbio com **as melhores cotações.**',
+            'texto' => 'Cotações oferecidas pelo C6 Bank e por parceiros para enviar e receber recursos do exterior, em sistema de marketplace.',
+            'destaques' => [['globe', 'Envio ao exterior'], ['arrow-left-right', 'Recebimento do exterior'], ['store', 'Marketplace de cotações']],
+            'imagem' => 'img/servicos/cambio.webp',
+            'alt' => 'Mão segurando notas de euro e de dólar',
+        ],
+        'investimentos' => [
+            'titulo' => 'Investimentos: **seu dinheiro rendendo.**',
+            'texto' => 'CDB, um título de renda fixa: um crédito privado em que você é remunerado com juros.',
+            'destaques' => [['droplet', 'Liquidez diária'], ['landmark', 'Renda fixa'], ['calendar-range', 'Prazos de 6 meses a 3 anos']],
+            'imagem' => 'img/servicos/investimentos.webp',
+            'alt' => 'Dois homens de terno conversando no escritório, um apresentando uma proposta ao outro',
+        ],
+        'cartao' => [
+            'titulo' => 'Cartão C6 Business **sem anuidade.**',
+            'texto' => 'O cartão da sua empresa sem tarifas, com isenção de anuidade para sempre.',
+            'destaques' => [['badge-percent', 'Sem tarifas'], ['infinity', 'Anuidade zero para sempre'], ['credit-card', 'Crédito e débito']],
+            'imagem' => 'img/servicos/cartao.webp',
+            'alt' => 'Empreendedora no escritório segurando o cartão e o celular para fazer um pagamento',
+        ],
+        'consorcio' => [
+            'titulo' => 'Consórcio: **o bem da sua empresa, planejado.**',
+            'texto' => 'O C6 Bank atua nesse segmento e busca as melhores ofertas do mercado, adaptadas à necessidade da sua empresa.',
+            'destaques' => [['search-check', 'Melhores ofertas do mercado'], ['sliders-horizontal', 'Adaptado à necessidade da empresa'], ['user-round-check', 'Um especialista indica a melhor opção']],
+            'imagem' => 'img/servicos/consorcio-imovel.webp',
+            'imagem_2' => 'img/servicos/consorcio-chave.webp',
+            'alt' => 'Mão segurando chaves sobre miniaturas de casas',
+            'alt_2' => 'Uma pessoa entregando uma chave para outra',
+        ],
+        'seguros_previdencia' => [
+            'titulo' => 'Seguros e previdência **para o seu bolso e a sua vida.**',
+            'texto' => 'Consulte as melhores ofertas de proteção e planejamento, adaptadas ao seu momento.',
+            'destaques' => [['shield-check', 'Proteção'], ['piggy-bank', 'Previdência'], ['wallet', 'Adaptado ao seu bolso']],
+            'imagem' => 'img/servicos/seguros.webp',
+            'alt' => 'Criança abraçando a mãe ao ar livre, ao pôr do sol',
+        ],
+    ],
+
     // Fuso das datas exibidas; no banco tudo fica em UTC (RN-020).
     'fuso_exibicao' => env('APP_TIMEZONE_EXIBICAO', 'America/Sao_Paulo'),
 

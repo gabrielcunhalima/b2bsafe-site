@@ -5,9 +5,12 @@
 it('mostra o menu com âncoras para as seções da Home e o botão Fale conosco', function () {
     $resposta = $this->get(route('inicio'))->assertOk();
 
-    foreach (['servicos', 'maquininha', 'sobre', 'parcerias', 'credenciamento', 'contato'] as $secao) {
+    foreach (['servicos', 'sobre', 'parcerias', 'credenciamento', 'contato'] as $secao) {
         $resposta->assertSee('href="#'.$secao.'"', escape: false);
     }
+
+    // A Maquininha é página própria (na Home ela virou um slide do carrossel)
+    $resposta->assertSee('href="'.route('maquininha').'" class=', escape: false);
 
     $resposta->assertSeeInOrder(['Serviços', 'Sobre', 'Maquininha', 'Parcerias', 'Credenciamento', 'Fale conosco'])
         ->assertSee('aria-controls="menu-movel"', escape: false);

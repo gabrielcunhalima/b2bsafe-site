@@ -1,6 +1,7 @@
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import { iniciarAnalytics } from './analytics';
+import carrosselServicos from './carrossel-servicos';
 import preferenciasCookies from './cookies';
 import formularioLead from './formulario-lead';
 import { revelarAoRolar } from './revelar';
@@ -14,19 +15,24 @@ import {
     BadgePercent,
     Building2,
     CalendarClock,
+    CalendarRange,
     ChartNoAxesCombined,
     Check,
     Copy,
+    ChevronLeft,
     ChevronRight,
     CircleCheck,
     ClipboardList,
     CreditCard,
+    Droplet,
     ExternalLink,
+    FileCheck,
     FileText,
     Globe,
     HandCoins,
     Handshake,
     House,
+    Infinity as Infinito,
     KeyRound,
     Landmark,
     Layers,
@@ -38,22 +44,28 @@ import {
     MessageCircle,
     MessageCircleQuestion,
     MessageSquareText,
+    Percent,
+    PiggyBank,
     Rocket,
+    SearchCheck,
     ShieldCheck,
     Store,
     Shuffle,
+    SlidersHorizontal,
     TrendingUp,
     TriangleAlert,
     UserRoundCheck,
     UsersRound,
+    Wallet,
     Wifi,
     X,
+    Zap,
 } from 'lucide';
 
 // Ícones Lucide: só os importados entram no bundle. Uso no Blade: <i data-lucide="menu"></i>
 // (regra do design system: nada de emojis; logos de marcas ficam em <x-icone-marca>).
 createIcons({
-    icons: { ArrowLeftRight, ArrowRight, ArrowUpRight, Award, BadgePercent, Building2, CalendarClock, ChartNoAxesCombined, Check, ChevronRight, Copy, CircleCheck, ClipboardList, CreditCard, ExternalLink, FileText, Globe, HandCoins, Handshake, House, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, MessageSquareText, Rocket, ShieldCheck, Shuffle, Store, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wifi, X },
+    icons: { ArrowLeftRight, ArrowRight, ArrowUpRight, Award, BadgePercent, Building2, CalendarClock, CalendarRange, ChartNoAxesCombined, Check, ChevronLeft, ChevronRight, Copy, CircleCheck, ClipboardList, CreditCard, Droplet, ExternalLink, FileCheck, FileText, Globe, HandCoins, Handshake, House, Infinity: Infinito, KeyRound, Landmark, Layers, LoaderCircle, Lock, Mail, MapPin, Menu, MessageCircle, MessageCircleQuestion, MessageSquareText, Percent, PiggyBank, Rocket, SearchCheck, ShieldCheck, Shuffle, SlidersHorizontal, Store, TrendingUp, TriangleAlert, UserRoundCheck, UsersRound, Wallet, Wifi, X, Zap },
 });
 
 // Cabeçalho do site (T-10): menu móvel em tela cheia e item do menu da seção visível.
@@ -92,6 +104,7 @@ Alpine.data('menuSite', () => ({
     },
 }));
 
+Alpine.data('carrosselServicos', carrosselServicos);
 Alpine.data('formularioLead', formularioLead);
 Alpine.data('preferenciasCookies', preferenciasCookies);
 

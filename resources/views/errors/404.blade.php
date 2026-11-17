@@ -8,26 +8,26 @@
 
             <ul class="mt-10 grid gap-4 text-left sm:grid-cols-2">
                 <li>
-                    <a href="{{ route('inicio') }}" class="flex items-center gap-4 rounded-xl bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
+                    <a href="{{ route('inicio') }}" class="flex items-center gap-4 rounded bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
                         <i data-lucide="house" class="size-6 shrink-0 text-preto" aria-hidden="true"></i>
                         <span><span class="block font-bold text-preto">Página inicial</span><span class="text-sm text-texto-suave">Conheça a B2BSAFE e os serviços</span></span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ Route::has('maquininha') ? route('maquininha') : route('inicio').'#maquininha' }}" class="flex items-center gap-4 rounded-xl bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
+                    <a href="{{ Route::has('maquininha') ? route('maquininha') : route('inicio').'#maquininha' }}" class="flex items-center gap-4 rounded bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
                         <i data-lucide="credit-card" class="size-6 shrink-0 text-preto" aria-hidden="true"></i>
                         <span><span class="block font-bold text-preto">Maquininha C6 Pay</span><span class="text-sm text-texto-suave">Vantagens e taxas</span></span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('inicio') }}#contato" class="flex items-center gap-4 rounded-xl bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
+                    <a href="{{ route('inicio') }}#contato" class="flex items-center gap-4 rounded bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
                         <i data-lucide="mail" class="size-6 shrink-0 text-preto" aria-hidden="true"></i>
                         <span><span class="block font-bold text-preto">Fale conosco</span><span class="text-sm text-texto-suave">Deixe seus dados no formulário</span></span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ \App\Support\WhatsApp::link() }}" target="_blank" rel="noopener noreferrer" data-whatsapp="404"
-                       class="flex items-center gap-4 rounded-xl bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
+                       class="flex items-center gap-4 rounded bg-fundo p-5 shadow-sm transition-shadow hover:shadow-md">
                         <x-icone-marca nome="whatsapp" class="size-6 text-whatsapp" />
                         <span><span class="block font-bold text-preto">WhatsApp</span><span class="text-sm text-texto-suave">Fale direto com um atendente</span></span>
                         <span class="sr-only">(abre o WhatsApp em nova aba)</span>

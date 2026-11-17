@@ -60,8 +60,8 @@
             <p class="mt-3 max-w-2xl text-lg text-texto-suave">Tudo o que o seu negócio precisa para vender mais, pagando menos.</p>
             <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($vantagens as $indice => $vantagem)
-                    <li class="rounded-xl border border-borda p-6" data-revelar style="--atraso-marca: {{ 0.35 + ($indice % 3) * 0.15 }}s">
-                        <span class="flex size-12 items-center justify-center rounded-lg bg-gelo text-preto">
+                    <li class="rounded border border-borda p-6" data-revelar style="--atraso-marca: {{ 0.35 + ($indice % 3) * 0.15 }}s">
+                        <span class="flex size-12 items-center justify-center rounded bg-gelo text-preto">
                             <i data-lucide="{{ $vantagem['icone'] }}" class="size-6" aria-hidden="true"></i>
                         </span>
                         <h3 class="mt-5 text-lg font-bold text-preto">{{ $vantagem['titulo'] }}</h3>
@@ -88,7 +88,7 @@
                 </a>
             </div>
             <div>
-                <div class="overflow-x-auto rounded-xl bg-fundo shadow-sm">
+                <div class="overflow-x-auto rounded bg-fundo shadow-sm">
                     <table class="w-full text-left">
                         <caption class="sr-only">Taxas de referência da C6 Pay por modalidade</caption>
                         <thead class="bg-preto text-white">
@@ -125,18 +125,18 @@
                     <li class="flex gap-3"><i data-lucide="check" class="mt-1 size-5 shrink-0 text-preto" aria-hidden="true"></i> A C6 Pay é uma plataforma de soluções para clientes pessoa jurídica.</li>
                 </ul>
             </div>
-            <div class="rounded-2xl bg-gelo p-8">
+            <div class="rounded bg-gelo p-8">
                 <h2 class="text-2xl font-extrabold text-preto">Aceita as principais bandeiras</h2>
                 <p class="mt-2 text-texto-suave">Com multiadquirência, a máquina escolhe a melhor taxa para cada venda.</p>
                 {{-- Logos oficiais das bandeiras (public/img/bandeiras, origem em docs/marca/fotos-licencas.md) --}}
                 <ul class="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6" aria-label="Bandeiras aceitas">
                     @foreach ($config['bandeiras'] as $bandeira)
-                        <li class="flex h-16 items-center justify-center rounded-xl bg-fundo p-3 shadow-sm">
+                        <li class="flex h-16 items-center justify-center rounded bg-fundo p-3 shadow-sm">
                             <img src="{{ asset('img/bandeiras/'.\Illuminate\Support\Str::slug($bandeira).'.svg') }}" alt="{{ $bandeira }}" loading="lazy"
                                  class="max-h-9 w-auto max-w-full object-contain">
                         </li>
                     @endforeach
-                    <li class="flex h-16 items-center justify-center rounded-xl bg-fundo p-2 text-sm whitespace-nowrap text-texto-suave shadow-sm">e outras</li>
+                    <li class="flex h-16 items-center justify-center rounded bg-fundo p-2 text-sm whitespace-nowrap text-texto-suave shadow-sm">e outras</li>
                 </ul>
             </div>
         </div>

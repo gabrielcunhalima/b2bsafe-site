@@ -13,6 +13,14 @@
 | `bandeiras/elo.svg` | https://commons.wikimedia.org/wiki/File:Elo_card_association_logo_-_black_text.svg | Domínio público; marca registrada da Elo |
 | `bandeiras/hipercard.svg` | https://commons.wikimedia.org/wiki/File:Hipercard_logo.svg | Domínio público; marca registrada da Hipercard |
 | `bandeiras/american-express.svg` | https://commons.wikimedia.org/wiki/File:American_Express_logo_(2018).svg | Domínio público; marca registrada da American Express |
+| `servicos/credito.webp` | https://unsplash.com/photos/OZnnv0FCA6Y | Unsplash License |
+| `servicos/conta-corrente.webp` | https://unsplash.com/photos/XSuXjvMT9YA | Unsplash License |
+| `servicos/cambio.webp` | https://unsplash.com/photos/8Nppe0yLmn8 | Unsplash License |
+| `servicos/investimentos.webp` | https://unsplash.com/photos/fvj0rS3n5yk | Unsplash License |
+| `servicos/cartao.webp` | https://unsplash.com/photos/1JnN9QhmTGU | Unsplash License |
+| `servicos/consorcio-imovel.webp` | https://unsplash.com/photos/t0CRdNl_mTg | Unsplash License |
+| `servicos/consorcio-chave.webp` | https://unsplash.com/photos/iDSsOlqFa8w | Unsplash License |
+| `servicos/seguros.webp` | https://unsplash.com/photos/MRWHSKimBJk | Unsplash License |
 | `og-b2bsafe.jpg` | Gerada para o projeto com o logo e a fonte Urbanist | Do projeto |
 
 As fotos do Unsplash foram baixadas pelo link oficial de download (fotos Unsplash+, pagas, não baixam assim) e não mostram marcas de terceiros. A Unsplash License não permite vender a foto sem alteração nem montar um serviço concorrente de fotos; uso em site comercial é permitido.

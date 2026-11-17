@@ -8,6 +8,8 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- Topo da Home vira um carrossel dos 8 serviços (cada slide com título, foto e composição próprios) que ocupa a primeira tela, com a barra de nomes dos serviços; passa sozinho a cada 7 s até a pessoa interagir e então fica travado. A hero antiga fica guardada (HOME_HERO_ANTIGA) e a seção Maquininha sai da Home (o menu leva a /maquininha).
+- Cantos padrão do site: botões, chips, cards, campos e fotos usam o mesmo canto do "Fale conosco" do cabeçalho (4 px); só formas redondas de verdade continuam redondas.
 - Preferências de cookies: descrição dos estatísticos passa a ser "Estatísticas para melhorar nosso atendimento".
 - Política de Privacidade e Termos de Uso com o texto original de b2bsafe.com.br/policy, sem alterações; /privacidade redireciona para /policy.
 - Maquininha: logos oficiais das bandeiras aceitas e marca-texto animado nas palavras-chave dos cards de vantagens.

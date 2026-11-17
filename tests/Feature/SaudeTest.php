@@ -12,7 +12,7 @@ it('responde ok quando aplicação, banco e fila estão saudáveis', function ()
 it('mostra a página inicial fora dos buscadores fora da produção', function () {
     $this->get(route('inicio'))
         ->assertOk()
-        ->assertSeeText('Sua empresa em boas mãos.')
+        ->assertSee('aria-label="Serviços da B2BSAFE"', escape: false)
         ->assertSee('noindex', escape: false);
 });
 
