@@ -54,7 +54,7 @@
                 <li class="flex items-start justify-between gap-4 pt-5">
                     <div>
                         <label for="cookies-estatisticos" class="font-bold text-preto">Estatísticos</label>
-                        <p id="cookies-estatisticos-descricao" class="mt-1 text-sm text-texto-suave">Google Analytics 4: páginas visitadas e origem da visita, sem identificar você.</p>
+                        <p id="cookies-estatisticos-descricao" class="mt-1 text-sm text-texto-suave">Estatísticas para melhorar nosso atendimento.</p>
                     </div>
                     <input id="cookies-estatisticos" type="checkbox" role="switch" x-model="estatisticos"
                            aria-describedby="cookies-estatisticos-descricao" class="mt-1 size-6 shrink-0 accent-preto">
