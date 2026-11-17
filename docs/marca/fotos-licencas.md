@@ -17,9 +17,10 @@
 | `servicos/conta-corrente.webp` | https://unsplash.com/photos/XSuXjvMT9YA | Unsplash License |
 | `servicos/cambio.webp` | https://unsplash.com/photos/8Nppe0yLmn8 | Unsplash License |
 | `servicos/investimentos.webp` | https://unsplash.com/photos/fvj0rS3n5yk | Unsplash License |
-| `servicos/cartao.webp` | https://unsplash.com/photos/1JnN9QhmTGU | Unsplash License |
+| `servicos/cartao.webp` | Imagem do cartão C6 Business enviada pelo cliente (2026-11-17), convertida para WebP | Material de divulgação do C6 Bank, usado pelo escritório parceiro |
 | `servicos/consorcio-imovel.webp` | https://unsplash.com/photos/t0CRdNl_mTg | Unsplash License |
-| `servicos/consorcio-chave.webp` | https://unsplash.com/photos/iDSsOlqFa8w | Unsplash License |
+| `servicos/consorcio-conversa.webp` | https://unsplash.com/photos/M5k978V3qBc | Unsplash License |
+| `servicos/consorcio-casa.webp` | https://unsplash.com/photos/eWOgoFHlE8g | Unsplash License |
 | `servicos/seguros.webp` | https://unsplash.com/photos/MRWHSKimBJk | Unsplash License |
 | `og-b2bsafe.jpg` | Gerada para o projeto com o logo e a fonte Urbanist | Do projeto |
 
