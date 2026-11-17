@@ -8,6 +8,8 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ### Alterado
 
+- Política de Privacidade e Termos de Uso com o texto original de b2bsafe.com.br/policy, sem alterações; /privacidade redireciona para /policy.
+- Maquininha: logos oficiais das bandeiras aceitas e marca-texto animado nas palavras-chave dos cards de vantagens.
 - No celular, a hero mostra a foto logo depois do título e o Fale conosco mostra os canais oficiais do C6 depois do formulário.
 - Cursor de mãozinha em todos os elementos clicáveis (botões, preferências de cookies, seletores e caixas de marcar).
 - Maquininha com fundo preto em largura total e círculo amarelo sólido; serviços em cards amarelos numa linha só; "Como trabalhamos" em trilha de 3 passos.

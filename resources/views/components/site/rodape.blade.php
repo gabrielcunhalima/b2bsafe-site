@@ -56,12 +56,12 @@
         <div class="h-px bg-white/15" aria-hidden="true"></div>
 
         <nav aria-label="Links legais" class="mt-6 flex flex-wrap gap-x-6 gap-y-1">
-            {{-- Os links legais aparecem quando as páginas existirem: /privacidade (#4) e /policy (#5). --}}
+            {{-- Política de Privacidade e Termos de Uso: texto original de b2bsafe.com.br/policy --}}
             @if (Route::has('privacidade'))
-                <a href="{{ route('privacidade') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Política de Privacidade</a>
+                <a href="{{ route('policy') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Política de Privacidade</a>
             @endif
             @if (Route::has('policy'))
-                <a href="{{ route('policy') }}" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Termos do B2BSafe Connect</a>
+                <a href="{{ route('policy') }}#termos-de-uso" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">Termos de Uso</a>
             @endif
             {{-- O banner de cookies (RF-009, #12) escuta este evento para reabrir as preferências. --}}
             <button id="rodape-preferencias-cookies" type="button" x-data @click="$dispatch('abrir-preferencias-cookies')" class="inline-flex min-h-6 items-center gap-1 rounded py-1 underline hover:text-white">

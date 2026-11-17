@@ -21,7 +21,6 @@ class SeoController extends Controller
     public function sitemap(): Response
     {
         $atualizadoEm = [
-            'privacidade' => config('b2bsafe.documentos.privacidade_atualizada_em'),
             'policy' => config('b2bsafe.documentos.policy_atualizada_em'),
         ];
 

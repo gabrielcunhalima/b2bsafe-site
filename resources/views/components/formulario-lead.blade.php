@@ -142,7 +142,7 @@
                 <label for="lead-aceite" class="text-sm text-texto-suave">
                     Li e aceito a
                     @if (Route::has('privacidade'))
-                        <a href="{{ route('privacidade') }}" target="_blank" class="rounded font-semibold text-preto underline">Política de Privacidade</a>
+                        <a href="{{ route('policy') }}" target="_blank" class="rounded font-semibold text-preto underline">Política de Privacidade</a>
                     @else
                         Política de Privacidade
                     @endif

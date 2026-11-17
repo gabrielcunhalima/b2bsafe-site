@@ -7,13 +7,15 @@
     $linkMaquininha = WhatsApp::linkDoServico('maquininha');
     $referencia = \Illuminate\Support\Carbon::parse($config['taxas_referencia_em'])->format('d/m/Y');
     $vantagens = [
-        ['icone' => 'badge-percent', 'titulo' => 'Adesão zero', 'texto' => 'Adesão e mensalidade zero para quem vende a partir de R$ 5 mil por mês e recebe pelo C6 Bank.'],
-        ['icone' => 'wifi', 'titulo' => 'Wi-Fi ou chip', 'texto' => 'Chip e plano de dados grátis. A máquina funciona também no Wi-Fi.'],
-        ['icone' => 'calendar-clock', 'titulo' => 'Parcele em até 12x', 'texto' => 'Venda parcelado e receba os pagamentos em até 2 dias úteis.'],
-        ['icone' => 'shuffle', 'titulo' => 'Multiadquirência', 'texto' => 'A máquina escolhe a bandeira com a melhor taxa para cada venda.'],
-        ['icone' => 'chart-no-axes-combined', 'titulo' => 'Portal C6 Pay', 'texto' => 'Acompanhe os recebimentos em tempo real pelo portal.'],
-        ['icone' => 'credit-card', 'titulo' => 'Principais bandeiras', 'texto' => 'Aceita as principais bandeiras do mercado no débito e no crédito.'],
+        ['icone' => 'badge-percent', 'titulo' => 'Adesão zero', 'texto' => '**Adesão e mensalidade zero** para quem vende a partir de R$ 5 mil por mês e recebe pelo C6 Bank.'],
+        ['icone' => 'wifi', 'titulo' => 'Wi-Fi ou chip', 'texto' => '**Chip e plano de dados grátis**. A máquina funciona também no Wi-Fi.'],
+        ['icone' => 'calendar-clock', 'titulo' => 'Parcele em até 12x', 'texto' => 'Venda parcelado e receba os pagamentos **em até 2 dias úteis**.'],
+        ['icone' => 'shuffle', 'titulo' => 'Multiadquirência', 'texto' => 'A máquina escolhe a bandeira com a **melhor taxa** para cada venda.'],
+        ['icone' => 'chart-no-axes-combined', 'titulo' => 'Portal C6 Pay', 'texto' => 'Acompanhe os recebimentos **em tempo real** pelo portal.'],
+        ['icone' => 'credit-card', 'titulo' => 'Principais bandeiras', 'texto' => 'Aceita as **principais bandeiras** do mercado no débito e no crédito.'],
     ];
+    // Marca-texto animado nas palavras-chave (resources/css/app.css, .marca-texto)
+    $destacar = fn (string $texto) => preg_replace('/\*\*(.+?)\*\*/u', '<mark class="marca-texto">$1</mark>', e($texto));
 @endphp
 
 <x-layouts.site titulo="Maquininha C6 Pay" whatsapp="maquininha"
@@ -57,13 +59,13 @@
             <h2 id="vantagens" class="text-3xl font-extrabold text-preto md:text-4xl">Vantagens da C6 Pay</h2>
             <p class="mt-3 max-w-2xl text-lg text-texto-suave">Tudo o que o seu negócio precisa para vender mais, pagando menos.</p>
             <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($vantagens as $vantagem)
-                    <li class="rounded-xl border border-borda p-6">
+                @foreach ($vantagens as $indice => $vantagem)
+                    <li class="rounded-xl border border-borda p-6" data-revelar style="--atraso-marca: {{ 0.35 + ($indice % 3) * 0.15 }}s">
                         <span class="flex size-12 items-center justify-center rounded-lg bg-gelo text-preto">
                             <i data-lucide="{{ $vantagem['icone'] }}" class="size-6" aria-hidden="true"></i>
                         </span>
                         <h3 class="mt-5 text-lg font-bold text-preto">{{ $vantagem['titulo'] }}</h3>
-                        <p class="mt-2 text-texto-suave">{{ $vantagem['texto'] }}</p>
+                        <p class="mt-2 text-texto-suave">{!! $destacar($vantagem['texto']) !!}</p>
                     </li>
                 @endforeach
             </ul>
@@ -126,11 +128,15 @@
             <div class="rounded-2xl bg-gelo p-8">
                 <h2 class="text-2xl font-extrabold text-preto">Aceita as principais bandeiras</h2>
                 <p class="mt-2 text-texto-suave">Com multiadquirência, a máquina escolhe a melhor taxa para cada venda.</p>
-                <ul class="mt-6 flex flex-wrap gap-3" aria-label="Bandeiras aceitas">
+                {{-- Logos oficiais das bandeiras (public/img/bandeiras, origem em docs/marca/fotos-licencas.md) --}}
+                <ul class="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6" aria-label="Bandeiras aceitas">
                     @foreach ($config['bandeiras'] as $bandeira)
-                        <li class="rounded-full bg-fundo px-4 py-2 font-semibold text-preto shadow-sm">{{ $bandeira }}</li>
+                        <li class="flex h-16 items-center justify-center rounded-xl bg-fundo p-3 shadow-sm">
+                            <img src="{{ asset('img/bandeiras/'.\Illuminate\Support\Str::slug($bandeira).'.svg') }}" alt="{{ $bandeira }}" loading="lazy"
+                                 class="max-h-9 w-auto max-w-full object-contain">
+                        </li>
                     @endforeach
-                    <li class="rounded-full bg-fundo px-4 py-2 text-texto-suave shadow-sm">e outras</li>
+                    <li class="flex h-16 items-center justify-center rounded-xl bg-fundo p-2 text-sm whitespace-nowrap text-texto-suave shadow-sm">e outras</li>
                 </ul>
             </div>
         </div>

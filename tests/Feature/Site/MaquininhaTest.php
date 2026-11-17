@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 // US-003 (#3): página Maquininha C6 Pay (RF-002, RN-021, wireframe T-02).
 
 it('abre a página com título, descrição e o layout do site', function () {
@@ -47,4 +49,21 @@ it('marca o item Maquininha do menu como página atual e leva os outros itens à
     $this->get(route('maquininha'))
         ->assertSee('href="'.route('maquininha').'" aria-current="page"', escape: false)
         ->assertSee('href="'.route('inicio').'#servicos"', escape: false);
+});
+
+it('mostra os logos oficiais das bandeiras aceitas, com o nome no texto alternativo', function () {
+    $resposta = $this->get(route('maquininha'));
+
+    foreach (config('b2bsafe.maquininha.bandeiras') as $bandeira) {
+        $arquivo = 'img/bandeiras/'.Str::slug($bandeira).'.svg';
+        $resposta->assertSee('src="'.asset($arquivo).'" alt="'.$bandeira.'"', escape: false);
+        expect(public_path($arquivo))->toBeFile();
+    }
+});
+
+it('marca com o marca-texto as palavras-chave dos cards de vantagens', function () {
+    $html = $this->get(route('maquininha'))->getContent();
+
+    expect(substr_count($html, '<mark class="marca-texto">'))->toBe(6)
+        ->and($html)->toContain('<mark class="marca-texto">Adesão e mensalidade zero</mark>');
 });

@@ -5,7 +5,7 @@
 --}}
 @php
     $escolha = \App\Support\PreferenciasCookies::doRequest(request());
-    $saibaMais = Route::has('privacidade') ? route('privacidade').'#cookies' : null;
+    $saibaMais = Route::has('policy') ? route('policy').'#cookies' : null;
     $botao = 'inline-flex items-center justify-center rounded px-5 py-2.5 font-semibold whitespace-nowrap transition-colors';
 @endphp
 
