@@ -81,7 +81,7 @@ services:
 
   cloudflared:
     profiles: ["tunel"]
-    image: cloudflare/cloudflared:2026.10.7
+    image: cloudflare/cloudflared:2026.11.0
     restart: unless-stopped
     command: tunnel --no-autoupdate --url http://n8n:5678
     depends_on:
