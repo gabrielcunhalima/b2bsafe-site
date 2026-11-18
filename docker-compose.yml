@@ -35,7 +35,7 @@ services:
       - "127.0.0.1:${PORTA_MAILPIT_SMTP:-1026}:1025"
 
   n8n:
-    image: n8nio/n8n:2.46.6
+    image: n8nio/n8n:2.47.7
     restart: unless-stopped
     environment:
       GENERIC_TIMEZONE: America/Sao_Paulo
